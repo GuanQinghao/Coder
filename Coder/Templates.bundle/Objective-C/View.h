@@ -5,7 +5,7 @@
 //  Copyright © <year> GuanQinghao. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "GQHBaseView.h"
 
 
 @protocol <prefix><name>ViewDelegate <NSObject>
