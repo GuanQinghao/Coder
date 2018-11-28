@@ -57,7 +57,7 @@
     if (!_qh_tableView) {
         
         _qh_tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _qh_tableView.backgroundColor = UIColor.qh_appleGrayColor;
+        _qh_tableView.backgroundColor = UIColor.whiteColor;
         _qh_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _qh_tableView.showsVerticalScrollIndicator = NO;
         

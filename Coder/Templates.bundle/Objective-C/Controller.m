@@ -23,7 +23,7 @@
 #pragma mark ----------Header End----------
 
 
-@interface <prefix><name>Controller () <UITableViewDelegate, UITableViewDataSource>
+@interface <prefix><name>Controller () <UITableViewDelegate, UITableViewDataSource, <prefix><name>ViewDelegate>
 
 /// 自定义根视图
 @property (nonatomic, strong) <prefix><name>View *rootView;
@@ -126,6 +126,7 @@
         _rootView = [[<prefix><name>View alloc] initWithFrame:UIScreen.mainScreen.bounds];
         _rootView.qh_tableView.delegate = self;
         _rootView.qh_tableView.dataSource = self;
+        _rootView.qh_delegate = self;
     }
     
     return _rootView;

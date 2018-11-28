@@ -19,6 +19,9 @@
 
 @interface <prefix><name>View : GQHBaseView
 
+/// 代理
+@property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
+
 /// 列表视图
 @property (nonatomic, strong) UITableView *qh_tableView;
 
@@ -26,5 +29,8 @@
 
 
 @interface <prefix><name>ViewCell : UITableViewCell
+
+/// 代理
+@property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
 
 @end
