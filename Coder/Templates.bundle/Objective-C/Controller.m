@@ -67,7 +67,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -99,7 +99,10 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    return [UIView new];
+    UIView *header = [[UIView alloc] init];
+    header.backgroundColor = UIColor.clearColor;
+    
+    return header;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -109,7 +112,10 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     
-    return [UIView new];
+    UIView *footer = [[UIView alloc] init];
+    footer.backgroundColor = UIColor.clearColor;
+    
+    return footer;
 }
 
 #pragma mark --TargetMethod
