@@ -15,13 +15,14 @@
 
 
 @implementation <prefix><name>View
-
 - (instancetype)initWithFrame:(CGRect)frame {
+    
     if (self = [super initWithFrame:frame]) {
         
         [self loadLocalData];
         [self loadUserInterface];
     }
+    
     return self;
 }
 
@@ -79,13 +80,14 @@
 
 
 @implementation <prefix><name>ViewCell
-
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         [self loadLocalData];
         [self loadUserInterface];
     }
+    
     return self;
 }
 

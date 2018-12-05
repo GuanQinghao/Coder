@@ -35,9 +35,9 @@
 
 #pragma mark --Lifecycle
 - (void)loadView {
-    // 添加自定义视图
     DLog();
     
+    // 添加自定义视图
     self.view = self.rootView;
 }
 
