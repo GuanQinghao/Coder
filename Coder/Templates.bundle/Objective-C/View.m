@@ -15,6 +15,7 @@
 
 
 @implementation <prefix><name>View
+
 - (instancetype)initWithFrame:(CGRect)frame {
     
     if (self = [super initWithFrame:frame]) {
@@ -29,7 +30,6 @@
 #pragma mark --Data
 - (void)loadLocalData {
     DLog();
-    
 }
 
 #pragma mark --View
@@ -80,6 +80,7 @@
 
 
 @implementation <prefix><name>ViewCell
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -94,13 +95,11 @@
 #pragma mark --Data
 - (void)loadLocalData {
     DLog();
-    
 }
 
 #pragma mark --View
 - (void)loadUserInterface {
     DLog();
-    
 }
 
 #pragma mark --Delegate

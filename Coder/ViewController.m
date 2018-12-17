@@ -119,6 +119,62 @@
 
 - (IBAction)createModelFiles:(id)sender {
     
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.alertStyle = NSAlertStyleWarning;
+    alert.messageText = @"Warning!";
+    alert.icon = [NSImage imageNamed:@"warning"];
+    
+    // 获取所有类名
+    NSString *input = [self.textView.textStorage string];
+    if (!input || [input isKindOfClass:[NSNull class]] || input.length <= 0) {
+        
+        alert.informativeText = @"Input your class name(s).";
+        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+        
+        return;
+    }
+    // 文件保存路径
+    NSString *savePath = self.pathTextField.stringValue;
+    if (!savePath || [savePath isKindOfClass:[NSNull class]] || savePath.length <= 0) {
+        
+        alert.informativeText = @"Input the path for files.";
+        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+        
+        return;
+    }
+    
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"Templates.bundle" ofType:nil]];
+    NSArray *classNames = [self fetchClassNamesWithString:input bySeparator:self.separators];
+    NSString *prefix = self.prefixTextField.stringValue;
+    
+    for (NSString *name in classNames) {
+        
+        // 准备替换字符串字典
+        [self.substitute setValue:prefix forKey:@"c"];
+        [self.substitute setValue:name forKey:@"d"];
+        
+        // 生成Model.h文件
+        NSString *hModelPath = [bundle pathForResource:@"Objective-C/Model.h" ofType:nil];
+        // 读取模版文件内容
+        NSMutableString *hModelString = [self readTemplateContentsWithPath:hModelPath];
+        // 替换指定字符串
+        hModelString = [self replaceString:hModelString Marker:self.marker withSubstitute:self.substitute];
+        // 创建文件
+        NSData *hModelData = [hModelString dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *hModelFileName = [NSString stringWithFormat:@"%@%@Model.h",prefix,name];
+        [self createFileAtPath:savePath withName:hModelFileName contents:hModelData];
+        
+        // 生成Model.m文件
+        NSString *mModelPath = [bundle pathForResource:@"Objective-C/Model.m" ofType:nil];
+        // 读取模版文件内容
+        NSMutableString *mModelString = [self readTemplateContentsWithPath:mModelPath];
+        // 替换指定字符串
+        mModelString = [self replaceString:mModelString Marker:self.marker withSubstitute:self.substitute];
+        // 创建文件
+        NSData *mModelData = [mModelString dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *mModelFileName = [NSString stringWithFormat:@"%@%@Model.m",prefix,name];
+        [self createFileAtPath:savePath withName:mModelFileName contents:mModelData];
+    }
 }
 
 #pragma mark --Delegate
