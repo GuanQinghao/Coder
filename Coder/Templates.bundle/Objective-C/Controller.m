@@ -92,11 +92,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
-    return CGFLOAT_MIN;
-}
-
+/// 列表头部视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     UIView *header = [[UIView alloc] init];
@@ -105,11 +101,13 @@
     return header;
 }
 
+/// 列表根部高度
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
     return CGFLOAT_MIN;
 }
 
+/// 列表根部视图
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     
     UIView *footer = [[UIView alloc] init];
@@ -130,6 +128,7 @@
     if (!_rootView) {
         
         _rootView = [[<prefix><name>View alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        _rootView.backgroundCol
         _rootView.qh_tableView.delegate = self;
         _rootView.qh_tableView.dataSource = self;
         _rootView.qh_delegate = self;
