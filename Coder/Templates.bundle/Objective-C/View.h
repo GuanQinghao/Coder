@@ -8,6 +8,7 @@
 #import "GQHBaseView.h"
 
 
+/// 视图自定义代理
 @protocol <prefix><name>ViewDelegate <NSObject>
 
 @required
@@ -19,7 +20,7 @@
 
 @interface <prefix><name>View : GQHBaseView
 
-/// 代理
+/// 视图代理
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
 
 /// 列表视图
@@ -30,7 +31,7 @@
 
 @interface <prefix><name>ViewCell : UITableViewCell
 
-/// 代理
+/// 视图代理
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
 
 @end
