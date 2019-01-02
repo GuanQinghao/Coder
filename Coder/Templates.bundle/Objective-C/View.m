@@ -93,7 +93,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         [self loadLocalData];
-        [self loadUserInterface];
+        [self layoutUserInterface];
     }
     
     return self;
@@ -108,7 +108,7 @@
 
 #pragma mark --View
 /// 布局自定义用户视图
-- (void)LayoutUserInterface {
+- (void)layoutUserInterface {
     DLog();
     
 }
