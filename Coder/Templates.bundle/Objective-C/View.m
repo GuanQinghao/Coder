@@ -23,7 +23,7 @@
     if (self = [super initWithFrame:frame]) {
         
         [self loadLocalData];
-        [self LayoutUserInterface];
+        [self layoutUserInterface];
     }
     
     return self;
@@ -38,7 +38,7 @@
 
 #pragma mark --View
 /// 布局自定义用户视图
-- (void)LayoutUserInterface {
+- (void)layoutUserInterface {
     DLog();
     
     [self addSubview:self.qh_tableView];
