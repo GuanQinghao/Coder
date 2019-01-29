@@ -18,6 +18,8 @@
 @end
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface <prefix><name>View : GQHBaseView
 
 /// 视图代理
@@ -28,6 +30,10 @@
 
 @end
 
+NS_ASSUME_NONNULL_END
+
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface <prefix><name>ViewCell : UITableViewCell
 
@@ -35,3 +41,5 @@
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
 
 @end
+
+NS_ASSUME_NONNULL_END
