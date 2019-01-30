@@ -25,6 +25,11 @@
 /// 替换字符(新值)
 @property (nonatomic, strong) NSMutableDictionary *substitute;
 
+/// 获取所有类名
+@property (nonatomic, copy) NSString *classesName;
+/// 文件保存路径
+@property (nonatomic, copy) NSString *savePath;
+
 @end
 
 
@@ -37,32 +42,14 @@
 
 - (IBAction)createControllerFiles:(id)sender {
     
-    NSAlert *alert = [[NSAlert alloc] init];
-    alert.alertStyle = NSAlertStyleWarning;
-    alert.messageText = @"Warning!";
-    alert.icon = [NSImage imageNamed:@"warning"];
-    
-    // 获取所有类名
-    NSString *input = [self.textView.textStorage string];
-    if (!input || [input isKindOfClass:[NSNull class]] || input.length <= 0) {
-        
-        alert.informativeText = @"Input your class name(s).";
-        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
-        
-        return;
-    }
-    // 文件保存路径
-    NSString *savePath = self.pathTextField.stringValue;
-    if (!savePath || [savePath isKindOfClass:[NSNull class]] || savePath.length <= 0) {
-        
-        alert.informativeText = @"Input the path for files.";
-        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+    // 前置错误处理
+    if (![self isReadyToCode]) {
         
         return;
     }
     
     NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"Templates.bundle" ofType:nil]];
-    NSArray *classNames = [self fetchClassNamesWithString:input bySeparator:self.separators];
+    NSArray *classNames = [self fetchClassNamesWithString:self.classesName bySeparator:self.separators];
     NSString *prefix = self.prefixTextField.stringValue;
     
     for (NSString *name in classNames) {
@@ -80,7 +67,7 @@
         // 创建文件
         NSData *hControllerData = [hControllerString dataUsingEncoding:NSUTF8StringEncoding];
         NSString *hControllerFileName = [NSString stringWithFormat:@"%@%@Controller.h",prefix,name];
-        [self createFileAtPath:savePath withName:hControllerFileName contents:hControllerData];
+        [self createFileAtPath:self.savePath withName:hControllerFileName contents:hControllerData];
         
         // 生成Controller.m文件
         NSString *mControllerPath = [bundle pathForResource:@"Objective-C/Controller.m" ofType:nil];
@@ -91,7 +78,7 @@
         // 创建文件
         NSData *mControllerData = [mControllerString dataUsingEncoding:NSUTF8StringEncoding];
         NSString *mControllerFileName = [NSString stringWithFormat:@"%@%@Controller.m",prefix,name];
-        [self createFileAtPath:savePath withName:mControllerFileName contents:mControllerData];
+        [self createFileAtPath:self.savePath withName:mControllerFileName contents:mControllerData];
         
         // 生成view.h文件
         NSString *hViewPath = [bundle pathForResource:@"Objective-C/View.h" ofType:nil];
@@ -102,7 +89,7 @@
         // 创建文件
         NSData *hViewData = [hViewString dataUsingEncoding:NSUTF8StringEncoding];
         NSString *hViewDataFileName = [NSString stringWithFormat:@"%@%@View.h",prefix,name];
-        [self createFileAtPath:savePath withName:hViewDataFileName contents:hViewData];
+        [self createFileAtPath:self.savePath withName:hViewDataFileName contents:hViewData];
         
         // 生成view.h文件
         NSString *mViewPath = [bundle pathForResource:@"Objective-C/View.m" ofType:nil];
@@ -113,38 +100,20 @@
         // 创建文件
         NSData *mViewData = [mViewString dataUsingEncoding:NSUTF8StringEncoding];
         NSString *mViewDataFileName = [NSString stringWithFormat:@"%@%@View.m",prefix,name];
-        [self createFileAtPath:savePath withName:mViewDataFileName contents:mViewData];
+        [self createFileAtPath:self.savePath withName:mViewDataFileName contents:mViewData];
     }
 }
 
 - (IBAction)createModelFiles:(id)sender {
     
-    NSAlert *alert = [[NSAlert alloc] init];
-    alert.alertStyle = NSAlertStyleWarning;
-    alert.messageText = @"Warning!";
-    alert.icon = [NSImage imageNamed:@"warning"];
-    
-    // 获取所有类名
-    NSString *input = [self.textView.textStorage string];
-    if (!input || [input isKindOfClass:[NSNull class]] || input.length <= 0) {
-        
-        alert.informativeText = @"Input your class name(s).";
-        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
-        
-        return;
-    }
-    // 文件保存路径
-    NSString *savePath = self.pathTextField.stringValue;
-    if (!savePath || [savePath isKindOfClass:[NSNull class]] || savePath.length <= 0) {
-        
-        alert.informativeText = @"Input the path for files.";
-        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+    // 前置错误处理
+    if (![self isReadyToCode]) {
         
         return;
     }
     
     NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"Templates.bundle" ofType:nil]];
-    NSArray *classNames = [self fetchClassNamesWithString:input bySeparator:self.separators];
+    NSArray *classNames = [self fetchClassNamesWithString:self.classesName bySeparator:self.separators];
     NSString *prefix = self.prefixTextField.stringValue;
     
     for (NSString *name in classNames) {
@@ -162,7 +131,7 @@
         // 创建文件
         NSData *hModelData = [hModelString dataUsingEncoding:NSUTF8StringEncoding];
         NSString *hModelFileName = [NSString stringWithFormat:@"%@%@Model.h",prefix,name];
-        [self createFileAtPath:savePath withName:hModelFileName contents:hModelData];
+        [self createFileAtPath:self.savePath withName:hModelFileName contents:hModelData];
         
         // 生成Model.m文件
         NSString *mModelPath = [bundle pathForResource:@"Objective-C/Model.m" ofType:nil];
@@ -173,7 +142,14 @@
         // 创建文件
         NSData *mModelData = [mModelString dataUsingEncoding:NSUTF8StringEncoding];
         NSString *mModelFileName = [NSString stringWithFormat:@"%@%@Model.m",prefix,name];
-        [self createFileAtPath:savePath withName:mModelFileName contents:mModelData];
+        
+        if ([self createFileAtPath:self.savePath withName:mModelFileName contents:mModelData]) {
+            
+            continue;
+        } else {
+            
+            NSLog(@"未知错误!");
+        }
     }
 }
 
@@ -258,6 +234,37 @@
         NSLog(@"%@",error);
     }
     return stringM;
+}
+
+/// 前置错误处理
+- (BOOL)isReadyToCode {
+    
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.alertStyle = NSAlertStyleWarning;
+    alert.messageText = @"Warning!";
+    alert.icon = [NSImage imageNamed:@"warning"];
+    
+    // 获取所有类名
+    self.classesName = [self.textView.textStorage string];
+    if (!self.classesName || [self.classesName isKindOfClass:[NSNull class]] || self.classesName.length <= 0) {
+        
+        alert.informativeText = @"Input your class name(s).";
+        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+        
+        return NO;
+    }
+    
+    // 文件保存路径
+    self.savePath = self.pathTextField.stringValue;
+    if (!self.savePath || [self.savePath isKindOfClass:[NSNull class]] || self.savePath.length <= 0) {
+        
+        alert.informativeText = @"Input the path for files.";
+        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+        
+        return NO;
+    }
+    
+    return YES;
 }
 
 #pragma mark --Setter
