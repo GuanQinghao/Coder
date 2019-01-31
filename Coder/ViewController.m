@@ -11,18 +11,21 @@
 
 @interface ViewController () <NSTextViewDelegate>
 
-/// 类名输入框
-@property (unsafe_unretained) IBOutlet NSTextView *textView;
+/// 类名、属性名输入框
+@property (unsafe_unretained) IBOutlet NSTextView *inputTextView;
+/// 类名、属性名输出框
+@property (unsafe_unretained) IBOutlet NSTextView *outputTextView;
+
 /// 类前缀输入框
 @property (weak) IBOutlet NSTextField *prefixTextField;
-/// 新文件保存路径
+/// 新文件保存路径选择框
 @property (weak) IBOutlet NSTextField *pathTextField;
 
-/// 分隔符
+/// 模版-分隔符
 @property (nonatomic, strong) NSArray *separators;
-/// 模板标记符(旧值)
+/// 模板-标记符(旧值)
 @property (nonatomic, strong) NSMutableDictionary *marker;
-/// 替换字符(新值)
+/// 模版-替换字符(新值)
 @property (nonatomic, strong) NSMutableDictionary *substitute;
 
 /// 获取所有类名
@@ -39,6 +42,10 @@
     [super viewDidLoad];
     
 }
+
+#pragma mark --Delegate
+
+#pragma mark --TargetMethod
 
 - (IBAction)createControllerFiles:(id)sender {
     
@@ -153,9 +160,11 @@
     }
 }
 
-#pragma mark --Delegate
+- (IBAction)JSONToProperty:(id)sender {
+}
 
-#pragma mark --TargetMethod
+- (IBAction)outputLazyLoad:(id)sender {
+}
 
 #pragma mark --PrivateMethod
 /// 根据分隔符解析输入的类名
@@ -245,7 +254,7 @@
     alert.icon = [NSImage imageNamed:@"warning"];
     
     // 获取所有类名
-    self.classesName = [self.textView.textStorage string];
+    self.classesName = [self.inputTextView.textStorage string];
     if (!self.classesName || [self.classesName isKindOfClass:[NSNull class]] || self.classesName.length <= 0) {
         
         alert.informativeText = @"Input your class name(s).";
