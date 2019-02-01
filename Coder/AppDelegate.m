@@ -23,6 +23,7 @@
     // Insert code here to tear down your application
 }
 
+
 /// 关闭窗口，直接退出程序
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
     

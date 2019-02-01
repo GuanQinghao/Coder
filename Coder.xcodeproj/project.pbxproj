@@ -13,6 +13,9 @@
 		0447273621A2C67300998E7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0447273421A2C67300998E7D /* Main.storyboard */; };
 		0447273921A2C67300998E7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447273821A2C67300998E7D /* main.m */; };
 		0447274321A4141300998E7D /* Templates.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0447274221A4141300998E7D /* Templates.bundle */; };
+		045AE2492204195F00E4DCE3 /* GQHFileCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AE2482204195F00E4DCE3 /* GQHFileCreator.m */; };
+		045AE24C220419B000E4DCE3 /* GQHLazyLoadCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AE24B220419B000E4DCE3 /* GQHLazyLoadCreator.m */; };
+		045AE24F220419C700E4DCE3 /* GQHPropertyCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AE24E220419C700E4DCE3 /* GQHPropertyCreator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,12 @@
 		0447273821A2C67300998E7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0447273A21A2C67300998E7D /* Coder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coder.entitlements; sourceTree = "<group>"; };
 		0447274221A4141300998E7D /* Templates.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Templates.bundle; sourceTree = "<group>"; };
+		045AE2472204195F00E4DCE3 /* GQHFileCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GQHFileCreator.h; sourceTree = "<group>"; };
+		045AE2482204195F00E4DCE3 /* GQHFileCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GQHFileCreator.m; sourceTree = "<group>"; };
+		045AE24A220419B000E4DCE3 /* GQHLazyLoadCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GQHLazyLoadCreator.h; sourceTree = "<group>"; };
+		045AE24B220419B000E4DCE3 /* GQHLazyLoadCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GQHLazyLoadCreator.m; sourceTree = "<group>"; };
+		045AE24D220419C700E4DCE3 /* GQHPropertyCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GQHPropertyCreator.h; sourceTree = "<group>"; };
+		045AE24E220419C700E4DCE3 /* GQHPropertyCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GQHPropertyCreator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +73,12 @@
 				0447274221A4141300998E7D /* Templates.bundle */,
 				0447272F21A2C66900998E7D /* ViewController.h */,
 				0447273021A2C66900998E7D /* ViewController.m */,
+				045AE2472204195F00E4DCE3 /* GQHFileCreator.h */,
+				045AE2482204195F00E4DCE3 /* GQHFileCreator.m */,
+				045AE24A220419B000E4DCE3 /* GQHLazyLoadCreator.h */,
+				045AE24B220419B000E4DCE3 /* GQHLazyLoadCreator.m */,
+				045AE24D220419C700E4DCE3 /* GQHPropertyCreator.h */,
+				045AE24E220419C700E4DCE3 /* GQHPropertyCreator.m */,
 				0447273221A2C67300998E7D /* Assets.xcassets */,
 				0447273421A2C67300998E7D /* Main.storyboard */,
 				0447273721A2C67300998E7D /* Info.plist */,
@@ -148,9 +163,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045AE24C220419B000E4DCE3 /* GQHLazyLoadCreator.m in Sources */,
 				0447273121A2C66900998E7D /* ViewController.m in Sources */,
+				045AE24F220419C700E4DCE3 /* GQHPropertyCreator.m in Sources */,
 				0447273921A2C67300998E7D /* main.m in Sources */,
 				0447272E21A2C66900998E7D /* AppDelegate.m in Sources */,
+				045AE2492204195F00E4DCE3 /* GQHFileCreator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
