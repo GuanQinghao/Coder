@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "GQHFileCreator.h"
+#import "GQHLazyLoadCreator.h"
 
 
 @interface ViewController () <NSTextViewDelegate>
@@ -26,7 +27,7 @@
 /// 所有类名
 @property (nonatomic, copy) NSString *classesName;
 /// 所有属性名
-@property (nonatomic, copy) NSString *propertyName;
+@property (nonatomic, copy) NSString *propertiesName;
 /// 代码文件保存路径
 @property (nonatomic, copy) NSString *savePath;
 
@@ -38,6 +39,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.inputTextView.font = [NSFont systemFontOfSize:18.0f];
+    self.inputTextView.textColor = [NSColor textColor];
+    
+    self.outputTextView.font = [NSFont systemFontOfSize:18.0f];
+    self.inputTextView.textColor = [NSColor textColor];
 }
 
 #pragma mark --Delegate
@@ -57,12 +63,7 @@
     if ([[GQHFileCreator creator] createControllerFilesWith:self.classesName prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
         
         // 完成
-        NSAlert *alert = [[NSAlert alloc] init];
-        alert.alertStyle = NSAlertStyleInformational;
-        alert.messageText = @"Creator Done!";
-        alert.icon = [NSImage imageNamed:@"warning"];
-        alert.informativeText = @"Creator creat code(s) done!";
-        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+        [self createCodeDone];
     }
 }
 
@@ -79,12 +80,7 @@
     if ([[GQHFileCreator creator] createModelFilesWith:self.classesName prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
         
         // 完成
-        NSAlert *alert = [[NSAlert alloc] init];
-        alert.alertStyle = NSAlertStyleInformational;
-        alert.messageText = @"Creator Done!";
-        alert.icon = [NSImage imageNamed:@"warning"];
-        alert.informativeText = @"Creator creat code(s) done!";
-        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+        [self createCodeDone];
     }
 }
 
@@ -95,7 +91,15 @@
 #pragma mark ---根据属性生成懒加载代码
 - (IBAction)outputLazyLoad:(id)sender {
     
+    // 前置错误处理
+    if (![self isReadyToCodeString]) {
+        
+        return;
+    }
     
+    NSLog(@"%@", [[GQHLazyLoadCreator creator] createCodeWith:self.propertiesName]);
+    
+    self.outputTextView.string = [[GQHLazyLoadCreator creator] createCodeWith:self.propertiesName];
 }
 
 #pragma mark --PrivateMethod
@@ -156,9 +160,9 @@
     alert.messageText = @"Warning!";
     alert.icon = [NSImage imageNamed:@"warning"];
     
-    // 获取所有类名
-    self.classesName = [self.inputTextView.textStorage string];
-    if (!self.classesName || [self.classesName isKindOfClass:[NSNull class]] || self.classesName.length <= 0) {
+    // 获取所有属性名
+    self.propertiesName = [self.inputTextView.textStorage string];
+    if (!self.propertiesName || [self.propertiesName isKindOfClass:[NSNull class]] || self.propertiesName.length <= 0) {
         
         alert.informativeText = @"Input your property(properties) description.";
         [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
@@ -167,6 +171,17 @@
     }
     
     return YES;
+}
+
+/// 完成处理
+- (void)createCodeDone {
+    
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.alertStyle = NSAlertStyleWarning;
+    alert.messageText = @"Creator Done!";
+    alert.icon = [NSImage imageNamed:@"done"];
+    alert.informativeText = @"Creator creat code(s) done!";
+    [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
 }
 
 #pragma mark --Setter

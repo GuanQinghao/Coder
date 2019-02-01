@@ -716,7 +716,7 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBd-uS-Ud6">
                                 <rect key="frame" x="20" y="110" width="270" height="270"/>
                                 <clipView key="contentView" drawsBackground="NO" id="W0d-Ng-Yiv">
-                                    <rect key="frame" x="1" y="1.2793338380055603" width="268" height="267.75170325511129"/>
+                                    <rect key="frame" x="1" y="1" width="268" height="268"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="39P-eQ-ayQ">
@@ -724,7 +724,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="268" height="267.75170325511129"/>
+                                            <size key="minSize" width="268" height="268"/>
                                             <size key="maxSize" width="500" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -742,14 +742,14 @@
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3h-Tk-f5y">
                                 <rect key="frame" x="311" y="112" width="269" height="268"/>
                                 <clipView key="contentView" drawsBackground="NO" id="cX1-EX-q53">
-                                    <rect key="frame" x="1" y="1.2793338380055603" width="267" height="265.70779712339288"/>
+                                    <rect key="frame" x="1" y="1" width="267" height="266"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="YLc-ZF-P5D">
                                             <rect key="frame" x="0.0" y="-1" width="267" height="266"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="267" height="265.70779712339288"/>
+                                            <size key="minSize" width="267" height="266"/>
                                             <size key="maxSize" width="500" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
