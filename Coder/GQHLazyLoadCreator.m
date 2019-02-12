@@ -73,6 +73,8 @@ static GQHLazyLoadCreator *singleton = nil;
     NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"@;"];
     NSArray *names = [propertiesName componentsSeparatedByCharactersInSet:set];
     
+    NSLog(@"%@", names);
+    
     __block NSString *result = @"";
     [names enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
@@ -160,7 +162,7 @@ static GQHLazyLoadCreator *singleton = nil;
     
     if (!_labelString) {
         
-        _labelString = @"- (UILabel *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UILabel alloc] init];\n        _<name>.backgroundColor = UIColor.whiteColor;\n        \n        _l<name>.font = [UIFont systemFontOfSize:16.0f];\n        _<name>.text = @\"Label\";\n        _<name>.textColor = UIColor.darkTextColor;\n        _<name>.textAlignment = NSTextAlignmentLeft;\n        _<name>.numberOfLines = 0;\n    }\n    \n    return _<name>;\n}\n";
+        _labelString = @"- (UILabel *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UILabel alloc] init];\n        _<name>.backgroundColor = UIColor.whiteColor;\n        \n        _<name>.font = [UIFont systemFontOfSize:16.0f];\n        _<name>.text = @\"Label\";\n        _<name>.textColor = UIColor.darkTextColor;\n        _<name>.textAlignment = NSTextAlignmentLeft;\n        _<name>.numberOfLines = 0;\n    }\n    \n    return _<name>;\n}\n";
     }
     
     return _labelString;
