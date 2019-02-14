@@ -162,7 +162,7 @@ static GQHLazyLoadCreator *singleton = nil;
     
     if (!_labelString) {
         
-        _labelString = @"- (UILabel *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UILabel alloc] init];\n        _<name>.backgroundColor = UIColor.whiteColor;\n        \n        _<name>.font = [UIFont systemFontOfSize:16.0f];\n        _<name>.text = @\"Label\";\n        _<name>.textColor = UIColor.darkTextColor;\n        _<name>.textAlignment = NSTextAlignmentLeft;\n        _<name>.numberOfLines = 0;\n    }\n    \n    return _<name>;\n}\n";
+        _labelString = @"- (UILabel *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UILabel alloc] init];\n        _<name>.backgroundColor = [UIColor whiteColor];\n        \n        _<name>.font = [UIFont systemFontOfSize:16.0f];\n        _<name>.text = @\"Label\";\n        _<name>.textColor = [UIColor darkTextColor];\n        _<name>.textAlignment = NSTextAlignmentLeft;\n        _<name>.numberOfLines = 0;\n    }\n    \n    return _<name>;\n}\n";
     }
     
     return _labelString;
@@ -192,7 +192,7 @@ static GQHLazyLoadCreator *singleton = nil;
     
     if (!_imageViewString) {
         
-        _imageViewString = @"- (UIImageView *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UIImageView alloc] init];\n        _<name>.backgroundColor = [UIColor whiteColor];\n        \n        _<name>.image = [UIImage imageNamed:nil];\n        \n        _<name>.layer.cornerRadius = 0.0f;\n        _<name>.layer.masksToBounds = YES;\n    }\n    \n    return _<name>;\n}\n";
+        _imageViewString = @"- (UIImageView *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UIImageView alloc] init];\n        _<name>.backgroundColor = [UIColor whiteColor];\n        \n        _<name>.image = [UIImage imageNamed:@""];\n        \n        _<name>.layer.cornerRadius = 0.0f;\n        _<name>.layer.masksToBounds = YES;\n    }\n    \n    return _<name>;\n}\n";
     }
     
     return _imageViewString;

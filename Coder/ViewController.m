@@ -39,10 +39,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.inputTextView.font = [NSFont systemFontOfSize:18.0f];
+    self.inputTextView.font = [NSFont systemFontOfSize:15.0f];
     self.inputTextView.textColor = [NSColor textColor];
     
-    self.outputTextView.font = [NSFont systemFontOfSize:18.0f];
+    self.outputTextView.font = [NSFont systemFontOfSize:15.0f];
     self.inputTextView.textColor = [NSColor textColor];
 }
 
@@ -97,9 +97,13 @@
         return;
     }
     
-    NSLog(@"%@", [[GQHLazyLoadCreator creator] createCodeWith:self.propertiesName]);
-    
     self.outputTextView.string = [[GQHLazyLoadCreator creator] createCodeWith:self.propertiesName];
+    
+    if (!self.outputTextView.string.length) {
+        
+        // 生成代码失败
+        [self failedToCode];
+    }
 }
 
 #pragma mark --PrivateMethod
@@ -173,14 +177,25 @@
     return YES;
 }
 
+/// 代码生成失败
+- (void)failedToCode {
+    
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.alertStyle = NSAlertStyleWarning;
+    alert.messageText = @"Warning!";
+    alert.icon = [NSImage imageNamed:@"warning"];
+    alert.informativeText = @"Creator failed to create code(s)!";
+    [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+}
+
 /// 完成处理
 - (void)createCodeDone {
     
     NSAlert *alert = [[NSAlert alloc] init];
     alert.alertStyle = NSAlertStyleWarning;
-    alert.messageText = @"Creator Done!";
+    alert.messageText = @"Done!";
     alert.icon = [NSImage imageNamed:@"done"];
-    alert.informativeText = @"Creator creat code(s) done!";
+    alert.informativeText = @"Creator had create code(s)!";
     [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
 }
 
