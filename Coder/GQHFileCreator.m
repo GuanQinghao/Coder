@@ -58,6 +58,11 @@ static GQHFileCreator *singleton = nil;
         return NO;
     }
     
+    // Controller文件夹路径
+    NSString *controllerPath = [NSString stringWithFormat:@"%@/Controller",path];
+    // View文件夹路径
+    NSString *viewPath = [NSString stringWithFormat:@"%@/View",path];
+    
     for (NSString *name in classNames) {
         
         // 准备替换字符串字典
@@ -73,7 +78,7 @@ static GQHFileCreator *singleton = nil;
         // 创建文件
         NSData *hControllerData = [hControllerString dataUsingEncoding:NSUTF8StringEncoding];
         NSString *hControllerFileName = [NSString stringWithFormat:@"%@%@Controller.h",prefix,name];
-        if (![self createFileAtPath:path withName:hControllerFileName contents:hControllerData]) {
+        if (![self createFileAtPath:controllerPath withName:hControllerFileName contents:hControllerData]) {
             
             return NO;
         }
@@ -87,7 +92,7 @@ static GQHFileCreator *singleton = nil;
         // 创建文件
         NSData *mControllerData = [mControllerString dataUsingEncoding:NSUTF8StringEncoding];
         NSString *mControllerFileName = [NSString stringWithFormat:@"%@%@Controller.m",prefix,name];
-        if (![self createFileAtPath:path withName:mControllerFileName contents:mControllerData]) {
+        if (![self createFileAtPath:controllerPath withName:mControllerFileName contents:mControllerData]) {
             
             return NO;
         }
@@ -101,7 +106,7 @@ static GQHFileCreator *singleton = nil;
         // 创建文件
         NSData *hViewData = [hViewString dataUsingEncoding:NSUTF8StringEncoding];
         NSString *hViewDataFileName = [NSString stringWithFormat:@"%@%@View.h",prefix,name];
-        if (![self createFileAtPath:path withName:hViewDataFileName contents:hViewData]) {
+        if (![self createFileAtPath:viewPath withName:hViewDataFileName contents:hViewData]) {
             
             return NO;
         }
@@ -115,7 +120,7 @@ static GQHFileCreator *singleton = nil;
         // 创建文件
         NSData *mViewData = [mViewString dataUsingEncoding:NSUTF8StringEncoding];
         NSString *mViewDataFileName = [NSString stringWithFormat:@"%@%@View.m",prefix,name];
-        if (![self createFileAtPath:path withName:mViewDataFileName contents:mViewData]) {
+        if (![self createFileAtPath:viewPath withName:mViewDataFileName contents:mViewData]) {
             
             return NO;
         }
@@ -201,8 +206,19 @@ static GQHFileCreator *singleton = nil;
     return classNames;
 }
 
-/// 根据路径、文件名、文件内容创建文件
+/// 根据路径、文件名、文件内容创建文件夹和文件
 - (BOOL)createFileAtPath:(NSString *)path withName:(NSString *)name contents:(NSData *)data {
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    
+    if (![manager fileExistsAtPath:path]) {
+        
+        // 创建文件夹
+        if (![manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil]) {
+            
+            return NO;
+        }
+    }
     
     NSString *filePath = [NSString stringWithFormat:@"%@/%@",path, name];
     

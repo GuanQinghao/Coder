@@ -64,6 +64,10 @@
         
         // 完成
         [self createCodeDone];
+    } else {
+        
+        // 生成代码失败
+        [self failedToCode];
     }
 }
 
@@ -81,6 +85,10 @@
         
         // 完成
         [self createCodeDone];
+    } else {
+        
+        // 生成代码失败
+        [self failedToCode];
     }
 }
 
@@ -119,8 +127,14 @@
         
         if (result == NSModalResponseOK) {
             
-            self.pathTextField.stringValue = panel.URLs.firstObject.path;
-            NSLog(@"%@",panel.URLs.firstObject.path);
+            // 文件夹名称
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat = @"HH-mm-ss";
+            NSString *folderName = [NSString stringWithFormat:@"code-%@", [formatter stringFromDate:[NSDate date]]];
+            
+            // 文件夹路径
+            NSString *path = [NSString stringWithFormat:@"%@/%@", panel.URLs.firstObject.path, folderName];
+            self.pathTextField.stringValue = path;
         }
     }];
 }
