@@ -121,12 +121,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DLog();
     
-    static NSString *identifier = @"<prefix><name>ViewCell";
-    <prefix><name>ViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        
-        cell = [[<prefix><name>ViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
+    // 数据data
+    NSMutableDictionary *data = [NSMutableDictionary dictionary];
+    
+    // 视图cell
+    <prefix><name>ViewCell *cell = [<prefix><name>ViewCell qh_tableView:tableView cellWithData:data];
+    cell.qh_delegate = self;
     
     return cell;
 }

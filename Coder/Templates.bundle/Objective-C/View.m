@@ -86,6 +86,19 @@
 
 @implementation <prefix><name>ViewCell
 
+/// 根据data创建cell
++ (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(NSDictionary *)data {
+    
+    static NSString *identifier = @"<prefix><name>ViewCell";
+    <prefix><name>ViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        
+        cell = [[<prefix><name>ViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    return cell;
+}
+
 /// 初始化列表自定义行视图
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     DLog();
