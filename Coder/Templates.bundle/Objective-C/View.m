@@ -96,6 +96,9 @@
         cell = [[<prefix><name>ViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
+    // 更新cell的数据
+    [self updateCellWithData:data];
+    
     return cell;
 }
 
@@ -131,8 +134,20 @@
 #pragma mark --TargetMethod
 
 #pragma mark --PrivateMethod
+/// 更新cell的数据
+- (void)updateCellWithData:(NSDictionary *)data {
+    DLog();
+    
+}
 
 #pragma mark --Setter
+- (void)setQh_data:(NSDictionary *)qh_data {
+    
+    _qh_data = qh_data;
+    
+    // 更新cell的数据
+    [self updateCellWithData:qh_data];
+}
 
 #pragma mark --Getter
 

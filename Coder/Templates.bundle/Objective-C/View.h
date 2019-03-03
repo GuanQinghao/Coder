@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 视图代理
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
+/// cell的data
+@property (nonatomic, strong) NSDictionary *qh_data;
 
 /// 根据data创建cell
 + (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(NSDictionary *)data;
