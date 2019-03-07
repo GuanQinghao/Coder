@@ -86,7 +86,7 @@
 
 @implementation <prefix><name>ViewCell
 
-/// 根据data创建cell
+/// 根据视图数据创建视图
 + (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(NSDictionary *)data {
     
     static NSString *identifier = @"<prefix><name>ViewCell";
@@ -94,10 +94,11 @@
     if (!cell) {
         
         cell = [[<prefix><name>ViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    // 更新cell的数据
-    [self updateCellWithData:data];
+    // 根据视图数据更新视图
+    [cell updateCellWithData:data];
     
     return cell;
 }
@@ -134,7 +135,7 @@
 #pragma mark --TargetMethod
 
 #pragma mark --PrivateMethod
-/// 更新cell的数据
+/// 根据视图数据更新视图
 - (void)updateCellWithData:(NSDictionary *)data {
     DLog();
     
