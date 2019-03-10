@@ -48,3 +48,37 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface <prefix><name>ViewHeaderView : UITableViewHeaderFooterView
+
+/// 视图代理
+@property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
+/// 视图数据
+@property (nonatomic, strong) NSDictionary *qh_data;
+
+/// 根据视图数据创建视图
++ (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(NSDictionary *)data;
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface <prefix><name>ViewFooterView : UITableViewHeaderFooterView
+
+/// 视图代理
+@property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
+/// 视图数据
+@property (nonatomic, strong) NSDictionary *qh_data;
+
+/// 根据视图数据创建视图
++ (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(NSDictionary *)data;
+
+@end
+
+NS_ASSUME_NONNULL_END

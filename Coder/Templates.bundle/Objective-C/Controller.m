@@ -96,14 +96,14 @@
 
 #pragma mark --Delegate
 #pragma mark ---UITableViewDelegate&UITableViewDataSource
-/// 列表的总段数
+/// 列表的总组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     DLog();
     
     return 1;
 }
 
-/// 列表的各段行数
+/// 列表的各组行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     DLog();
     
@@ -138,38 +138,46 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-/// 列表的各段头视图高度
+/// 列表的组头视图高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     DLog();
     
     return CGFLOAT_MIN;
 }
 
-/// 列表的各段自定义头视图
+/// 列表的组自定义头视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     DLog();
     
-    UIView *header = [[UIView alloc] init];
-    header.backgroundColor = UIColor.clearColor;
+    // 头视图数据data
+    NSMutableDictionary *data = [NSMutableDictionary dictionary];
     
-    return header;
+    // 自定义头视图
+    <prefix><name>ViewHeaderView *headerView = [<prefix><name>ViewHeaderView qh_tableView:tableView headerViewWithData:data];
+    headerView.qh_delegate = self;
+    
+    return headerView;
 }
 
-/// 列表的各段根视图高度
+/// 列表的组根视图高度
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     DLog();
     
     return CGFLOAT_MIN;
 }
 
-/// 列表的各段自定义根视图
+/// 列表的组自定义根视图
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     DLog();
     
-    UIView *footer = [[UIView alloc] init];
-    footer.backgroundColor = UIColor.clearColor;
+    // 根视图数据data
+    NSMutableDictionary *data = [NSMutableDictionary dictionary];
     
-    return footer;
+    // 自定义根视图
+    <prefix><name>ViewFooterView *footerView = [<prefix><name>ViewFooterView qh_tableView:tableView footerViewWithData:data];
+    footerView.qh_delegate = self;
+    
+    return footerView;
 }
 
 #pragma mark ---<prefix><name>ViewDelegate

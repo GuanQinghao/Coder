@@ -16,29 +16,21 @@
 
 @implementation <prefix><name>View
 
-/// 初始化自定义根视图
+/// 初始化控制器自定义根视图
 - (instancetype)initWithFrame:(CGRect)frame {
     DLog();
     
     if (self = [super initWithFrame:frame]) {
         
-        [self loadLocalData];
-        [self layoutUserInterface];
+        // 其他初始化
+        
     }
     
     return self;
 }
 
-#pragma mark --Data
-/// 加载本地数据
-- (void)loadLocalData {
-    DLog();
-    
-}
-
-#pragma mark --View
-/// 布局自定义用户视图
-- (void)layoutUserInterface {
+/// 布局自定义子视图
+- (void)layoutSubviews {
     DLog();
     
     [self addSubview:self.qh_tableView];
@@ -109,23 +101,15 @@
     
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        [self loadLocalData];
-        [self layoutUserInterface];
+        // 其他初始化
+        
     }
     
     return self;
 }
 
-#pragma mark --Data
-/// 加载本地数据
-- (void)loadLocalData {
-    DLog();
-    
-}
-
-#pragma mark --View
-/// 布局自定义用户视图
-- (void)layoutUserInterface {
+/// 布局自定义子视图
+- (void)layoutSubviews {
     DLog();
     
 }
@@ -148,6 +132,140 @@
     
     // 更新cell的数据
     [self updateCellWithData:qh_data];
+}
+
+#pragma mark --Getter
+
+@end
+
+
+@interface <prefix><name>ViewHeaderView ()
+
+@end
+
+
+@implementation <prefix><name>ViewHeaderView
+
+/// 根据视图数据创建视图
++ (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(NSDictionary *)data {
+    
+    static NSString *identifier = @"<prefix><name>ViewHeaderView";
+    <prefix><name>ViewHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    if (!headerView) {
+        
+        headerView = [[<prefix><name>ViewHeaderView alloc] initWithReuseIdentifier:identifier];
+    }
+    
+    // 根据视图数据更新视图
+    [headerView updateHeaderViewWithData:data];
+    
+    return headerView;
+}
+
+/// 初始化列表组自定义头视图
+- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
+    DLog();
+    
+    if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
+        
+        // 其他初始化
+        
+    }
+    
+    return self;
+}
+
+/// 布局自定义子视图
+- (void)layoutSubviews {
+    DLog();
+    
+}
+
+#pragma mark --Delegate
+
+#pragma mark --TargetMethod
+
+#pragma mark --PrivateMethod
+/// 根据视图数据更新视图
+- (void)updateHeaderViewWithData:(NSDictionary *)data {
+    DLog();
+    
+}
+
+#pragma mark --Setter
+- (void)setQh_data:(NSDictionary *)qh_data {
+    
+    _qh_data = qh_data;
+    
+    // 更新头视图数据
+    [self updateHeaderViewWithData:qh_data];
+}
+
+#pragma mark --Getter
+
+@end
+
+
+@interface <prefix><name>ViewFooterView ()
+
+@end
+
+
+@implementation <prefix><name>ViewFooterView
+
+/// 根据视图数据创建视图
++ (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(nonnull NSDictionary *)data {
+    
+    static NSString *identifier = @"<prefix><name>ViewFooterView";
+    <prefix><name>ViewFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    if (!footerView) {
+        
+        footerView = [[<prefix><name>ViewFooterView alloc] initWithReuseIdentifier:identifier];
+    }
+    
+    // 根据视图数据更新视图
+    [footerView updateFooterViewWithData:data];
+    
+    return footerView;
+}
+
+/// 初始化列表组自定义根视图
+- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
+    DLog();
+    
+    if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
+        
+        // 其他初始化
+        
+    }
+    
+    return self;
+}
+
+/// 布局自定义子视图
+- (void)layoutSubviews {
+    DLog();
+    
+}
+
+#pragma mark --Delegate
+
+#pragma mark --TargetMethod
+
+#pragma mark --PrivateMethod
+/// 根据视图数据更新视图
+- (void)updateFooterViewWithData:(NSDictionary *)data {
+    DLog();
+    
+}
+
+#pragma mark --Setter
+- (void)setQh_data:(NSDictionary *)qh_data {
+    
+    _qh_data = qh_data;
+    
+    // 更新根视图数据
+    [self updateFooterViewWithData:qh_data];
 }
 
 #pragma mark --Getter
