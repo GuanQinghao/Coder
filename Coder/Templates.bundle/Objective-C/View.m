@@ -229,7 +229,7 @@
     return footerView;
 }
 
-/// 初始化列表组自定义根视图
+/// 初始化列表组自定义尾视图
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     DLog();
     

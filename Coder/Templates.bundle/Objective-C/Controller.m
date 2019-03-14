@@ -159,21 +159,21 @@
     return headerView;
 }
 
-/// 列表的组根视图高度
+/// 列表的组尾视图高度
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     DLog();
     
     return CGFLOAT_MIN;
 }
 
-/// 列表的组自定义根视图
+/// 列表的组自定义尾视图
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     DLog();
     
-    // 根视图数据data
+    // 尾视图数据data
     NSMutableDictionary *data = [NSMutableDictionary dictionary];
     
-    // 自定义根视图
+    // 自定义尾视图
     <prefix><name>ViewFooterView *footerView = [<prefix><name>ViewFooterView qh_tableView:tableView footerViewWithData:data];
     footerView.qh_delegate = self;
     
