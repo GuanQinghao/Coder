@@ -9,13 +9,17 @@
 #import "GQHHeader.h"
 
 
+#pragma mark -
+#pragma mark - 自定义根视图
+#pragma mark -
+
 @interface <prefix><name>View ()
 
 @end
 
-
 @implementation <prefix><name>View
 
+#pragma mark - Lifecycle
 /// 初始化控制器自定义根视图
 - (instancetype)initWithFrame:(CGRect)frame {
     DLog();
@@ -41,15 +45,16 @@
     }];
 }
 
-#pragma mark --Delegate
+#pragma mark - Delegate
 
-#pragma mark --TargetMethod
+#pragma mark - TargetMethod
 
-#pragma mark --PrivateMethod
+#pragma mark - PrivateMethod
 
-#pragma mark --Setter
+#pragma mark - Setter
 
-#pragma mark --Getter
+#pragma mark - Getter
+/// 列表视图
 - (UITableView *)qh_tableView {
     
     if (!_qh_tableView) {
@@ -71,15 +76,20 @@
 @end
 
 
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
+
 @interface <prefix><name>ViewCell ()
 
 @end
 
-
 @implementation <prefix><name>ViewCell
 
+#pragma mark - Lifecycle
 /// 根据视图数据创建视图
 + (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(NSDictionary *)data {
+    DLog();
     
     static NSString *identifier = @"<prefix><name>ViewCell";
     <prefix><name>ViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -114,18 +124,18 @@
     
 }
 
-#pragma mark --Delegate
+#pragma mark - Delegate
 
-#pragma mark --TargetMethod
+#pragma mark - TargetMethod
 
-#pragma mark --PrivateMethod
+#pragma mark - PrivateMethod
 /// 根据视图数据更新视图
 - (void)updateCellWithData:(NSDictionary *)data {
     DLog();
     
 }
 
-#pragma mark --Setter
+#pragma mark - Setter
 - (void)setQh_data:(NSDictionary *)qh_data {
     
     _qh_data = qh_data;
@@ -134,20 +144,25 @@
     [self updateCellWithData:qh_data];
 }
 
-#pragma mark --Getter
+#pragma mark - Getter
 
 @end
 
+
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
 
 @interface <prefix><name>ViewHeaderView ()
 
 @end
 
-
 @implementation <prefix><name>ViewHeaderView
 
+#pragma mark - Lifecycle
 /// 根据视图数据创建视图
 + (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(NSDictionary *)data {
+    DLog();
     
     static NSString *identifier = @"<prefix><name>ViewHeaderView";
     <prefix><name>ViewHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
@@ -181,18 +196,18 @@
     
 }
 
-#pragma mark --Delegate
+#pragma mark - Delegate
 
-#pragma mark --TargetMethod
+#pragma mark - TargetMethod
 
-#pragma mark --PrivateMethod
+#pragma mark - PrivateMethod
 /// 根据视图数据更新视图
 - (void)updateHeaderViewWithData:(NSDictionary *)data {
     DLog();
     
 }
 
-#pragma mark --Setter
+#pragma mark - Setter
 - (void)setQh_data:(NSDictionary *)qh_data {
     
     _qh_data = qh_data;
@@ -201,20 +216,25 @@
     [self updateHeaderViewWithData:qh_data];
 }
 
-#pragma mark --Getter
+#pragma mark - Getter
 
 @end
 
+
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
 
 @interface <prefix><name>ViewFooterView ()
 
 @end
 
-
 @implementation <prefix><name>ViewFooterView
 
+#pragma mark - Lifecycle
 /// 根据视图数据创建视图
 + (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(nonnull NSDictionary *)data {
+    DLog();
     
     static NSString *identifier = @"<prefix><name>ViewFooterView";
     <prefix><name>ViewFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
@@ -248,18 +268,18 @@
     
 }
 
-#pragma mark --Delegate
+#pragma mark - Delegate
 
-#pragma mark --TargetMethod
+#pragma mark - TargetMethod
 
-#pragma mark --PrivateMethod
+#pragma mark - PrivateMethod
 /// 根据视图数据更新视图
 - (void)updateFooterViewWithData:(NSDictionary *)data {
     DLog();
     
 }
 
-#pragma mark --Setter
+#pragma mark - Setter
 - (void)setQh_data:(NSDictionary *)qh_data {
     
     _qh_data = qh_data;
@@ -268,6 +288,6 @@
     [self updateFooterViewWithData:qh_data];
 }
 
-#pragma mark --Getter
+#pragma mark - Getter
 
 @end

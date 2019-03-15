@@ -23,6 +23,10 @@
 #pragma mark ----------Header End----------
 
 
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
+
 @interface <prefix><name>Controller () <UITableViewDelegate, UITableViewDataSource, <prefix><name>ViewDelegate>
 
 /// 自定义根视图
@@ -30,10 +34,9 @@
 
 @end
 
-
 @implementation <prefix><name>Controller
 
-#pragma mark --Lifecycle
+#pragma mark - Lifecycle
 /// 1.加载系统根视图或自定义根视图
 - (void)loadView {
     DLog();
@@ -94,8 +97,7 @@
     
 }
 
-#pragma mark --Delegate
-#pragma mark ---UITableViewDelegate&UITableViewDataSource
+#pragma mark - UITableViewDataSource
 /// 列表的总组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     DLog();
@@ -110,13 +112,6 @@
     return 5;
 }
 
-/// 列表的各行高度
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DLog();
-    
-    return 50.0f;
-}
-
 /// 列表的各行单元格视图
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DLog();
@@ -129,6 +124,14 @@
     cell.qh_delegate = self;
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+/// 列表的各行高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DLog();
+    
+    return 50.0f;
 }
 
 /// 选中列表的某行单元格
@@ -180,15 +183,16 @@
     return footerView;
 }
 
-#pragma mark ---<prefix><name>ViewDelegate
+#pragma mark - <prefix><name>ViewDelegate
 
-#pragma mark --TargetMethod
+#pragma mark - TargetMethod
 
-#pragma mark --PrivateMethod
+#pragma mark - PrivateMethod
 
-#pragma mark --Setter
+#pragma mark - Setter
 
-#pragma mark --Getter
+#pragma mark - Getter
+/// 自定义控制器根视图
 - (<prefix><name>View *)rootView {
     
     if (!_rootView) {

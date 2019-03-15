@@ -9,6 +9,10 @@
 #import "GQHFileCreator.h"
 
 
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
+
 @interface GQHFileCreator ()
 
 /// 模版-分隔符
@@ -20,10 +24,9 @@
 
 @end
 
-
 @implementation GQHFileCreator
 
-/// 单例模式代码示例 -> 不支持对象copy
+/// 单例
 static GQHFileCreator *singleton = nil;
 + (instancetype)creator {
     
@@ -184,7 +187,7 @@ static GQHFileCreator *singleton = nil;
     return YES;
 }
 
-#pragma mark --PrivateMethod
+#pragma mark - PrivateMethod
 /// 根据分隔符解析输入的类名
 - (NSMutableArray *)fetchClassNamesWithString:(NSString *)input bySeparator:(NSArray *)separator {
     
@@ -261,9 +264,9 @@ static GQHFileCreator *singleton = nil;
     return stringM;
 }
 
-#pragma mark --Setter
+#pragma mark - Setter
 
-#pragma mark --Getter
+#pragma mark - Getter
 - (NSMutableDictionary *)marker {
     
     if (!_marker) {

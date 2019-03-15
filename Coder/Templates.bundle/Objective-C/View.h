@@ -8,7 +8,10 @@
 #import "GQHBaseView.h"
 
 
-/// 视图自定义代理
+#pragma mark -
+#pragma mark - 视图自定义代理
+#pragma mark -
+
 @protocol <prefix><name>ViewDelegate <NSObject>
 
 @required
@@ -17,6 +20,10 @@
 
 @end
 
+
+#pragma mark -
+#pragma mark - 自定义根视图
+#pragma mark -
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,6 +39,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
+
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -50,6 +61,10 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface <prefix><name>ViewHeaderView : UITableViewHeaderFooterView
@@ -66,6 +81,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
+
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
 
 NS_ASSUME_NONNULL_BEGIN
 

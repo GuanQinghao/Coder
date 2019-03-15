@@ -8,6 +8,10 @@
 #import "GQHBaseController.h"
 
 
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface <prefix><name>Controller : GQHBaseController

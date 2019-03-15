@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GQHPropertyCreator : NSObject

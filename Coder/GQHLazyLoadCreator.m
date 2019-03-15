@@ -9,6 +9,10 @@
 #import "GQHLazyLoadCreator.h"
 
 
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
+
 @interface GQHLazyLoadCreator ()
 
 /// 标签懒加载代码块
@@ -135,6 +139,7 @@ static GQHLazyLoadCreator *singleton = nil;
     return result;
 }
 
+#pragma mark - PrivateMethod
 /// 截取字符串获取属性类型和属性名
 - (NSDictionary *)propertyTypeWith:(NSString *)string {
     
@@ -157,7 +162,7 @@ static GQHLazyLoadCreator *singleton = nil;
     return @{@"type":type, @"var":var};
 }
 
-#pragma mark --Setter
+#pragma mark - Setter
 - (NSString *)labelString {
     
     if (!_labelString) {

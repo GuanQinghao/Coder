@@ -8,6 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface ViewController : NSViewController
 
 @end
+
+NS_ASSUME_NONNULL_END

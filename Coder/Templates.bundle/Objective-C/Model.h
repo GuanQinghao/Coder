@@ -8,6 +8,10 @@
 #import "GQHBaseModel.h"
 
 
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface <prefix><name>Model : GQHBaseModel
@@ -19,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic, strong) NSArray<GQHBookModel *> *qh_books;
 
 NS_ASSUME_NONNULL_END
+
 
 /// 增-
 + (void)qh_create<name>WithParameters:(NSDictionary *)parameters success:(void(^)(BOOL status, NSNumber *code, NSString *message))success failure:(void(^)(NSNumber *code, NSString *message, NSError *error))failure;

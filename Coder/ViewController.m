@@ -11,6 +11,10 @@
 #import "GQHLazyLoadCreator.h"
 
 
+#pragma mark -
+#pragma mark - <#comment#>
+#pragma mark -
+
 @interface ViewController () <NSTextViewDelegate>
 
 /// 类名、属性名输入框
@@ -36,6 +40,7 @@
 
 @implementation ViewController
 
+#pragma mark - Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -46,9 +51,7 @@
     self.inputTextView.textColor = [NSColor textColor];
 }
 
-#pragma mark --Delegate
-
-#pragma mark --TargetMethod
+#pragma mark - TargetMethod
 #pragma mark ---根据模版生成代码文件
 /// 生成Controller和View文件
 - (IBAction)createControllerFiles:(id)sender {
@@ -114,7 +117,6 @@
     }
 }
 
-#pragma mark --PrivateMethod
 /// 选择或输入保存文件的路径
 - (IBAction)chooseDirectory:(id)sender {
     
@@ -139,6 +141,7 @@
     }];
 }
 
+#pragma mark - PrivateMethod
 /// 根据类名和模版生成代码文件的前置错误处理
 - (BOOL)isReadyToCodeFile {
     
@@ -213,8 +216,8 @@
     [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
 }
 
-#pragma mark --Setter
+#pragma mark - Setter
 
-#pragma mark --Getter
+#pragma mark - Getter
 
 @end
