@@ -88,7 +88,7 @@
 
 #pragma mark - Lifecycle
 /// 根据视图数据创建视图
-+ (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(NSDictionary *)data {
++ (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(id)data {
     DLog();
     
     static NSString *identifier = @"<prefix><name>ViewCell";
@@ -130,13 +130,13 @@
 
 #pragma mark - PrivateMethod
 /// 根据视图数据更新视图
-- (void)updateCellWithData:(NSDictionary *)data {
+- (void)updateCellWithData:(id)data {
     DLog();
     
 }
 
 #pragma mark - Setter
-- (void)setQh_data:(NSDictionary *)qh_data {
+- (void)setQh_data:(id)qh_data {
     
     _qh_data = qh_data;
     
@@ -161,7 +161,7 @@
 
 #pragma mark - Lifecycle
 /// 根据视图数据创建视图
-+ (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(NSDictionary *)data {
++ (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(id)data {
     DLog();
     
     static NSString *identifier = @"<prefix><name>ViewHeaderView";
@@ -202,13 +202,13 @@
 
 #pragma mark - PrivateMethod
 /// 根据视图数据更新视图
-- (void)updateHeaderViewWithData:(NSDictionary *)data {
+- (void)updateHeaderViewWithData:(id)data {
     DLog();
     
 }
 
 #pragma mark - Setter
-- (void)setQh_data:(NSDictionary *)qh_data {
+- (void)setQh_data:(id)qh_data {
     
     _qh_data = qh_data;
     
@@ -233,7 +233,7 @@
 
 #pragma mark - Lifecycle
 /// 根据视图数据创建视图
-+ (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(nonnull NSDictionary *)data {
++ (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(id)data {
     DLog();
     
     static NSString *identifier = @"<prefix><name>ViewFooterView";
@@ -274,13 +274,13 @@
 
 #pragma mark - PrivateMethod
 /// 根据视图数据更新视图
-- (void)updateFooterViewWithData:(NSDictionary *)data {
+- (void)updateFooterViewWithData:(id)data {
     DLog();
     
 }
 
 #pragma mark - Setter
-- (void)setQh_data:(NSDictionary *)qh_data {
+- (void)setQh_data:(id)qh_data {
     
     _qh_data = qh_data;
     

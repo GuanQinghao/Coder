@@ -51,10 +51,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 视图代理
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
 /// 视图数据
-@property (nonatomic, strong) NSDictionary *qh_data;
+@property (nonatomic, strong) id qh_data;
 
 /// 根据视图数据创建视图
-+ (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(NSDictionary *)data;
++ (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(id)data;
 
 @end
 
@@ -72,10 +72,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 视图代理
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
 /// 视图数据
-@property (nonatomic, strong) NSDictionary *qh_data;
+@property (nonatomic, strong) id qh_data;
 
 /// 根据视图数据创建视图
-+ (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(NSDictionary *)data;
++ (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(id)data;
 
 @end
 
@@ -93,10 +93,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 视图代理
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
 /// 视图数据
-@property (nonatomic, strong) NSDictionary *qh_data;
+@property (nonatomic, strong) id qh_data;
 
 /// 根据视图数据创建视图
-+ (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(NSDictionary *)data;
++ (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(id)data;
 
 @end
 
