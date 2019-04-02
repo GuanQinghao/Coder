@@ -32,6 +32,9 @@
 /// 自定义根视图
 @property (nonatomic, strong) <prefix><name>View *rootView;
 
+/// 数据源
+@property (nonatomic, strong) NSMutableArray *dataSourceArray;
+
 @end
 
 @implementation <prefix><name>Controller
@@ -60,12 +63,14 @@
 
 /// 4.视图即将布局其子视图
 - (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
     DLog();
     
 }
 
 /// 5.视图已经布局其子视图
 - (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     DLog();
     
 }
@@ -205,6 +210,16 @@
     }
     
     return _rootView;
+}
+
+- (NSMutableArray *)dataSourceArray {
+    
+    if (!_dataSourceArray) {
+        
+        _dataSourceArray = [NSMutableArray array];
+    }
+    
+    return _dataSourceArray;
 }
 
 @end

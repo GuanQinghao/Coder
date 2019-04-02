@@ -26,6 +26,9 @@
     
     if (self = [super initWithFrame:frame]) {
         
+        // 初始化自动布局
+        [self autoLayoutWithConstraints];
+        
         // 其他初始化
         
     }
@@ -33,8 +36,15 @@
     return self;
 }
 
-/// 布局自定义子视图
+/// 布局子视图 -> frame计算
 - (void)layoutSubviews {
+    [super layoutSubviews];
+    DLog();
+    
+}
+
+/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+- (void)autoLayoutWithConstraints {
     DLog();
     
     [self addSubview:self.qh_tableView];
@@ -111,6 +121,9 @@
     
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
+        // 初始化自动布局
+        [self autoLayoutWithConstraints];
+        
         // 其他初始化
         
     }
@@ -118,8 +131,15 @@
     return self;
 }
 
-/// 布局自定义子视图
+/// 布局子视图 -> frame计算
 - (void)layoutSubviews {
+    [super layoutSubviews];
+    DLog();
+    
+}
+
+/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+- (void)autoLayoutWithConstraints {
     DLog();
     
 }
@@ -190,8 +210,15 @@
     return self;
 }
 
-/// 布局自定义子视图
+/// 布局子视图 -> frame计算
 - (void)layoutSubviews {
+    [super layoutSubviews];
+    DLog();
+    
+}
+
+/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+- (void)autoLayoutWithConstraints {
     DLog();
     
 }
@@ -254,6 +281,9 @@
     DLog();
     
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
+        
+        // 初始化自动布局
+        [self autoLayoutWithConstraints];
         
         // 其他初始化
         

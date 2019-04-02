@@ -98,7 +98,9 @@ static GQHLazyLoadCreator *singleton = nil;
                 result = [result stringByAppendingFormat:@"\n%@", [self.textFieldString stringByReplacingOccurrencesOfString:swap withString:var]];
             } else if ([type isEqualToString:@"UIButton"]) {
                 
-                result = [result stringByAppendingFormat:@"\n%@", [self.buttonString stringByReplacingOccurrencesOfString:swap withString:var]];
+                NSString *temp = [self.buttonString stringByReplacingOccurrencesOfString:swap withString:var];
+                NSString *capitalizedFirstString = [var stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[var substringToIndex:1].uppercaseString];
+                result = [result stringByAppendingFormat:@"\n%@", [temp stringByReplacingOccurrencesOfString:@"<method>" withString:capitalizedFirstString]];
             } else if ([type isEqualToString:@"UIImageView"]) {
                 
                 result = [result stringByAppendingFormat:@"\n%@", [self.imageViewString stringByReplacingOccurrencesOfString:swap withString:var]];
@@ -187,7 +189,7 @@ static GQHLazyLoadCreator *singleton = nil;
     
     if (!_buttonString) {
         
-        _buttonString = @"- (UIButton *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [UIButton buttonWithType:UIButtonTypeCustom];\n        _<name>.backgroundColor = [UIColor whiteColor];\n        _<name>.titleLabel.font = [UIFont systemFontOfSize:16.0f];\n        \n        [_<name> setImage:nil forState:UIControlStateNormal];\n        [_<name> setBackgroundImage:nil forState:UIControlStateNormal];\n        [_<name> setTitle:NSLocalizedString(@\"Button\", @\"Button\") forState:UIControlStateNormal];\n        [_<name> setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];\n        [_<name> addTarget:self action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];\n        \n        _<name>.layer.cornerRadius = 0.0f;\n        _<name>.layer.masksToBounds = YES;\n    }\n    \n    return _<name>;\n}\n";
+        _buttonString = @"- (UIButton *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [UIButton buttonWithType:UIButtonTypeCustom];\n        _<name>.backgroundColor = [UIColor whiteColor];\n        _<name>.titleLabel.font = [UIFont systemFontOfSize:16.0f];\n        \n        [_<name> setImage:nil forState:UIControlStateNormal];\n        [_<name> setBackgroundImage:nil forState:UIControlStateNormal];\n        [_<name> setTitle:NSLocalizedString(@\"Button\", @\"Button\") forState:UIControlStateNormal];\n        [_<name> setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];\n        [_<name> addTarget:self action:@selector(didClick<method>:) forControlEvents:UIControlEventTouchUpInside];\n        \n        _<name>.layer.cornerRadius = 0.0f;\n        _<name>.layer.masksToBounds = YES;\n    }\n    \n    return _<name>;\n}\n";
     }
     
     return _buttonString;
