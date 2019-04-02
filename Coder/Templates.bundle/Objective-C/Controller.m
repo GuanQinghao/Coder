@@ -125,7 +125,7 @@
     NSMutableDictionary *data = [NSMutableDictionary dictionary];
     
     // 视图cell
-    <prefix><name>ViewCell *cell = [<prefix><name>ViewCell qh_tableView:tableView cellWithData:data];
+    <prefix><name>TableViewCell *cell = [<prefix><name>TableViewCell qh_tableView:tableView cellWithData:data];
     cell.qh_delegate = self;
     
     return cell;
@@ -161,7 +161,7 @@
     NSMutableDictionary *data = [NSMutableDictionary dictionary];
     
     // 自定义头视图
-    <prefix><name>ViewHeaderView *headerView = [<prefix><name>ViewHeaderView qh_tableView:tableView headerViewWithData:data];
+    <prefix><name>TableViewHeaderView *headerView = [<prefix><name>TableViewHeaderView qh_tableView:tableView headerViewWithData:data];
     headerView.qh_delegate = self;
     
     return headerView;
@@ -182,7 +182,7 @@
     NSMutableDictionary *data = [NSMutableDictionary dictionary];
     
     // 自定义尾视图
-    <prefix><name>ViewFooterView *footerView = [<prefix><name>ViewFooterView qh_tableView:tableView footerViewWithData:data];
+    <prefix><name>TableViewFooterView *footerView = [<prefix><name>TableViewFooterView qh_tableView:tableView footerViewWithData:data];
     footerView.qh_delegate = self;
     
     return footerView;

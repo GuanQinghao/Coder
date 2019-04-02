@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_END
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface <prefix><name>ViewCell : UITableViewCell
+@interface <prefix><name>TableViewCell : UITableViewCell
 
 /// 视图代理
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_END
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface <prefix><name>ViewHeaderView : UITableViewHeaderFooterView
+@interface <prefix><name>TableViewHeaderView : UITableViewHeaderFooterView
 
 /// 视图代理
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_END
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface <prefix><name>ViewFooterView : UITableViewHeaderFooterView
+@interface <prefix><name>TableViewFooterView : UITableViewHeaderFooterView
 
 /// 视图代理
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;

@@ -90,22 +90,22 @@
 #pragma mark - <#comment#>
 #pragma mark -
 
-@interface <prefix><name>ViewCell ()
+@interface <prefix><name>TableViewCell ()
 
 @end
 
-@implementation <prefix><name>ViewCell
+@implementation <prefix><name>TableViewCell
 
 #pragma mark - Lifecycle
 /// 根据视图数据创建视图
 + (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(id)data {
     DLog();
     
-    static NSString *identifier = @"<prefix><name>ViewCell";
-    <prefix><name>ViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    static NSString *identifier = @"<prefix><name>TableViewCell";
+    <prefix><name>TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         
-        cell = [[<prefix><name>ViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[<prefix><name>TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
@@ -173,22 +173,22 @@
 #pragma mark - <#comment#>
 #pragma mark -
 
-@interface <prefix><name>ViewHeaderView ()
+@interface <prefix><name>TableViewHeaderView ()
 
 @end
 
-@implementation <prefix><name>ViewHeaderView
+@implementation <prefix><name>TableViewHeaderView
 
 #pragma mark - Lifecycle
 /// 根据视图数据创建视图
 + (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(id)data {
     DLog();
     
-    static NSString *identifier = @"<prefix><name>ViewHeaderView";
-    <prefix><name>ViewHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    static NSString *identifier = @"<prefix><name>TableViewHeaderView";
+    <prefix><name>TableViewHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
     if (!headerView) {
         
-        headerView = [[<prefix><name>ViewHeaderView alloc] initWithReuseIdentifier:identifier];
+        headerView = [[<prefix><name>TableViewHeaderView alloc] initWithReuseIdentifier:identifier];
     }
     
     // 根据视图数据更新视图
@@ -252,22 +252,22 @@
 #pragma mark - <#comment#>
 #pragma mark -
 
-@interface <prefix><name>ViewFooterView ()
+@interface <prefix><name>TableViewFooterView ()
 
 @end
 
-@implementation <prefix><name>ViewFooterView
+@implementation <prefix><name>TableViewFooterView
 
 #pragma mark - Lifecycle
 /// 根据视图数据创建视图
 + (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(id)data {
     DLog();
     
-    static NSString *identifier = @"<prefix><name>ViewFooterView";
-    <prefix><name>ViewFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    static NSString *identifier = @"<prefix><name>TableViewFooterView";
+    <prefix><name>TableViewFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
     if (!footerView) {
         
-        footerView = [[<prefix><name>ViewFooterView alloc] initWithReuseIdentifier:identifier];
+        footerView = [[<prefix><name>TableViewFooterView alloc] initWithReuseIdentifier:identifier];
     }
     
     // 根据视图数据更新视图
@@ -294,6 +294,12 @@
 
 /// 布局自定义子视图
 - (void)layoutSubviews {
+    DLog();
+    
+}
+
+/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+- (void)autoLayoutWithConstraints {
     DLog();
     
 }
