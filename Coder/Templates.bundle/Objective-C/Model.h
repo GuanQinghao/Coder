@@ -22,9 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// 模型类
 //@property (nonatomic, strong) NSArray<GQHBookModel *> *qh_books;
 
-NS_ASSUME_NONNULL_END
-
-
 /// 增-
 + (void)qh_create<name>WithParameters:(NSDictionary *)parameters success:(void(^)(BOOL status, NSNumber *code, NSString *message))success failure:(void(^)(NSNumber *code, NSString *message, NSError *error))failure;
 
@@ -41,3 +38,5 @@ NS_ASSUME_NONNULL_END
 + (void)qh_fetch<name>sWithParameters:(NSDictionary *)parameters success:(void(^)(BOOL status, NSNumber *code, NSString *message, NSArray<<prefix><name>Model *> *models))success failure:(void(^)(NSNumber *code, NSString *message, NSError *error))failure;
 
 @end
+
+NS_ASSUME_NONNULL_END
