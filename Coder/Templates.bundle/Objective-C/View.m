@@ -22,7 +22,7 @@
 #pragma mark - Lifecycle
 /// 初始化控制器自定义根视图
 - (instancetype)initWithFrame:(CGRect)frame {
-    DLog();
+    DLog(@"");
     
     if (self = [super initWithFrame:frame]) {
         
@@ -39,13 +39,13 @@
 /// 布局子视图 -> frame计算
 - (void)layoutSubviews {
     [super layoutSubviews];
-    DLog();
+    DLog(@"");
     
 }
 
 /// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
 - (void)autoLayoutWithConstraints {
-    DLog();
+    DLog(@"");
     
     [self addSubview:self.qh_tableView];
     [self.qh_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -99,7 +99,7 @@
 #pragma mark - Lifecycle
 /// 根据视图数据创建视图
 + (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(id)data {
-    DLog();
+    DLog(@"");
     
     static NSString *identifier = @"<prefix><name>TableViewCell";
     <prefix><name>TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -117,7 +117,7 @@
 
 /// 初始化列表自定义行视图
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    DLog();
+    DLog(@"");
     
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
@@ -134,13 +134,13 @@
 /// 布局子视图 -> frame计算
 - (void)layoutSubviews {
     [super layoutSubviews];
-    DLog();
+    DLog(@"");
     
 }
 
 /// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
 - (void)autoLayoutWithConstraints {
-    DLog();
+    DLog(@"");
     
 }
 
@@ -151,7 +151,7 @@
 #pragma mark - PrivateMethod
 /// 根据视图数据更新视图
 - (void)updateCellWithData:(id)data {
-    DLog();
+    DLog(@"");
     
 }
 
@@ -182,7 +182,7 @@
 #pragma mark - Lifecycle
 /// 根据视图数据创建视图
 + (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(id)data {
-    DLog();
+    DLog(@"");
     
     static NSString *identifier = @"<prefix><name>TableViewHeaderView";
     <prefix><name>TableViewHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
@@ -199,9 +199,12 @@
 
 /// 初始化列表组自定义头视图
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
-    DLog();
+    DLog(@"");
     
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
+        
+        // 初始化自动布局
+        [self autoLayoutWithConstraints];
         
         // 其他初始化
         
@@ -213,13 +216,13 @@
 /// 布局子视图 -> frame计算
 - (void)layoutSubviews {
     [super layoutSubviews];
-    DLog();
+    DLog(@"");
     
 }
 
 /// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
 - (void)autoLayoutWithConstraints {
-    DLog();
+    DLog(@"");
     
 }
 
@@ -230,7 +233,7 @@
 #pragma mark - PrivateMethod
 /// 根据视图数据更新视图
 - (void)updateHeaderViewWithData:(id)data {
-    DLog();
+    DLog(@"");
     
 }
 
@@ -261,7 +264,7 @@
 #pragma mark - Lifecycle
 /// 根据视图数据创建视图
 + (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(id)data {
-    DLog();
+    DLog(@"");
     
     static NSString *identifier = @"<prefix><name>TableViewFooterView";
     <prefix><name>TableViewFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
@@ -278,7 +281,7 @@
 
 /// 初始化列表组自定义尾视图
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
-    DLog();
+    DLog(@"");
     
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         
@@ -294,13 +297,13 @@
 
 /// 布局自定义子视图
 - (void)layoutSubviews {
-    DLog();
+    DLog(@"");
     
 }
 
 /// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
 - (void)autoLayoutWithConstraints {
-    DLog();
+    DLog(@"");
     
 }
 
@@ -311,7 +314,7 @@
 #pragma mark - PrivateMethod
 /// 根据视图数据更新视图
 - (void)updateFooterViewWithData:(id)data {
-    DLog();
+    DLog(@"");
     
 }
 
