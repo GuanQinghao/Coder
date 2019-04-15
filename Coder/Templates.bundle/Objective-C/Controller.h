@@ -5,7 +5,7 @@
 //  Copyright © <year> GuanQinghao. All rights reserved.
 //
 
-#import "GQHBaseController.h"
+#import "GQHBaseViewController.h"
 
 
 #pragma mark -
@@ -14,7 +14,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface <prefix><name>Controller : GQHBaseController
+@interface <prefix><name>Controller : GQHBaseViewController
 
 @end
 
