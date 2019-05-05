@@ -42,7 +42,7 @@
 #pragma mark - Lifecycle
 /// 1.加载系统根视图或自定义根视图
 - (void)loadView {
-    DLog(@"");
+    NSLog(@"");
     
     self.view = self.rootView;
 }
@@ -50,76 +50,76 @@
 /// 2.视图加载完成
 - (void)viewDidLoad {
     [super viewDidLoad];
-    DLog(@"");
+    NSLog(@"");
     
 }
 
 /// 3.视图即将显示
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    DLog(@"");
+    NSLog(@"");
     
 }
 
 /// 4.视图即将布局其子视图
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    DLog(@"");
+    NSLog(@"");
     
 }
 
 /// 5.视图已经布局其子视图
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    DLog(@"");
+    NSLog(@"");
     
 }
 
 /// 6.视图已经显示
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    DLog(@"");
+    NSLog(@"");
     
 }
 
 /// 7.视图即将消失
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    DLog(@"");
+    NSLog(@"");
     
 }
 
 /// 8.视图已经消失
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    DLog(@"");
+    NSLog(@"");
     
 }
 
 /// 9.视图被销毁
 - (void)dealloc {
-    DLog(@"");
+    NSLog(@"");
     
 }
 
 #pragma mark - UITableViewDataSource
 /// 列表的总组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    DLog(@"");
+    NSLog(@"");
     
     return 1;
 }
 
 /// 列表的各组行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    DLog(@"");
+    NSLog(@"");
     
     return 5;
 }
 
 /// 列表的各行单元格视图
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DLog(@"");
+    NSLog(@"");
     
     // 数据data
     NSMutableDictionary *data = [NSMutableDictionary dictionary];
@@ -134,28 +134,28 @@
 #pragma mark - UITableViewDelegate
 /// 列表的各行高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DLog(@"");
+    NSLog(@"");
     
     return 50.0f;
 }
 
 /// 选中列表的某行单元格
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DLog(@"");
+    NSLog(@"");
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 /// 列表的组头视图高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    DLog(@"");
+    NSLog(@"");
     
     return CGFLOAT_MIN;
 }
 
 /// 列表的组自定义头视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    DLog(@"");
+    NSLog(@"");
     
     // 头视图数据data
     NSMutableDictionary *data = [NSMutableDictionary dictionary];
@@ -169,14 +169,14 @@
 
 /// 列表的组尾视图高度
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    DLog(@"");
+    NSLog(@"");
     
     return CGFLOAT_MIN;
 }
 
 /// 列表的组自定义尾视图
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    DLog(@"");
+    NSLog(@"");
     
     // 尾视图数据data
     NSMutableDictionary *data = [NSMutableDictionary dictionary];
