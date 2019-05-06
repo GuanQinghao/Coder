@@ -8,12 +8,11 @@
 #import "GQHBaseViewController.h"
 
 
-#pragma mark -
-#pragma mark - <#comment#>
-#pragma mark -
-
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ <#Description#>
+ */
 @interface <prefix><name>Controller : GQHBaseViewController
 
 @end

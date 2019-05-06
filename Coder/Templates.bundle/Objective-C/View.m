@@ -10,8 +10,6 @@
 
 
 #pragma mark -
-#pragma mark - 自定义根视图
-#pragma mark -
 
 @interface <prefix><name>View ()
 
@@ -20,7 +18,12 @@
 @implementation <prefix><name>View
 
 #pragma mark - Lifecycle
-/// 初始化控制器自定义根视图
+/**
+ 初始化控制器自定义根视图
+ 
+ @param frame 自定义根视图的frame
+ @return 自定义根视图
+ */
 - (instancetype)initWithFrame:(CGRect)frame {
     NSLog(@"");
     
@@ -36,14 +39,18 @@
     return self;
 }
 
-/// 布局子视图 -> frame计算
+/**
+ 布局子视图 -> frame计算
+ */
 - (void)layoutSubviews {
     [super layoutSubviews];
     NSLog(@"");
     
 }
 
-/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+/**
+ 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+ */
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
     
@@ -64,7 +71,6 @@
 #pragma mark - Setter
 
 #pragma mark - Getter
-/// 列表视图
 - (UITableView *)qh_tableView {
     
     if (!_qh_tableView) {
@@ -87,8 +93,6 @@
 
 
 #pragma mark -
-#pragma mark - <#comment#>
-#pragma mark -
 
 @interface <prefix><name>TableViewCell ()
 
@@ -97,7 +101,13 @@
 @implementation <prefix><name>TableViewCell
 
 #pragma mark - Lifecycle
-/// 根据视图数据创建视图
+/**
+ 根据视图数据创建列表视图的单元格视图
+ 
+ @param tableView 列表视图
+ @param data 列表单元格视图数据
+ @return 自定义单元格视图
+ */
 + (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(id)data {
     NSLog(@"");
     
@@ -115,7 +125,13 @@
     return cell;
 }
 
-/// 初始化列表自定义行视图
+/**
+ 初始化列表自定义行视图
+ 
+ @param style 列表自定义行视图样式
+ @param reuseIdentifier 列表行视图复用标识
+ @return 列表自定义行视图
+ */
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     NSLog(@"");
     
@@ -131,14 +147,18 @@
     return self;
 }
 
-/// 布局子视图 -> frame计算
+/**
+ 布局子视图 -> frame计算
+ */
 - (void)layoutSubviews {
     [super layoutSubviews];
     NSLog(@"");
     
 }
 
-/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+/**
+ 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+ */
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
     
@@ -149,7 +169,11 @@
 #pragma mark - TargetMethod
 
 #pragma mark - PrivateMethod
-/// 根据视图数据更新视图
+/**
+ 根据视图数据更新视图
+ 
+ @param data 列表行视图数据
+ */
 - (void)updateCellWithData:(id)data {
     NSLog(@"");
     
@@ -170,8 +194,6 @@
 
 
 #pragma mark -
-#pragma mark - <#comment#>
-#pragma mark -
 
 @interface <prefix><name>TableViewHeaderView ()
 
@@ -180,7 +202,13 @@
 @implementation <prefix><name>TableViewHeaderView
 
 #pragma mark - Lifecycle
-/// 根据视图数据创建视图
+/**
+ 根据视图数据创建列表视图的头视图
+ 
+ @param tableView 列表视图
+ @param data 列表头视图数据
+ @return 自定义列表头视图
+ */
 + (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(id)data {
     NSLog(@"");
     
@@ -197,7 +225,12 @@
     return headerView;
 }
 
-/// 初始化列表组自定义头视图
+/**
+ 初始化列表自定义头视图
+ 
+ @param reuseIdentifier 列表头视图复用标识
+ @return 列表自定义头视图
+ */
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     NSLog(@"");
     
@@ -213,14 +246,18 @@
     return self;
 }
 
-/// 布局子视图 -> frame计算
+/**
+ 布局子视图 -> frame计算
+ */
 - (void)layoutSubviews {
     [super layoutSubviews];
     NSLog(@"");
     
 }
 
-/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+/**
+ 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+ */
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
     
@@ -231,7 +268,11 @@
 #pragma mark - TargetMethod
 
 #pragma mark - PrivateMethod
-/// 根据视图数据更新视图
+/**
+ 根据视图数据更新视图
+ 
+ @param data 列表头视图数据
+ */
 - (void)updateHeaderViewWithData:(id)data {
     NSLog(@"");
     
@@ -252,8 +293,6 @@
 
 
 #pragma mark -
-#pragma mark - <#comment#>
-#pragma mark -
 
 @interface <prefix><name>TableViewFooterView ()
 
@@ -262,7 +301,13 @@
 @implementation <prefix><name>TableViewFooterView
 
 #pragma mark - Lifecycle
-/// 根据视图数据创建视图
+/**
+ 根据视图数据创建列表视图的尾视图
+ 
+ @param tableView 列表视图
+ @param data 列表尾视图数据
+ @return 自定义尾视图
+ */
 + (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(id)data {
     NSLog(@"");
     
@@ -279,7 +324,12 @@
     return footerView;
 }
 
-/// 初始化列表组自定义尾视图
+/**
+ 初始化列表自定义尾视图
+ 
+ @param reuseIdentifier 列表尾视图复用标识
+ @return 列表自定义尾视图
+ */
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     NSLog(@"");
     
@@ -295,13 +345,18 @@
     return self;
 }
 
-/// 布局自定义子视图
+/**
+ 布局子视图 -> frame计算
+ */
 - (void)layoutSubviews {
+    [super layoutSubviews];
     NSLog(@"");
     
 }
 
-/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+/**
+ 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+ */
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
     
@@ -313,6 +368,11 @@
 
 #pragma mark - PrivateMethod
 /// 根据视图数据更新视图
+/**
+ 根据视图数据更新视图
+ 
+ @param data 列表尾视图数据
+ */
 - (void)updateFooterViewWithData:(id)data {
     NSLog(@"");
     
