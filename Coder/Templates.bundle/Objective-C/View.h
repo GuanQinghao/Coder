@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_END
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- 列表视图的自定义单元格视图
+ 列表视图的自定义行视图
  */
 @interface <prefix><name>TableViewCell : UITableViewCell
 
@@ -64,13 +64,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) id qh_data;
 
 /**
- 根据视图数据创建列表视图的单元格视图
+ 根据视图数据创建列表视图的行视图
  
  @param tableView 列表视图
- @param data 列表单元格视图数据
- @return 自定义单元格视图
+ @param data 列表行视图数据
+ @return 自定义行视图
  */
-+ (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(id)data;
++ (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(nullable id)data;
 
 @end
 
@@ -103,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param data 列表头视图数据
  @return 自定义头视图
  */
-+ (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(id)data;
++ (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(nullable id)data;
 
 @end
 
@@ -136,7 +136,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param data 列表尾视图数据
  @return 自定义尾视图
  */
-+ (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(id)data;
++ (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(nullable id)data;
 
 @end
 

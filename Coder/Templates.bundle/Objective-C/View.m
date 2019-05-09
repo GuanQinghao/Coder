@@ -101,13 +101,6 @@
 @implementation <prefix><name>TableViewCell
 
 #pragma mark - Lifecycle
-/**
- 根据视图数据创建列表视图的单元格视图
- 
- @param tableView 列表视图
- @param data 列表单元格视图数据
- @return 自定义单元格视图
- */
 + (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(id)data {
     NSLog(@"");
     
@@ -202,13 +195,6 @@
 @implementation <prefix><name>TableViewHeaderView
 
 #pragma mark - Lifecycle
-/**
- 根据视图数据创建列表视图的头视图
- 
- @param tableView 列表视图
- @param data 列表头视图数据
- @return 自定义列表头视图
- */
 + (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(id)data {
     NSLog(@"");
     
@@ -301,13 +287,6 @@
 @implementation <prefix><name>TableViewFooterView
 
 #pragma mark - Lifecycle
-/**
- 根据视图数据创建列表视图的尾视图
- 
- @param tableView 列表视图
- @param data 列表尾视图数据
- @return 自定义尾视图
- */
 + (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(id)data {
     NSLog(@"");
     
@@ -367,7 +346,6 @@
 #pragma mark - TargetMethod
 
 #pragma mark - PrivateMethod
-/// 根据视图数据更新视图
 /**
  根据视图数据更新视图
  

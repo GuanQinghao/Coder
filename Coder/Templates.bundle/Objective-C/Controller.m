@@ -16,8 +16,8 @@
 #pragma mark Controller
 #import "<prefix><name>Controller.h"
 
-#pragma mark -
 
+#pragma mark -
 
 @interface <prefix><name>Controller () <UITableViewDelegate, UITableViewDataSource, <prefix><name>ViewDelegate>
 
@@ -151,11 +151,11 @@
 }
 
 /**
- 列表视图的各行单元格视图
+ 列表视图的行视图
  
  @param tableView 列表视图
  @param indexPath 列表视图某行的索引值
- @return 列表视图某行单元格的视图
+ @return 列表视图某行视图
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"");
@@ -176,7 +176,7 @@
  
  @param tableView 列表视图
  @param indexPath 列表视图某行的索引值
- @return 列表视图某行单元格的高度值
+ @return 列表视图某行视图的高度值
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"");
@@ -185,10 +185,10 @@
 }
 
 /**
- 选中列表视图的某行单元格
+ 选中列表视图的某行视图
  
  @param tableView 列表视图
- @param indexPath 选中列表视图的某行单元格的索引值
+ @param indexPath 选中列表视图的某行视图的索引值
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"");
