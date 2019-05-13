@@ -452,7 +452,7 @@
 				CODE_SIGN_ENTITLEMENTS = Coder/Coder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = JM52XZKNAA;
+				DEVELOPMENT_TEAM = 2J9QN3UUQ5;
 				INFOPLIST_FILE = Coder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -470,7 +470,7 @@
 				CODE_SIGN_ENTITLEMENTS = Coder/Coder.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = JM52XZKNAA;
+				DEVELOPMENT_TEAM = 2J9QN3UUQ5;
 				INFOPLIST_FILE = Coder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
