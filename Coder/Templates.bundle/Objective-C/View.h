@@ -35,6 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
 
 /**
+ 视图数据
+ */
+@property (nonatomic, strong) id qh_data;
+
+/**
  列表视图
  */
 @property (nonatomic, strong) UITableView *qh_tableView;

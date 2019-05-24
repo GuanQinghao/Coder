@@ -276,7 +276,7 @@
     if (!_rootView) {
         
         _rootView = [[<prefix><name>View alloc] initWithFrame:UIScreen.mainScreen.bounds];
-        _rootView.backgroundColor = UIColor.whiteColor;
+        _rootView.backgroundColor = [UIColor whiteColor];
         _rootView.qh_tableView.delegate = self;
         _rootView.qh_tableView.dataSource = self;
         _rootView.qh_delegate = self;

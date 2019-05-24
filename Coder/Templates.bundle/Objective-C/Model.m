@@ -39,23 +39,52 @@
 
 
 #pragma mark -
-
-+ (void)qh_create<name>WithParameters:(id)parameters handler:(void (^)(BOOL, NSNumber * _Nonnull, NSString * _Nonnull, id _Nonnull))handler {
+/**
+ 增-
+ 
+ @param parameters 请求参数
+ @param handler 请求结果回调处理
+ */
++ (void)qh_create<name>WithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
+/**
+ 查-
+ 
+ @param parameters 请求参数
+ @param handler 请求结果回调处理
+ */
 + (void)qh_read<name>WithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
+/**
+ 改-
+ 
+ @param parameters 请求参数
+ @param handler 请求结果回调处理
+ */
 + (void)qh_update<name>WithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
+/**
+ 删-
+ 
+ @param parameters 请求参数
+ @param handler 请求结果回调处理
+ */
 + (void)qh_delete<name>WithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
+/**
+ 列表-
+ 
+ @param parameters 请求参数
+ @param handler 请求结果回调处理
+ */
 + (void)qh_fetch<name>sWithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }

@@ -68,8 +68,24 @@
 #pragma mark - TargetMethod
 
 #pragma mark - PrivateMethod
+/**
+ 根据视图数据更新视图
+ 
+ @param data 视图数据
+ */
+- (void)updateRootViewWithData:(id)data {
+    NSLog(@"");
+    
+}
 
 #pragma mark - Setter
+- (void)setQh_data:(id)qh_data {
+    
+    _qh_data = qh_data;
+    
+    // 根据视图数据更新视图
+    [self updateRootViewWithData:qh_data];
+}
 
 #pragma mark - Getter
 - (UITableView *)qh_tableView {
@@ -77,9 +93,13 @@
     if (!_qh_tableView) {
         
         _qh_tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-        _qh_tableView.backgroundColor = UIColor.whiteColor;
+        _qh_tableView.backgroundColor = [UIColor whiteColor];
         _qh_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _qh_tableView.showsVerticalScrollIndicator = NO;
+        
+        // 列表自动计算行高
+        _qh_tableView.estimatedRowHeight = 200.0f;
+        _qh_tableView.rowHeight = UITableViewAutomaticDimension;
         
         if (@available(iOS 11.0, *)) {
             
@@ -102,6 +122,13 @@
 @implementation <prefix><name>TableViewCell
 
 #pragma mark - Lifecycle
+/**
+ 根据视图数据创建列表视图的行视图
+ 
+ @param tableView 列表视图
+ @param data 列表行视图数据
+ @return 自定义行视图
+ */
 + (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(id)data {
     NSLog(@"");
     
@@ -196,6 +223,13 @@
 @implementation <prefix><name>TableViewHeaderView
 
 #pragma mark - Lifecycle
+/**
+ 根据视图数据创建列表视图的头视图
+ 
+ @param tableView 列表视图
+ @param data 列表头视图数据
+ @return 自定义头视图
+ */
 + (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(id)data {
     NSLog(@"");
     
@@ -288,6 +322,13 @@
 @implementation <prefix><name>TableViewFooterView
 
 #pragma mark - Lifecycle
+/**
+ 根据视图数据创建列表视图的尾视图
+ 
+ @param tableView 列表视图
+ @param data 列表尾视图数据
+ @return 自定义尾视图
+ */
 + (instancetype)qh_tableView:(UITableView *)tableView footerViewWithData:(id)data {
     NSLog(@"");
     
