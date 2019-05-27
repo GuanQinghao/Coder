@@ -40,6 +40,7 @@
  1.加载系统根视图或自定义根视图
  */
 - (void)loadView {
+    [super loadView];
     NSLog(@"");
     
     self.view = self.rootView;
