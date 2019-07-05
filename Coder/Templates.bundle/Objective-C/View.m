@@ -49,7 +49,7 @@
 }
 
 /**
- 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+ 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不要计算)
  */
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
@@ -178,7 +178,7 @@
 }
 
 /**
- 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+ 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不要计算)
  */
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
@@ -277,7 +277,7 @@
 }
 
 /**
- 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+ 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不要计算)
  */
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
@@ -376,7 +376,7 @@
 }
 
 /**
- 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+ 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不要计算)
  */
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
