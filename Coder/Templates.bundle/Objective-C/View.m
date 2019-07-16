@@ -141,7 +141,7 @@
     }
     
     // 根据视图数据更新视图
-    [cell updateCellWithData:data];
+    cell.qh_data = data;
     
     return cell;
 }
@@ -241,7 +241,7 @@
     }
     
     // 根据视图数据更新视图
-    [headerView updateHeaderViewWithData:data];
+    headerView.qh_data = data;
     
     return headerView;
 }
@@ -340,7 +340,7 @@
     }
     
     // 根据视图数据更新视图
-    [footerView updateFooterViewWithData:data];
+    footerView.qh_data = data;
     
     return footerView;
 }

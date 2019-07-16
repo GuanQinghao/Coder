@@ -89,4 +89,8 @@
     
 }
 
+#pragma mark - Setter
+
+#pragma mark - Getter
+
 @end
