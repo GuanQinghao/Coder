@@ -96,6 +96,7 @@
         _qh_tableView.backgroundColor = [UIColor whiteColor];
         _qh_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _qh_tableView.showsVerticalScrollIndicator = NO;
+        _qh_tableView.showsHorizontalScrollIndicator = NO;
         
         // 列表自动计算行高
         _qh_tableView.estimatedRowHeight = 200.0f;
