@@ -12,6 +12,21 @@
 @implementation <prefix><name>Model
 
 /**
+ 初始化Mock数据
+ 
+ @return Mock数据
+ */
+- (instancetype)init {
+    
+    if (self = [super init]) {
+        
+        // mock
+        
+    }
+    return self;
+}
+
+/**
  模型字段映射
  
  @return 模型字段映射字典
