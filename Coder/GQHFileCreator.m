@@ -10,8 +10,6 @@
 
 
 #pragma mark -
-#pragma mark - <#comment#>
-#pragma mark -
 
 @interface GQHFileCreator ()
 

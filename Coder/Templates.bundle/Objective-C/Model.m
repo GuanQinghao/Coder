@@ -8,6 +8,8 @@
 #import "<prefix><name>Model.h"
 #import "GQHHeader.h"
 
+/// 本地归档文件名
+static NSString * const kFileName = @"";
 
 @implementation <prefix><name>Model
 
@@ -52,6 +54,57 @@
              };
 }
 
+
+/**
+ 获取本地文件保存路径
+ 
+ @param file 文件名
+ @return 本地文件保存路径
+ */
+- (NSString *)filePathWith:(NSString * _Nonnull )file {
+    
+    // 文件夹路径
+    NSString *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSLog(@"本地文件保存路径:%@", filePath);
+    
+    return [NSString stringWithFormat:@"%@/%@", filePath, file];
+}
+
+/**
+ 编码解档
+ 
+ @param aDecoder 编码器
+ @return 自定义对象
+ */
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    
+    if (self = [super init]) {
+        
+        self.qh_ID = [aDecoder decodeObjectForKey:@"qh_ID"];
+    }
+    
+    return self;
+}
+
+/**
+ 编码归档
+ 
+ @param aCoder 编码器
+ */
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    
+    [aCoder encodeObject:self.qh_ID forKey:@"qh_ID"];
+}
+
+/**
+ 安全编码
+ 
+ @return 是否支持
+ */
++ (BOOL)supportsSecureCoding {
+    
+    return YES;
+}
 
 #pragma mark -
 /**

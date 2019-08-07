@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  <#Description#>
  */
-@interface <prefix><name>Model : GQHBaseModel
+@interface <prefix><name>Model : GQHBaseModel <NSSecureCoding>
 
 /**
  ID

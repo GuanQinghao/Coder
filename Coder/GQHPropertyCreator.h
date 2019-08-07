@@ -9,13 +9,24 @@
 #import <Foundation/Foundation.h>
 
 
-#pragma mark -
-#pragma mark - <#comment#>
-#pragma mark -
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GQHPropertyCreator : NSObject
+
+/**
+ 生成代码文件的单例
+ 
+ @return 单例
+ */
++ (instancetype)creator;
+
+/**
+ 根据JSON字符串生成属性
+
+ @param JSONString JSON 字符串
+ @return 属性列表
+ */
+- (NSString *)createCodeWith:(NSString *)JSONString;
 
 @end
 

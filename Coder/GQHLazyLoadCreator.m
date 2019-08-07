@@ -10,8 +10,6 @@
 
 
 #pragma mark -
-#pragma mark - <#comment#>
-#pragma mark -
 
 @interface GQHLazyLoadCreator ()
 
@@ -45,7 +43,6 @@
 @property (nonatomic, copy) NSString *sliderString;
 
 @end
-
 
 @implementation GQHLazyLoadCreator
 
