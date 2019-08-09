@@ -134,7 +134,8 @@
         return;
     }
     
-    self.outputTextView.string = [[GQHLazyLoadCreator creator] createCodeWith:self.JSONString];
+    // 生成属性列表
+    self.outputTextView.string = [[GQHPropertyCreator creator] createCodeWith:self.JSONString];
     
     if (!self.outputTextView.string.length) {
         
@@ -157,6 +158,7 @@
         return;
     }
     
+    // 生成懒加载代码
     self.outputTextView.string = [[GQHLazyLoadCreator creator] createCodeWith:self.propertiesName];
     
     if (!self.outputTextView.string.length) {
@@ -173,6 +175,7 @@
  */
 - (IBAction)chooseDirectory:(id)sender {
     
+    // 弹出面板
     NSOpenPanel *panel = [[NSOpenPanel alloc] init];
     panel.canCreateDirectories = YES;
     panel.canChooseDirectories = YES;
@@ -271,11 +274,15 @@
     // 获取JSON字符串
     self.JSONString = [self.inputTextView.textStorage string];
     
-    if (![NSJSONSerialization isValidJSONObject:self.JSONString]) {
-
+    // JSON字符串是否有效
+    NSData *JSONData = [self.JSONString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:&error];
+    if (error) {
+        
         alert.informativeText = @"Input correct JSON string.";
         [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
-
+        
         return NO;
     }
     

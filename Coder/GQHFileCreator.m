@@ -13,11 +13,19 @@
 
 @interface GQHFileCreator ()
 
-/// 模版-分隔符
+/**
+ 模版-分隔符
+ */
 @property (nonatomic, strong) NSArray *separators;
-/// 模板-标记符(旧值)
+
+/**
+ 模板-标记符(旧值)
+ */
 @property (nonatomic, strong) NSMutableDictionary *marker;
-/// 模版-替换字符(新值)
+
+/**
+ 模版-替换字符(新值)
+ */
 @property (nonatomic, strong) NSMutableDictionary *substitute;
 
 @end
@@ -26,6 +34,12 @@
 
 /// 单例
 static GQHFileCreator *singleton = nil;
+
+/**
+ 单例
+
+ @return 单例
+ */
 + (instancetype)creator {
     
     static dispatch_once_t onceToken;
@@ -42,7 +56,14 @@ static GQHFileCreator *singleton = nil;
     return  [[self class] creator];
 }
 
-/// 根据模版生成Controller和View文件
+/**
+ 根据模版生成Controller和View文件
+
+ @param classesName 类名
+ @param prefix 文件前缀
+ @param path 文件保存路径
+ @return 生成代码是否成功
+ */
 - (BOOL)createControllerFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
     
     // 获取模版文件
@@ -130,7 +151,14 @@ static GQHFileCreator *singleton = nil;
     return YES;
 }
 
-/// 根据模版生成Model文件
+/**
+ 根据模版生成Model文件
+ 
+ @param classesName 类名
+ @param prefix 文件前缀
+ @param path 文件保存路径
+ @return 生成代码是否成功
+ */
 - (BOOL)createModelFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
     
     // 获取模版文件
@@ -186,7 +214,14 @@ static GQHFileCreator *singleton = nil;
 }
 
 #pragma mark - PrivateMethod
-/// 根据分隔符解析输入的类名
+
+/**
+ 根据分隔符解析输入的类名
+
+ @param input 输入的类名字符串
+ @param separator 分割符
+ @return 解析成功的类名数组
+ */
 - (NSMutableArray *)fetchClassNamesWithString:(NSString *)input bySeparator:(NSArray *)separator {
     
     NSMutableArray *classNames = [NSMutableArray array];
@@ -207,7 +242,14 @@ static GQHFileCreator *singleton = nil;
     return classNames;
 }
 
-/// 根据路径、文件名、文件内容创建文件夹和文件
+/**
+ 根据路径、文件名、文件内容创建文件夹和文件
+
+ @param path 文件路径
+ @param name 文件名
+ @param data 文件内容
+ @return 创建文件是否成功
+ */
 - (BOOL)createFileAtPath:(NSString *)path withName:(NSString *)name contents:(NSData *)data {
     
     NSFileManager *manager = [NSFileManager defaultManager];
@@ -226,7 +268,14 @@ static GQHFileCreator *singleton = nil;
     return [[NSFileManager defaultManager] createFileAtPath:filePath contents:data attributes:nil];
 }
 
-/// 替换指定字符串
+/**
+ 替换文本内容中的指定字符串
+
+ @param string 文本内容
+ @param marker 需要替换的字符串
+ @param substitute 新字符串
+ @return 替换后的文本内容
+ */
 - (NSMutableString *)replaceString:(NSMutableString *)string Marker:(NSDictionary *)marker withSubstitute:(NSDictionary *)substitute {
     
     NSMutableString *result = string;
@@ -248,7 +297,12 @@ static GQHFileCreator *singleton = nil;
     return result;
 }
 
-/// 根据路径返回模版内容
+/**
+ 根据路径返回模版内容
+
+ @param path 模版文件路径
+ @return 模版内容
+ */
 - (NSMutableString *)readTemplateContentsWithPath:(NSString *)path {
     
     NSError *error;

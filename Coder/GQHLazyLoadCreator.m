@@ -13,33 +13,74 @@
 
 @interface GQHLazyLoadCreator ()
 
-/// 标签懒加载代码块
+/**
+ 标签懒加载代码块
+ */
 @property (nonatomic, copy) NSString *labelString;
-/// 单行输入框懒加载代码块
+
+/**
+ 单行输入框懒加载代码块
+ */
 @property (nonatomic, copy) NSString *textFieldString;
-/// 按钮懒加载代码块
+
+/**
+ 按钮懒加载代码块
+ */
 @property (nonatomic, copy) NSString *buttonString;
-/// 图片视图懒加载代码块
+
+/**
+ 图片视图懒加载代码块
+ */
 @property (nonatomic, copy) NSString *imageViewString;
-/// 视图懒加载代码块
+
+/**
+ 视图懒加载代码块
+ */
 @property (nonatomic, copy) NSString *viewString;
-/// 滚动视图懒加载代码块
+
+/**
+ 滚动视图懒加载代码块
+ */
 @property (nonatomic, copy) NSString *scrollViewString;
-/// 多行输入框懒加载代码块
+
+/**
+ 多行输入框懒加载代码块
+ */
 @property (nonatomic, copy) NSString *textViewString;
-/// 列表懒加载代码块
+
+/**
+ 列表懒加载代码块
+ */
 @property (nonatomic, copy) NSString *tableViewString;
-/// 网页视图懒加载代码块
+
+/**
+ 网页视图懒加载代码块
+ */
 @property (nonatomic, copy) NSString *webViewString;
-/// 集合视图懒加载代码块
+
+/**
+ 集合视图懒加载代码块
+ */
 @property (nonatomic, copy) NSString *collectionViewString;
-/// 日期时间选择控件懒加载代码块
+
+/**
+ 日期时间选择控件懒加载代码块
+ */
 @property (nonatomic, copy) NSString *datePickerString;
-/// 选择控件懒加载代码块
+
+/**
+ 选择控件懒加载代码块
+ */
 @property (nonatomic, copy) NSString *pickerViewString;
-/// 开关控件懒加载代码块
+
+/**
+ 开关控件懒加载代码块
+ */
 @property (nonatomic, copy) NSString *switchString;
-/// 进度条控件懒加载代码块
+
+/**
+ 进度条控件懒加载代码块
+ */
 @property (nonatomic, copy) NSString *sliderString;
 
 @end
@@ -48,6 +89,12 @@
 
 /// 单例模式代码示例 -> 不支持对象copy
 static GQHLazyLoadCreator *singleton = nil;
+
+/**
+ 单例
+ 
+ @return 单例
+ */
 + (instancetype)creator {
     
     static dispatch_once_t onceToken;
@@ -64,7 +111,12 @@ static GQHLazyLoadCreator *singleton = nil;
     return  [[self class] creator];
 }
 
-/// 根据代码块生成懒加载代码
+/**
+ 根据代码块生成懒加载代码
+
+ @param propertiesName 属性名
+ @return 懒加载代码
+ */
 - (NSString *)createCodeWith:(NSString *)propertiesName {
     
     // 替换字符串
@@ -139,7 +191,13 @@ static GQHLazyLoadCreator *singleton = nil;
 }
 
 #pragma mark - PrivateMethod
-/// 截取字符串获取属性类型和属性名
+
+/**
+ 截取字符串获取属性类型和属性名
+
+ @param string 属性字符串
+ @return 属性名字典
+ */
 - (NSDictionary *)propertyTypeWith:(NSString *)string {
     
     // 属性变量名

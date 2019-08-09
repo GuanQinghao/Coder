@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GQHFileCreator : NSObject
 
 /**
- 生成代码文件的单例
+ 单例
 
  @return 单例
  */

@@ -15,6 +15,12 @@
 
 /// 单例模式代码示例 -> 不支持对象copy
 static GQHPropertyCreator *singleton = nil;
+
+/**
+ 单例
+ 
+ @return 单例
+ */
 + (instancetype)creator {
     
     static dispatch_once_t onceToken;
