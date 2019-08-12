@@ -284,7 +284,7 @@ static GQHLazyLoadCreator *singleton = nil;
     
     if (!_textViewString) {
         
-        _textViewString = @"- (UITextView *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UITextView alloc] init];\n        _<name>.backgroundColor = [UIColor whiteColor];\n        \n        _<name>.font = [UIFont systemFontOfSize:16.0f];\n        _<name>.text = NSLocalizedString(@\"TextView\", @\"TextView\");\n        _<name>.textColor = [UIColor darkTextColor];\n        _<name>.textAlignment = NSTextAlignmentLeft;\n    }\n    \n    return _<name>;\n}\n";
+        _textViewString = @"- (UITextView *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UITextView alloc] init];\n        _<name>.backgroundColor = [UIColor whiteColor];\n        \n        _<name>.font = [UIFont systemFontOfSize:16.0f];\n        _<name>.text = NSLocalizedString(@\"TextView\", @\"TextView\");\n        _<name>.textColor = [UIColor darkTextColor];\n        _<name>.textAlignment = NSTextAlignmentLeft;\n        \n        _<name>.layer.cornerRadius= 0.0f;\n        _<name>.layer.masksToBounds = YES;\n    }\n    \n    return _<name>;\n}";
     }
     
     return _textViewString;
