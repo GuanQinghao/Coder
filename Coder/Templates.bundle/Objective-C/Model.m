@@ -10,7 +10,7 @@
 
 
 /// 本地归档文件名
-static NSString * const kFileName = @"";
+static NSString * const kFileName = @"name.file";
 
 @implementation <prefix><name>Model
 
@@ -62,11 +62,10 @@ static NSString * const kFileName = @"";
  @param file 文件名
  @return 本地文件保存路径
  */
-- (NSString *)filePathWith:(NSString * _Nonnull )file {
++ (NSString *)filePathWith:(NSString * _Nonnull )file {
     
     // 文件夹路径
     NSString *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSLog(@"本地文件保存路径:%@", filePath);
     
     return [NSString stringWithFormat:@"%@/%@", filePath, file];
 }
