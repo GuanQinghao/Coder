@@ -38,7 +38,7 @@ static NSString * const kFileName = @"name.file";
     
     return @{
              
-             @"qh_ID" : @[@"id",@"iD",@"Id"],
+             @"qh_id" : @[@"id",@"iD",@"Id"],
              };
 }
 
@@ -80,7 +80,7 @@ static NSString * const kFileName = @"name.file";
     
     if (self = [super init]) {
         
-        self.qh_ID = [aDecoder decodeObjectForKey:@"qh_ID"];
+        self.qh_id = [aDecoder decodeObjectForKey:@"qh_id"];
     }
     
     return self;
@@ -93,7 +93,7 @@ static NSString * const kFileName = @"name.file";
  */
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     
-    [aCoder encodeObject:self.qh_ID forKey:@"qh_ID"];
+    [aCoder encodeObject:self.qh_id forKey:@"qh_id"];
 }
 
 /**

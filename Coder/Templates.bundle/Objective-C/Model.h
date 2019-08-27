@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  ID
  */
-@property (nonatomic, copy) NSString *qh_ID;
+@property (nonatomic, copy) NSString *qh_id;
 
 /**
  模型类
