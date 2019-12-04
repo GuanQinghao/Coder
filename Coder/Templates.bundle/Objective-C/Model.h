@@ -16,7 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface <prefix><name>Model : GQHBaseModel <NSSecureCoding>
 
 /**
- ID
+ SQLite数据表的主键(固定)
+ */
+@property (nonatomic, copy) NSString *db_id_pk;
+
+/**
+ 后台业务id
  */
 @property (nonatomic, copy) NSString *qh_id;
 
