@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  SQLite数据表的主键(固定)
  */
-@property (nonatomic, copy) NSString *db_id_pk;
+@property (nonatomic, copy) NSString *db_pk_id;
 
 /**
  后台业务id
