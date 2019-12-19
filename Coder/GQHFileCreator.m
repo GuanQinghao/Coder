@@ -152,6 +152,71 @@ static GQHFileCreator *singleton = nil;
 }
 
 /**
+ 根据模版生成自定义View文件
+
+ @param classesName 类名字符串(多个类名,分隔符隔开)
+ @param prefix 文件前缀
+ @param path 文件保存路径
+ @return 是否成功生成
+ */
+- (BOOL)createCustomViewFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
+    
+    // 获取模版文件
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"Templates.bundle" ofType:nil]];
+    if (!bundle) {
+        
+        return NO;
+    }
+    
+    // 获取类名数组
+    NSArray *classNames = [self fetchClassNamesWithString:classesName bySeparator:self.separators];
+    if (!classNames) {
+        
+        return NO;
+    }
+    
+    // View文件夹路径
+    NSString *viewPath = [NSString stringWithFormat:@"%@",path];
+    
+    for (NSString *name in classNames) {
+        
+        // 准备替换字符串字典
+        [self.substitute setValue:prefix forKey:@"c"];
+        [self.substitute setValue:name forKey:@"d"];
+        
+        // 生成view.h文件
+        NSString *hViewPath = [bundle pathForResource:@"Objective-C/CustomView.h" ofType:nil];
+        // 读取模版文件内容
+        NSMutableString *hViewString = [self readTemplateContentsWithPath:hViewPath];
+        // 替换指定字符串
+        hViewString = [self replaceString:hViewString Marker:self.marker withSubstitute:self.substitute];
+        // 创建文件
+        NSData *hViewData = [hViewString dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *hViewDataFileName = [NSString stringWithFormat:@"%@%@View.h",prefix,name];
+        if (![self createFileAtPath:viewPath withName:hViewDataFileName contents:hViewData]) {
+            
+            return NO;
+        }
+        
+        // 生成view.h文件
+        NSString *mViewPath = [bundle pathForResource:@"Objective-C/CustomView.m" ofType:nil];
+        // 读取模版文件内容
+        NSMutableString *mViewString = [self readTemplateContentsWithPath:mViewPath];
+        // 替换指定字符串
+        mViewString = [self replaceString:mViewString Marker:self.marker withSubstitute:self.substitute];
+        // 创建文件
+        NSData *mViewData = [mViewString dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *mViewDataFileName = [NSString stringWithFormat:@"%@%@View.m",prefix,name];
+        if (![self createFileAtPath:viewPath withName:mViewDataFileName contents:mViewData]) {
+            
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+/**
  根据模版生成Model文件
  
  @param classesName 类名

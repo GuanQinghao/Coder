@@ -120,6 +120,32 @@
     }
 }
 
+#pragma mark ---根据模版生成单独视图文件
+/**
+ 生成自定义View文件
+ 
+ @param sender 生成按钮
+ */
+- (IBAction)createCustomViewFiles:(id)sender {
+    
+    // 前置错误处理
+    if (![self isReadyToCodeFile]) {
+        
+        return;
+    }
+    
+    // 生成代码
+    if ([[GQHFileCreator creator] createCustomViewFilesWith:self.classesName prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
+        
+        // 完成
+        [self createCodeDone];
+    } else {
+        
+        // 生成代码失败
+        [self failedToCode];
+    }
+}
+
 #pragma mark ---根据JSON字符串生成属性
 /**
  根据JSON字符串生成属性列表

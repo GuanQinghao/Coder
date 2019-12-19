@@ -31,6 +31,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)createControllerFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path;
 
 /**
+ 根据模版生成自定义View文件
+
+ @param classesName 类名字符串(多个类名,分隔符隔开)
+ @param prefix 文件前缀
+ @param path 文件保存路径
+ @return 是否成功生成
+ */
+- (BOOL)createCustomViewFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path;
+
+/**
  根据模版生成Model文件
 
  @param classesName 类名字符串(多个类名,分隔符隔开)
