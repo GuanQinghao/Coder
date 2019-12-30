@@ -8,6 +8,10 @@
 #import "GQHBaseView.h"
 
 
+#pragma mark ------------------------------------- <delegate> -------------------------------------
+
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  自定义视图的代理
  */
@@ -19,8 +23,10 @@
 
 @end
 
+NS_ASSUME_NONNULL_END
 
-#pragma mark -
+
+#pragma mark ------------------------------------- <root view> -------------------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -49,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 
-#pragma mark -
+#pragma mark --------------------------------------- <cell> ---------------------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -82,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 
-#pragma mark -
+#pragma mark -------------------------------------- <header> --------------------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -115,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 
-#pragma mark -
+#pragma mark -------------------------------------- <footer> --------------------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 

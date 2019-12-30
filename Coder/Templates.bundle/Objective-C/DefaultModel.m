@@ -37,7 +37,7 @@ static NSString * const kFileName = @"name.file";
 + (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper {
     
     return @{
-             
+        
              @"qh_id" : @[@"id",@"iD",@"Id"],
              };
 }

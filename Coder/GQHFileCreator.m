@@ -9,6 +9,40 @@
 #import "GQHFileCreator.h"
 
 
+/// 资源包文件名
+static NSString * const kBundleFileName = @"Templates.bundle";
+
+/// 缺省 Controller.h 文件名
+static NSString * const kDefaultControllerTemplateH = @"Objective-C/DefaultControllerTemplate.h";
+/// 缺省 Controller.m 文件名
+static NSString * const kDefaultControllerTemplateM = @"Objective-C/DefaultControllerTemplate.m";
+
+/// 缺省 View.h 文件
+static NSString * const kDefaultViewTemplateH = @"Objective-C/DefaultViewTemplate.h";
+/// 缺省 View.m 文件
+static NSString * const kDefaultViewTemplateM = @"Objective-C/DefaultViewTemplate.m";
+
+/// 缺省 Model.h 文件
+static NSString * const kDefaultModelH = @"Objective-C/DefaultModel.h";
+/// 缺省 Model.m 文件
+static NSString * const kDefaultModelM = @"Objective-C/DefaultModel.m";
+
+/// 自定义 View.h 文件
+static NSString * const kCustomizedViewTemplateH = @"Objective-C/CustomizedViewTemplate.h";
+/// 自定义 View.m 文件
+static NSString * const kCustomizedViewTemplateM = @"Objective-C/CustomizedViewTemplate.m";
+
+/// 自定义 TableViewCell.h 文件
+static NSString * const kTableViewCellTemplateH = @"Objective-C/TableViewCellTemplate.h";
+/// 自定义 TableViewCell.m 文件
+static NSString * const kTableViewCellTemplateM = @"Objective-C/TableViewCellTemplate.m";
+
+/// 自定义 CollectionViewCell.h 文件
+static NSString * const kCollectionViewCellTemplateH = @"Objective-C/CollectionViewCellTemplate.h";
+/// 自定义 CollectionViewCell.m 文件
+static NSString * const kCollectionViewCellTemplateM = @"Objective-C/CollectionViewCellTemplate.m";
+
+
 #pragma mark -
 
 @interface GQHFileCreator ()
@@ -67,7 +101,7 @@ static GQHFileCreator *singleton = nil;
 - (BOOL)createControllerFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
     
     // 获取模版文件
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"Templates.bundle" ofType:nil]];
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kBundleFileName ofType:nil]];
     if (!bundle) {
         
         return NO;
@@ -92,7 +126,7 @@ static GQHFileCreator *singleton = nil;
         [self.substitute setValue:name forKey:@"d"];
         
         // 生成Controller.h文件
-        NSString *hControllerPath = [bundle pathForResource:@"Objective-C/Controller.h" ofType:nil];
+        NSString *hControllerPath = [bundle pathForResource:kDefaultControllerTemplateH ofType:nil];
         // 读取模版文件内容
         NSMutableString *hControllerString = [self readTemplateContentsWithPath:hControllerPath];
         // 替换指定字符串
@@ -106,7 +140,7 @@ static GQHFileCreator *singleton = nil;
         }
         
         // 生成Controller.m文件
-        NSString *mControllerPath = [bundle pathForResource:@"Objective-C/Controller.m" ofType:nil];
+        NSString *mControllerPath = [bundle pathForResource:kDefaultControllerTemplateM ofType:nil];
         // 读取模版文件内容
         NSMutableString *mControllerString = [self readTemplateContentsWithPath:mControllerPath];
         // 替换指定字符串
@@ -120,7 +154,7 @@ static GQHFileCreator *singleton = nil;
         }
         
         // 生成view.h文件
-        NSString *hViewPath = [bundle pathForResource:@"Objective-C/View.h" ofType:nil];
+        NSString *hViewPath = [bundle pathForResource:kDefaultViewTemplateH ofType:nil];
         // 读取模版文件内容
         NSMutableString *hViewString = [self readTemplateContentsWithPath:hViewPath];
         // 替换指定字符串
@@ -134,7 +168,7 @@ static GQHFileCreator *singleton = nil;
         }
         
         // 生成view.h文件
-        NSString *mViewPath = [bundle pathForResource:@"Objective-C/View.m" ofType:nil];
+        NSString *mViewPath = [bundle pathForResource:kDefaultViewTemplateM ofType:nil];
         // 读取模版文件内容
         NSMutableString *mViewString = [self readTemplateContentsWithPath:mViewPath];
         // 替换指定字符串
@@ -162,7 +196,7 @@ static GQHFileCreator *singleton = nil;
 - (BOOL)createCustomViewFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
     
     // 获取模版文件
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"Templates.bundle" ofType:nil]];
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kBundleFileName ofType:nil]];
     if (!bundle) {
         
         return NO;
@@ -185,7 +219,7 @@ static GQHFileCreator *singleton = nil;
         [self.substitute setValue:name forKey:@"d"];
         
         // 生成view.h文件
-        NSString *hViewPath = [bundle pathForResource:@"Objective-C/CustomView.h" ofType:nil];
+        NSString *hViewPath = [bundle pathForResource:kCustomizedViewTemplateH ofType:nil];
         // 读取模版文件内容
         NSMutableString *hViewString = [self readTemplateContentsWithPath:hViewPath];
         // 替换指定字符串
@@ -199,7 +233,7 @@ static GQHFileCreator *singleton = nil;
         }
         
         // 生成view.h文件
-        NSString *mViewPath = [bundle pathForResource:@"Objective-C/CustomView.m" ofType:nil];
+        NSString *mViewPath = [bundle pathForResource:kCustomizedViewTemplateM ofType:nil];
         // 读取模版文件内容
         NSMutableString *mViewString = [self readTemplateContentsWithPath:mViewPath];
         // 替换指定字符串
@@ -227,7 +261,7 @@ static GQHFileCreator *singleton = nil;
 - (BOOL)createModelFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
     
     // 获取模版文件
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"Templates.bundle" ofType:nil]];
+    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kBundleFileName ofType:nil]];
     if (!bundle) {
         
         return NO;
@@ -247,7 +281,7 @@ static GQHFileCreator *singleton = nil;
         [self.substitute setValue:name forKey:@"d"];
         
         // 生成Model.h文件
-        NSString *hModelPath = [bundle pathForResource:@"Objective-C/Model.h" ofType:nil];
+        NSString *hModelPath = [bundle pathForResource:kDefaultModelH ofType:nil];
         // 读取模版文件内容
         NSMutableString *hModelString = [self readTemplateContentsWithPath:hModelPath];
         // 替换指定字符串
@@ -261,7 +295,7 @@ static GQHFileCreator *singleton = nil;
         }
         
         // 生成Model.m文件
-        NSString *mModelPath = [bundle pathForResource:@"Objective-C/Model.m" ofType:nil];
+        NSString *mModelPath = [bundle pathForResource:kDefaultModelM ofType:nil];
         // 读取模版文件内容
         NSMutableString *mModelString = [self readTemplateContentsWithPath:mModelPath];
         // 替换指定字符串

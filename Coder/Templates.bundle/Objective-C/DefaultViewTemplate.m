@@ -9,7 +9,7 @@
 #import "GQHHeader.h"
 
 
-#pragma mark -
+#pragma mark ------------------------------------- <root view> -------------------------------------
 
 @interface <prefix><name>View ()
 
@@ -114,7 +114,7 @@
 @end
 
 
-#pragma mark -
+#pragma mark --------------------------------------- <cell> ---------------------------------------
 
 @interface <prefix><name>TableViewCell ()
 
@@ -215,7 +215,7 @@
 @end
 
 
-#pragma mark -
+#pragma mark -------------------------------------- <header> --------------------------------------
 
 @interface <prefix><name>TableViewHeaderView ()
 
@@ -314,7 +314,7 @@
 @end
 
 
-#pragma mark -
+#pragma mark -------------------------------------- <footer> --------------------------------------
 
 @interface <prefix><name>TableViewFooterView ()
 

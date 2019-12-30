@@ -9,7 +9,7 @@
 #import "GQHHeader.h"
 
 
-#pragma mark -
+#pragma mark --------------------------------------- <view> ---------------------------------------
 
 @interface <prefix><name>View ()
 
