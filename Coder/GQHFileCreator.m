@@ -62,6 +62,11 @@ static NSString * const kCollectionViewCellTemplateM = @"Objective-C/CollectionV
  */
 @property (nonatomic, strong) NSMutableDictionary *substitute;
 
+/**
+ 模板资源包文件
+ */
+@property (nonatomic, strong) NSBundle *templateBundle;
+
 @end
 
 @implementation GQHFileCreator
@@ -100,9 +105,7 @@ static GQHFileCreator *singleton = nil;
  */
 - (BOOL)createControllerFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
     
-    // 获取模版文件
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kBundleFileName ofType:nil]];
-    if (!bundle) {
+    if (!self.templateBundle) {
         
         return NO;
     }
@@ -125,58 +128,66 @@ static GQHFileCreator *singleton = nil;
         [self.substitute setValue:prefix forKey:@"c"];
         [self.substitute setValue:name forKey:@"d"];
         
-        // 生成Controller.h文件
-        NSString *hControllerPath = [bundle pathForResource:kDefaultControllerTemplateH ofType:nil];
-        // 读取模版文件内容
-        NSMutableString *hControllerString = [self readTemplateContentsWithPath:hControllerPath];
+        // 模板文件路径
+        NSString *templatePath = [self.templateBundle pathForResource:kDefaultControllerTemplateH ofType:nil];
+        // 模版文件内容
+        NSMutableString *templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
-        hControllerString = [self replaceString:hControllerString Marker:self.marker withSubstitute:self.substitute];
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
         // 创建文件
-        NSData *hControllerData = [hControllerString dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *hControllerFileName = [NSString stringWithFormat:@"%@%@Controller.h",prefix,name];
-        if (![self createFileAtPath:controllerPath withName:hControllerFileName contents:hControllerData]) {
+        NSData *data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        NSString *fileName = [NSString stringWithFormat:@"%@%@Controller.h",prefix,name];
+        
+        if (![self createFileAtPath:controllerPath withName:fileName contents:data]) {
             
             return NO;
         }
         
-        // 生成Controller.m文件
-        NSString *mControllerPath = [bundle pathForResource:kDefaultControllerTemplateM ofType:nil];
-        // 读取模版文件内容
-        NSMutableString *mControllerString = [self readTemplateContentsWithPath:mControllerPath];
+        // 模板文件路径
+        templatePath = [self.templateBundle pathForResource:kDefaultControllerTemplateM ofType:nil];
+        // 模版文件内容
+        templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
-        mControllerString = [self replaceString:mControllerString Marker:self.marker withSubstitute:self.substitute];
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
         // 创建文件
-        NSData *mControllerData = [mControllerString dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *mControllerFileName = [NSString stringWithFormat:@"%@%@Controller.m",prefix,name];
-        if (![self createFileAtPath:controllerPath withName:mControllerFileName contents:mControllerData]) {
+        data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        fileName = [NSString stringWithFormat:@"%@%@Controller.m",prefix,name];
+        
+        if (![self createFileAtPath:controllerPath withName:fileName contents:data]) {
             
             return NO;
         }
         
-        // 生成view.h文件
-        NSString *hViewPath = [bundle pathForResource:kDefaultViewTemplateH ofType:nil];
-        // 读取模版文件内容
-        NSMutableString *hViewString = [self readTemplateContentsWithPath:hViewPath];
+        // 模板文件路径
+        templatePath = [self.templateBundle pathForResource:kDefaultViewTemplateH ofType:nil];
+        // 模版文件内容
+        templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
-        hViewString = [self replaceString:hViewString Marker:self.marker withSubstitute:self.substitute];
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
         // 创建文件
-        NSData *hViewData = [hViewString dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *hViewDataFileName = [NSString stringWithFormat:@"%@%@View.h",prefix,name];
-        if (![self createFileAtPath:viewPath withName:hViewDataFileName contents:hViewData]) {
+        data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        fileName = [NSString stringWithFormat:@"%@%@View.h",prefix,name];
+        
+        if (![self createFileAtPath:viewPath withName:fileName contents:data]) {
             
             return NO;
         }
         
-        // 生成view.h文件
-        NSString *mViewPath = [bundle pathForResource:kDefaultViewTemplateM ofType:nil];
-        // 读取模版文件内容
-        NSMutableString *mViewString = [self readTemplateContentsWithPath:mViewPath];
+        // 模板文件路径
+        templatePath = [self.templateBundle pathForResource:kDefaultViewTemplateM ofType:nil];
+        // 模版文件内容
+        templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
-        mViewString = [self replaceString:mViewString Marker:self.marker withSubstitute:self.substitute];
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
         // 创建文件
-        NSData *mViewData = [mViewString dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *mViewDataFileName = [NSString stringWithFormat:@"%@%@View.m",prefix,name];
-        if (![self createFileAtPath:viewPath withName:mViewDataFileName contents:mViewData]) {
+        data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        fileName = [NSString stringWithFormat:@"%@%@View.m",prefix,name];
+        
+        if (![self createFileAtPath:controllerPath withName:fileName contents:data]) {
             
             return NO;
         }
@@ -193,11 +204,9 @@ static GQHFileCreator *singleton = nil;
  @param path 文件保存路径
  @return 是否成功生成
  */
-- (BOOL)createCustomViewFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
+- (BOOL)createCustomizedViewFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
     
-    // 获取模版文件
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kBundleFileName ofType:nil]];
-    if (!bundle) {
+    if (!self.templateBundle) {
         
         return NO;
     }
@@ -209,39 +218,40 @@ static GQHFileCreator *singleton = nil;
         return NO;
     }
     
-    // View文件夹路径
-    NSString *viewPath = [NSString stringWithFormat:@"%@",path];
-    
     for (NSString *name in classNames) {
         
         // 准备替换字符串字典
         [self.substitute setValue:prefix forKey:@"c"];
         [self.substitute setValue:name forKey:@"d"];
         
-        // 生成view.h文件
-        NSString *hViewPath = [bundle pathForResource:kCustomizedViewTemplateH ofType:nil];
-        // 读取模版文件内容
-        NSMutableString *hViewString = [self readTemplateContentsWithPath:hViewPath];
+        // 模板文件路径
+        NSString *templatePath = [self.templateBundle pathForResource:kCustomizedViewTemplateH ofType:nil];
+        // 模版文件内容
+        NSMutableString *templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
-        hViewString = [self replaceString:hViewString Marker:self.marker withSubstitute:self.substitute];
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
         // 创建文件
-        NSData *hViewData = [hViewString dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *hViewDataFileName = [NSString stringWithFormat:@"%@%@View.h",prefix,name];
-        if (![self createFileAtPath:viewPath withName:hViewDataFileName contents:hViewData]) {
+        NSData *data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        NSString *fileName = [NSString stringWithFormat:@"%@%@View.h",prefix,name];
+        
+        if (![self createFileAtPath:path withName:fileName contents:data]) {
             
             return NO;
         }
         
-        // 生成view.h文件
-        NSString *mViewPath = [bundle pathForResource:kCustomizedViewTemplateM ofType:nil];
-        // 读取模版文件内容
-        NSMutableString *mViewString = [self readTemplateContentsWithPath:mViewPath];
+        // 模板文件路径
+        templatePath = [self.templateBundle pathForResource:kCustomizedViewTemplateM ofType:nil];
+        // 模版文件内容
+        templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
-        mViewString = [self replaceString:mViewString Marker:self.marker withSubstitute:self.substitute];
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
         // 创建文件
-        NSData *mViewData = [mViewString dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *mViewDataFileName = [NSString stringWithFormat:@"%@%@View.m",prefix,name];
-        if (![self createFileAtPath:viewPath withName:mViewDataFileName contents:mViewData]) {
+        data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        fileName = [NSString stringWithFormat:@"%@%@View.m",prefix,name];
+        
+        if (![self createFileAtPath:path withName:fileName contents:data]) {
             
             return NO;
         }
@@ -258,11 +268,9 @@ static GQHFileCreator *singleton = nil;
  @param path 文件保存路径
  @return 生成代码是否成功
  */
-- (BOOL)createModelFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
+- (BOOL)createDefaultModelFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
     
-    // 获取模版文件
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kBundleFileName ofType:nil]];
-    if (!bundle) {
+    if (!self.templateBundle) {
         
         return NO;
     }
@@ -280,30 +288,162 @@ static GQHFileCreator *singleton = nil;
         [self.substitute setValue:prefix forKey:@"c"];
         [self.substitute setValue:name forKey:@"d"];
         
-        // 生成Model.h文件
-        NSString *hModelPath = [bundle pathForResource:kDefaultModelH ofType:nil];
-        // 读取模版文件内容
-        NSMutableString *hModelString = [self readTemplateContentsWithPath:hModelPath];
+        // 模板文件路径
+        NSString *templatePath = [self.templateBundle pathForResource:kDefaultModelH ofType:nil];
+        // 模版文件内容
+        NSMutableString *templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
-        hModelString = [self replaceString:hModelString Marker:self.marker withSubstitute:self.substitute];
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
         // 创建文件
-        NSData *hModelData = [hModelString dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *hModelFileName = [NSString stringWithFormat:@"%@%@Model.h",prefix,name];
-        if (![self createFileAtPath:path withName:hModelFileName contents:hModelData]) {
+        NSData *data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        NSString *fileName = [NSString stringWithFormat:@"%@%@Model.h",prefix,name];
+        
+        if (![self createFileAtPath:path withName:fileName contents:data]) {
             
             return NO;
         }
         
-        // 生成Model.m文件
-        NSString *mModelPath = [bundle pathForResource:kDefaultModelM ofType:nil];
-        // 读取模版文件内容
-        NSMutableString *mModelString = [self readTemplateContentsWithPath:mModelPath];
+        // 模板文件路径
+        templatePath = [self.templateBundle pathForResource:kDefaultModelM ofType:nil];
+        // 模版文件内容
+        templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
-        mModelString = [self replaceString:mModelString Marker:self.marker withSubstitute:self.substitute];
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
         // 创建文件
-        NSData *mModelData = [mModelString dataUsingEncoding:NSUTF8StringEncoding];
-        NSString *mModelFileName = [NSString stringWithFormat:@"%@%@Model.m",prefix,name];
-        if (![self createFileAtPath:path withName:mModelFileName contents:mModelData]) {
+        data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        fileName = [NSString stringWithFormat:@"%@%@Model.m",prefix,name];
+        
+        if (![self createFileAtPath:path withName:fileName contents:data]) {
+            
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+/**
+ 根据模版生成列表视图的行视图文件
+
+ @param classesName 类名字符串(多个类名,分隔符隔开)
+ @param prefix 文件前缀
+ @param path 文件保存路径
+ @return 是否成功生成
+ */
+- (BOOL)createTableViewCellFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
+    
+    if (!self.templateBundle) {
+        
+        return NO;
+    }
+    
+    // 获取类名数组
+    NSArray *classNames = [self fetchClassNamesWithString:classesName bySeparator:self.separators];
+    if (!classNames) {
+        
+        return NO;
+    }
+    
+    for (NSString *name in classNames) {
+        
+        // 准备替换字符串字典
+        [self.substitute setValue:prefix forKey:@"c"];
+        [self.substitute setValue:name forKey:@"d"];
+        
+        // 模板文件路径
+        NSString *templatePath = [self.templateBundle pathForResource:kTableViewCellTemplateH ofType:nil];
+        // 模版文件内容
+        NSMutableString *templateContent = [self readTemplateContentsWithPath:templatePath];
+        // 替换指定字符串
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
+        // 创建文件
+        NSData *data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        NSString *fileName = [NSString stringWithFormat:@"%@%@TableViewCell.h",prefix,name];
+        
+        if (![self createFileAtPath:path withName:fileName contents:data]) {
+            
+            return NO;
+        }
+        
+        // 模板文件路径
+        templatePath = [self.templateBundle pathForResource:kTableViewCellTemplateM ofType:nil];
+        // 模版文件内容
+        templateContent = [self readTemplateContentsWithPath:templatePath];
+        // 替换指定字符串
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
+        // 创建文件
+        data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        fileName = [NSString stringWithFormat:@"%@%@TableViewCell.m",prefix,name];
+        
+        if (![self createFileAtPath:path withName:fileName contents:data]) {
+            
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+/**
+ 根据模版生成集合视图的单元格视图文件
+
+ @param classesName 类名字符串(多个类名,分隔符隔开)
+ @param prefix 文件前缀
+ @param path 文件保存路径
+ @return 是否成功生成
+ */
+- (BOOL)createCollectionViewCellFilesWith:(NSString *)classesName prefix:(NSString *)prefix saveToPath:(NSString *)path {
+    
+    if (!self.templateBundle) {
+        
+        return NO;
+    }
+    
+    // 获取类名数组
+    NSArray *classNames = [self fetchClassNamesWithString:classesName bySeparator:self.separators];
+    if (!classNames) {
+        
+        return NO;
+    }
+    
+    for (NSString *name in classNames) {
+        
+        // 准备替换字符串字典
+        [self.substitute setValue:prefix forKey:@"c"];
+        [self.substitute setValue:name forKey:@"d"];
+        
+        // 模板文件路径
+        NSString *templatePath = [self.templateBundle pathForResource:kCollectionViewCellTemplateH ofType:nil];
+        // 模版文件内容
+        NSMutableString *templateContent = [self readTemplateContentsWithPath:templatePath];
+        // 替换指定字符串
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
+        // 创建文件
+        NSData *data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        NSString *fileName = [NSString stringWithFormat:@"%@%@CollectionViewCell.h",prefix,name];
+        
+        if (![self createFileAtPath:path withName:fileName contents:data]) {
+            
+            return NO;
+        }
+        
+        // 模板文件路径
+        templatePath = [self.templateBundle pathForResource:kCollectionViewCellTemplateM ofType:nil];
+        // 模版文件内容
+        templateContent = [self readTemplateContentsWithPath:templatePath];
+        // 替换指定字符串
+        templateContent = [self replaceString:templateContent marker:self.marker withSubstitute:self.substitute];
+        // 创建文件
+        data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+        // 文件名
+        fileName = [NSString stringWithFormat:@"%@%@CollectionViewCell.m",prefix,name];
+        
+        if (![self createFileAtPath:path withName:fileName contents:data]) {
             
             return NO;
         }
@@ -375,7 +515,7 @@ static GQHFileCreator *singleton = nil;
  @param substitute 新字符串
  @return 替换后的文本内容
  */
-- (NSMutableString *)replaceString:(NSMutableString *)string Marker:(NSDictionary *)marker withSubstitute:(NSDictionary *)substitute {
+- (NSMutableString *)replaceString:(NSMutableString *)string marker:(NSDictionary *)marker withSubstitute:(NSDictionary *)substitute {
     
     NSMutableString *result = string;
     NSArray *keys = marker.allKeys;
@@ -461,6 +601,16 @@ static GQHFileCreator *singleton = nil;
     }
     
     return _separators;
+}
+
+- (NSBundle *)templateBundle {
+    
+    if (!_templateBundle) {
+        
+        _templateBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:kBundleFileName ofType:nil]];
+    }
+    
+    return _templateBundle;
 }
 
 @end

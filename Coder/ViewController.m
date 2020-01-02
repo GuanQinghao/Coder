@@ -69,10 +69,10 @@
 }
 
 #pragma mark - TargetMethod
-#pragma mark ---根据模版生成代码文件
+
 /**
  生成Controller和View文件
-
+ 
  @param sender 生成按钮
  */
 - (IBAction)createControllerFiles:(id)sender {
@@ -97,7 +97,7 @@
 
 /**
  生成Model文件
-
+ 
  @param sender 生成按钮
  */
 - (IBAction)createModelFiles:(id)sender {
@@ -109,7 +109,7 @@
     }
     
     // 生成代码
-    if ([[GQHFileCreator creator] createModelFilesWith:self.classesName prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
+    if ([[GQHFileCreator creator] createDefaultModelFilesWith:self.classesName prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
         
         // 完成
         [self createCodeDone];
@@ -120,13 +120,12 @@
     }
 }
 
-#pragma mark ---根据模版生成单独视图文件
 /**
  生成自定义View文件
  
  @param sender 生成按钮
  */
-- (IBAction)createCustomViewFiles:(id)sender {
+- (IBAction)createCustomizedViewFiles:(id)sender {
     
     // 前置错误处理
     if (![self isReadyToCodeFile]) {
@@ -135,7 +134,57 @@
     }
     
     // 生成代码
-    if ([[GQHFileCreator creator] createCustomViewFilesWith:self.classesName prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
+    if ([[GQHFileCreator creator] createCustomizedViewFilesWith:self.classesName prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
+        
+        // 完成
+        [self createCodeDone];
+    } else {
+        
+        // 生成代码失败
+        [self failedToCode];
+    }
+}
+
+/**
+ 生成自定义View文件
+ 
+ @param sender 生成按钮
+ */
+- (IBAction)createTableViewCell:(id)sender {
+    
+    // 前置错误处理
+    if (![self isReadyToCodeFile]) {
+        
+        return;
+    }
+    
+    // 生成代码
+    if ([[GQHFileCreator creator] createTableViewCellFilesWith:self.className prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
+        
+        // 完成
+        [self createCodeDone];
+    } else {
+        
+        // 生成代码失败
+        [self failedToCode];
+    }
+}
+
+/**
+ 生成自定义View文件
+ 
+ @param sender 生成按钮
+ */
+- (IBAction)createCollectionViewCellFiles:(id)sender {
+    
+    // 前置错误处理
+    if (![self isReadyToCodeFile]) {
+        
+        return;
+    }
+    
+    // 生成代码
+    if ([[GQHFileCreator creator] createCollectionViewCellFilesWith:self.classesName prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
         
         // 完成
         [self createCodeDone];
@@ -149,7 +198,7 @@
 #pragma mark ---根据JSON字符串生成属性
 /**
  根据JSON字符串生成属性列表
-
+ 
  @param sender 生成按钮
  */
 - (IBAction)JSONToProperty:(id)sender {
@@ -173,7 +222,7 @@
 #pragma mark ---根据属性生成懒加载代码
 /**
  根据属性生成懒加载代码
-
+ 
  @param sender 生成按钮
  */
 - (IBAction)outputLazyLoad:(id)sender {
@@ -196,7 +245,7 @@
 
 /**
  选择或输入保存文件的路径
-
+ 
  @param sender 选择按钮
  */
 - (IBAction)chooseDirectory:(id)sender {
@@ -227,7 +276,7 @@
 
 /**
  根据类名和模版生成代码文件的前置错误处理
-
+ 
  @return 是否可以生成代码文件
  */
 - (BOOL)isReadyToCodeFile {
@@ -262,7 +311,7 @@
 
 /**
  根据属性生成懒加载代码的前置错误处理
-
+ 
  @return 是否可以生成代码字符串
  */
 - (BOOL)isReadyToCodeString {
@@ -287,7 +336,7 @@
 
 /**
  根据JSON字符串生成属性的前置错误处理
-
+ 
  @return 是否可以生成属性列表
  */
 - (BOOL)isReadyToPropertyCode {
