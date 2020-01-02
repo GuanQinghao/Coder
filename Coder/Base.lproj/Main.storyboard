@@ -740,16 +740,16 @@
                                 </scroller>
                             </scrollView>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3h-Tk-f5y">
-                                <rect key="frame" x="336" y="137" width="294" height="345"/>
+                                <rect key="frame" x="336" y="136" width="294" height="343"/>
                                 <clipView key="contentView" drawsBackground="NO" id="cX1-EX-q53">
-                                    <rect key="frame" x="1" y="1" width="292" height="343"/>
+                                    <rect key="frame" x="1" y="1" width="292" height="341"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="YLc-ZF-P5D">
-                                            <rect key="frame" x="0.0" y="-1" width="292" height="343"/>
+                                            <rect key="frame" x="0.0" y="-1" width="292" height="341"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="292" height="343"/>
+                                            <size key="minSize" width="292" height="341"/>
                                             <size key="maxSize" width="590" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -760,7 +760,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.28756476685379029" horizontal="NO" id="bpf-mj-BIo">
-                                    <rect key="frame" x="277" y="1" width="16" height="343"/>
+                                    <rect key="frame" x="277" y="1" width="16" height="341"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -936,8 +936,8 @@
                             <constraint firstItem="12M-iV-rmW" firstAttribute="centerY" secondItem="7ka-FV-5IZ" secondAttribute="centerY" id="Aqp-1W-T2j"/>
                             <constraint firstItem="WKA-lf-heG" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="BPE-Wc-cM1"/>
                             <constraint firstItem="xB1-Ap-KIK" firstAttribute="centerY" secondItem="m2t-JT-gce" secondAttribute="centerY" id="Fbe-Zs-uBk"/>
-                            <constraint firstItem="w3h-Tk-f5y" firstAttribute="bottom" secondItem="39P-eQ-ayQ" secondAttribute="bottom" id="FtQ-7Z-JBT"/>
                             <constraint firstItem="hsz-Ev-Rrc" firstAttribute="leading" secondItem="WKA-lf-heG" secondAttribute="trailing" constant="20" id="Fwn-FJ-mSb"/>
+                            <constraint firstItem="w3h-Tk-f5y" firstAttribute="height" secondItem="7d2-Nv-Ofy" secondAttribute="height" id="KWW-ke-HbS"/>
                             <constraint firstItem="7ka-FV-5IZ" firstAttribute="leading" secondItem="FUM-WA-07e" secondAttribute="trailing" constant="20" id="Lfl-MY-Fue"/>
                             <constraint firstItem="FUM-WA-07e" firstAttribute="leading" secondItem="xB1-Ap-KIK" secondAttribute="trailing" constant="50" id="M4H-1Y-K9s"/>
                             <constraint firstItem="w3h-Tk-f5y" firstAttribute="leading" secondItem="NJh-jo-Vjt" secondAttribute="trailing" constant="10" id="QZE-Do-f7q"/>
@@ -958,11 +958,11 @@
                             <constraint firstItem="bBd-uS-Ud6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="oA7-GQ-0vf"/>
                             <constraint firstAttribute="trailing" secondItem="fdf-RA-Kj8" secondAttribute="trailing" constant="20" id="oaP-w8-LVC"/>
                             <constraint firstItem="ck5-Fd-9ec" firstAttribute="centerY" secondItem="hsz-Ev-Rrc" secondAttribute="centerY" id="ob1-EJ-MVU"/>
+                            <constraint firstItem="w3h-Tk-f5y" firstAttribute="centerY" secondItem="7d2-Nv-Ofy" secondAttribute="centerY" id="osH-P4-Dli"/>
                             <constraint firstItem="bBd-uS-Ud6" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="pTo-o1-kfI"/>
                             <constraint firstItem="7ka-FV-5IZ" firstAttribute="centerY" secondItem="FUM-WA-07e" secondAttribute="centerY" id="r7C-4Q-Ciz"/>
                             <constraint firstAttribute="bottom" secondItem="dDN-Md-omz" secondAttribute="bottom" constant="20" id="sjW-5Y-J4j"/>
                             <constraint firstItem="NJh-jo-Vjt" firstAttribute="leading" secondItem="bBd-uS-Ud6" secondAttribute="trailing" constant="10" id="wXJ-Sd-pC8"/>
-                            <constraint firstItem="w3h-Tk-f5y" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="18" id="xMj-nB-oYa"/>
                             <constraint firstItem="12M-iV-rmW" firstAttribute="leading" secondItem="7ka-FV-5IZ" secondAttribute="trailing" constant="20" id="yj2-Jq-Rsc"/>
                             <constraint firstItem="NJh-jo-Vjt" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="zRZ-fa-Ddw"/>
                         </constraints>

@@ -146,7 +146,7 @@
 }
 
 /**
- 生成自定义View文件
+ 生成列表视图的行视图文件
  
  @param sender 生成按钮
  */
@@ -159,7 +159,7 @@
     }
     
     // 生成代码
-    if ([[GQHFileCreator creator] createTableViewCellFilesWith:self.className prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
+    if ([[GQHFileCreator creator] createTableViewCellFilesWith:self.classesName prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
         
         // 完成
         [self createCodeDone];
@@ -171,7 +171,7 @@
 }
 
 /**
- 生成自定义View文件
+ 生成集合视图的单元格视图文件
  
  @param sender 生成按钮
  */
