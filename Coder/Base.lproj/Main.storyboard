@@ -869,7 +869,7 @@
                                 </connections>
                             </button>
                             <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="NJh-jo-Vjt">
-                                <rect key="frame" x="323" y="141" width="5" height="335"/>
+                                <rect key="frame" x="323" y="137" width="5" height="343"/>
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dDN-Md-omz">
                                 <rect key="frame" x="160" y="19" width="150" height="26"/>
@@ -948,9 +948,9 @@
                             <constraint firstItem="m2t-JT-gce" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Ua2-a8-Wl9"/>
                             <constraint firstItem="g39-ch-fxB" firstAttribute="top" secondItem="fdf-RA-Kj8" secondAttribute="bottom" constant="10" id="VNl-Tk-nci"/>
                             <constraint firstItem="WKA-lf-heG" firstAttribute="top" secondItem="m2t-JT-gce" secondAttribute="bottom" constant="15" id="VfN-QN-Tdw"/>
-                            <constraint firstItem="NJh-jo-Vjt" firstAttribute="centerY" secondItem="39P-eQ-ayQ" secondAttribute="centerY" id="aq0-0f-UXO"/>
+                            <constraint firstItem="NJh-jo-Vjt" firstAttribute="centerY" secondItem="w3h-Tk-f5y" secondAttribute="centerY" constant="-1" id="aq0-0f-UXO"/>
                             <constraint firstItem="Bkf-Zf-C56" firstAttribute="top" secondItem="WKA-lf-heG" secondAttribute="bottom" constant="10" id="c9r-JP-ZsW"/>
-                            <constraint firstItem="NJh-jo-Vjt" firstAttribute="height" secondItem="39P-eQ-ayQ" secondAttribute="height" multiplier="0.976581" id="dce-l6-jVz"/>
+                            <constraint firstItem="NJh-jo-Vjt" firstAttribute="height" secondItem="w3h-Tk-f5y" secondAttribute="height" id="dce-l6-jVz"/>
                             <constraint firstAttribute="trailing" secondItem="g39-ch-fxB" secondAttribute="trailing" constant="20" id="ebV-3N-Yyg"/>
                             <constraint firstAttribute="bottom" secondItem="g39-ch-fxB" secondAttribute="bottom" constant="20" id="fZe-Vw-Xc7"/>
                             <constraint firstItem="hsz-Ev-Rrc" firstAttribute="centerY" secondItem="WKA-lf-heG" secondAttribute="centerY" id="fu1-TN-tKg"/>
