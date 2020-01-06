@@ -187,7 +187,7 @@ static GQHFileCreator *singleton = nil;
         // 文件名
         fileName = [NSString stringWithFormat:@"%@%@View.m",prefix,name];
         
-        if (![self createFileAtPath:controllerPath withName:fileName contents:data]) {
+        if (![self createFileAtPath:viewPath withName:fileName contents:data]) {
             
             return NO;
         }
