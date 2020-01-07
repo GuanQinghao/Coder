@@ -35,7 +35,7 @@
 
 @implementation <prefix><name>Controller
 
-#pragma mark - Lifecycle
+#pragma mark ------------------------------------- <lifecycle> -------------------------------------
 /**
  1.加载系统根视图或自定义根视图
  */
@@ -125,6 +125,7 @@
     
 }
 
+#pragma mark ------------------------------- <delegate & datasource> -------------------------------
 #pragma mark - UITableViewDataSource
 /**
  列表视图的总组数
@@ -265,10 +266,12 @@
 
 #pragma mark - <prefix><name>ViewDelegate
 
+#pragma mark -------------------------------------- <method> ---------------------------------------
 #pragma mark - TargetMethod
 
 #pragma mark - PrivateMethod
 
+#pragma mark ---------------------------------- <setter & getter> ----------------------------------
 #pragma mark - Setter
 
 #pragma mark - Getter

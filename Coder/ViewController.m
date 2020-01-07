@@ -65,7 +65,7 @@
     self.inputTextView.textColor = [NSColor textColor];
     
     self.outputTextView.font = [NSFont systemFontOfSize:15.0f];
-    self.inputTextView.textColor = [NSColor textColor];
+    self.outputTextView.textColor = [NSColor textColor];
 }
 
 #pragma mark - TargetMethod
