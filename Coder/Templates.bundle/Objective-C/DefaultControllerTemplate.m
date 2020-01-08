@@ -21,14 +21,10 @@
 
 @interface <prefix><name>Controller () <UITableViewDelegate, UITableViewDataSource, <prefix><name>ViewDelegate>
 
-/**
- 自定义根视图
- */
+/// 自定义根视图
 @property (nonatomic, strong) <prefix><name>View *rootView;
 
-/**
- 数据源
- */
+/// 数据源
 @property (nonatomic, strong) NSMutableArray *dataSourceArray;
 
 @end
