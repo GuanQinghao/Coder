@@ -224,7 +224,7 @@ static GQHLazyLoadCreator *singleton = nil;
     
     if (!_labelString) {
         
-        _labelString = @"- (UILabel *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UILabel alloc] init];\n        _<name>.backgroundColor = [UIColor whiteColor];\n        \n        _<name>.font = [UIFont systemFontOfSize:16.0f];\n        _<name>.text = NSLocalizedString(@\"Label\", @\"Label\");\n        _<name>.textColor = [UIColor darkTextColor];\n        _<name>.textAlignment = NSTextAlignmentLeft;\n        _<name>.numberOfLines = 0;\n    }\n    \n    return _<name>;\n}\n";
+        _labelString = @"- (UILabel *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UILabel alloc] init];\n        _<name>.backgroundColor = [UIColor clearColor];\n        \n        _<name>.font = [UIFont systemFontOfSize:16.0f];\n        _<name>.text = NSLocalizedString(@\"Label\", @\"Label\");\n        _<name>.textColor = [UIColor darkTextColor];\n        _<name>.textAlignment = NSTextAlignmentLeft;\n        _<name>.numberOfLines = 0;\n    }\n    \n    return _<name>;\n}\n";
     }
     
     return _labelString;
@@ -244,7 +244,7 @@ static GQHLazyLoadCreator *singleton = nil;
     
     if (!_buttonString) {
         
-        _buttonString = @"- (UIButton *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [UIButton buttonWithType:UIButtonTypeCustom];\n        _<name>.backgroundColor = [UIColor whiteColor];\n        _<name>.titleLabel.font = [UIFont systemFontOfSize:16.0f];\n        \n        [_<name> setImage:nil forState:UIControlStateNormal];\n        [_<name> setBackgroundImage:nil forState:UIControlStateNormal];\n        [_<name> setTitle:NSLocalizedString(@\"Button\", @\"Button\") forState:UIControlStateNormal];\n        [_<name> setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];\n        [_<name> addTarget:self action:@selector(didClick<method>:) forControlEvents:UIControlEventTouchUpInside];\n        \n        _<name>.layer.cornerRadius = 0.0f;\n        _<name>.layer.masksToBounds = YES;\n    }\n    \n    return _<name>;\n}\n";
+        _buttonString = @"- (UIButton *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [UIButton buttonWithType:UIButtonTypeCustom];\n        _<name>.backgroundColor = [UIColor clearColor];\n        _<name>.titleLabel.font = [UIFont systemFontOfSize:16.0f];\n        \n        [_<name> setImage:nil forState:UIControlStateNormal];\n        [_<name> setBackgroundImage:nil forState:UIControlStateNormal];\n        [_<name> setTitle:NSLocalizedString(@\"Button\", @\"Button\") forState:UIControlStateNormal];\n        [_<name> setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];\n        \n        [_<name> setImage:nil forState:UIControlStateSelected];\n        [_<name> setBackgroundImage:nil forState:UIControlStateSelected];\n        [_<name> setTitle:NSLocalizedString(@\"Button\", @\"Button\") forState:UIControlStateSelected];\n        [_<name> setTitleColor:[UIColor darkTextColor] forState:UIControlStateSelected];\n        \n        [_<name> addTarget:self action:@selector(didClick<method>:) forControlEvents:UIControlEventTouchUpInside];\n        \n        _<name>.layer.cornerRadius = 0.0f;\n        _<name>.layer.masksToBounds = YES;\n    }\n    \n    return _<name>;\n}\n";
     }
     
     return _buttonString;
@@ -254,7 +254,7 @@ static GQHLazyLoadCreator *singleton = nil;
     
     if (!_imageViewString) {
         
-        _imageViewString = @"- (UIImageView *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UIImageView alloc] init];\n        _<name>.backgroundColor = [UIColor whiteColor];\n        \n        _<name>.image = [UIImage imageNamed:@\"\"];\n        \n        _<name>.layer.cornerRadius = 0.0f;\n        _<name>.layer.masksToBounds = YES;\n    }\n    \n    return _<name>;\n}\n";
+        _imageViewString = @"- (UIImageView *)<name> {\n    \n    if (!_<name>) {\n        \n        _<name> = [[UIImageView alloc] init];\n        _<name>.backgroundColor = [UIColor clearColor];\n        \n        _<name>.image = [UIImage imageNamed:@\"\"];\n        \n        _<name>.layer.cornerRadius = 0.0f;\n        _<name>.layer.masksToBounds = YES;\n    }\n    \n    return _<name>;\n}\n";
     }
     
     return _imageViewString;
