@@ -16,11 +16,7 @@
 /// 单例模式代码示例 -> 不支持对象copy
 static GQHPropertyCreator *singleton = nil;
 
-/**
- 单例
- 
- @return 单例
- */
+/// 单例
 + (instancetype)creator {
     
     static dispatch_once_t onceToken;
@@ -37,12 +33,8 @@ static GQHPropertyCreator *singleton = nil;
     return  [[self class] creator];
 }
 
-/**
- 根据JSON字符串生成属性
- 
- @param JSONString JSON 字符串
- @return 属性列表
- */
+/// 根据JSON字符串生成属性
+/// @param JSONString JSON 字符串
 - (NSString *)createCodeWith:(NSString *)JSONString {
     
     // JSON字符串转字典
@@ -59,27 +51,27 @@ static GQHPropertyCreator *singleton = nil;
         //
         if ([obj isKindOfClass:[NSNumber class]]) {
             
-            property = [NSString stringWithFormat:@"/**\n <#Description#>\n*/\n@property (nonatomic, strong) NSNumber *%@;", key];
+            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSNumber *%@;", key];
         }
         //
         if ([obj isKindOfClass:[NSArray class]]) {
             
-            property = [NSString stringWithFormat:@"/**\n <#Description#>\n*/\n@property (nonatomic, strong) NSArray *%@;", key];
+            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSArray *%@;", key];
         }
         //
         if ([obj isKindOfClass:[NSDictionary class]]) {
             
-            property = [NSString stringWithFormat:@"/**\n <#Description#>\n*/\n@property (nonatomic, strong) NSDictionary *%@;", key];
+            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSDictionary *%@;", key];
         }
         //
         if ([obj isKindOfClass:[NSString class]]) {
             
-            property = [NSString stringWithFormat:@"/**\n <#Description#>\n*/\n@property (nonatomic, copy) NSString *%@;", key];
+            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, copy) NSString *%@;", key];
         }
         //
         if ([obj isKindOfClass:NSClassFromString(@"__NSCFBoolean")]) {
             
-            property = [NSString stringWithFormat:@"/**\n <#Description#>\n*/\n@property (nonatomic, assign) BOOL %@;", key];
+            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, assign) BOOL %@;", key];
         }
         
         if (property.length > 0) {
