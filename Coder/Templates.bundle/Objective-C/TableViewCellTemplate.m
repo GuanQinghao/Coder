@@ -18,14 +18,11 @@
 @implementation <prefix><name>TableViewCell
 
 #pragma mark - Lifecycle
-/**
- 根据视图数据创建列表视图的行视图
- 
- @param tableView 列表视图
- @param data 列表行视图数据
- @return 自定义行视图
- */
-+ (instancetype)qh_tableView:(UITableView *)tableView cellWithData:(id)data {
+/// 根据视图数据创建列表视图的行视图
+/// @param tableView 列表视图
+/// @param indexPath 列表行视图索引值
+/// @param data 列表行视图数据
++ (instancetype)qh_tableView:(UITableView *)tableView cellForIndexPath:(NSIndexPath *)indexPath data:(nullable id)data {
     NSLog(@"");
     
     static NSString *identifier = @"<prefix><name>TableViewCell";
@@ -42,13 +39,9 @@
     return cell;
 }
 
-/**
- 初始化列表自定义行视图
- 
- @param style 列表自定义行视图样式
- @param reuseIdentifier 列表行视图复用标识
- @return 列表自定义行视图
- */
+/// 初始化列表自定义行视图
+/// @param style 列表自定义行视图样式
+/// @param reuseIdentifier 列表行视图复用标识
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     NSLog(@"");
     
@@ -64,18 +57,14 @@
     return self;
 }
 
-/**
- 布局子视图 -> frame计算
- */
+/// 布局子视图 -> frame计算
 - (void)layoutSubviews {
     [super layoutSubviews];
     NSLog(@"");
     
 }
 
-/**
- 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不要计算)
- */
+/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不要计算)
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
     
@@ -86,11 +75,8 @@
 #pragma mark - TargetMethod
 
 #pragma mark - PrivateMethod
-/**
- 根据视图数据更新视图
- 
- @param data 列表行视图数据
- */
+/// 根据视图数据更新视图
+/// @param data 列表行视图数据
 - (void)updateCellWithData:(id)data {
     NSLog(@"");
     

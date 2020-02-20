@@ -8,13 +8,11 @@
 #import <UIKit/UIKit.h>
 
 
-#pragma mark ----------------------------------- <cell delegate> -----------------------------------
+#pragma mark ----------------------------------- <delegate> -----------------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- 自定义视图的代理
- */
+/// 自定义视图的代理
 @protocol <prefix><name>CollectionViewCellDelegate <NSObject>
 
 @required
@@ -30,29 +28,21 @@ NS_ASSUME_NONNULL_END
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- 集合视图的自定义单元格视图
- */
+/// 集合视图的自定义单元格视图
 @interface <prefix><name>CollectionViewCell : UICollectionViewCell
 
-/**
- 视图代理
- */
+/// 视图代理回调
 @property (nonatomic, weak) id<<prefix><name>CollectionViewCellDelegate> qh_delegate;
+/// 视图block回调
+@property (nonatomic, copy) void(^qh_block)(id _Nullable result);
 
-/**
- 视图数据
- */
+/// 视图数据
 @property (nonatomic, strong) id qh_data;
 
-/**
- 根据视图数据创建集合视图的单元格视图
- 
- @param collectionView 集合视图
- @param indexPath 单元格视图索引值
- @param data 单元格视图数据
- @return 自定义单元格视图
- */
+/// 根据视图数据创建集合视图的单元格视图
+/// @param collectionView 集合视图
+/// @param indexPath 单元格视图索引值
+/// @param data 单元格视图数据
 + (instancetype)qh_collectionView:(UICollectionView *)collectionView cellForIndexPath:(NSIndexPath *)indexPath data:(nullable id)data;
 
 @end

@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- <#Description#>
- */
+/// <#Description#>
 @interface <prefix><name>Controller : GQHBaseViewController
 
 @end

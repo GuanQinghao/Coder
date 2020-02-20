@@ -18,14 +18,10 @@
 @implementation <prefix><name>CollectionViewCell
 
 #pragma mark - Lifecycle
-/**
- 根据视图数据创建集合视图的单元格视图
- 
- @param collectionView 集合视图
- @param indexPath 单元格视图索引值
- @param data 单元格视图数据
- @return 自定义单元格视图
- */
+/// 根据视图数据创建集合视图的单元格视图
+/// @param collectionView 集合视图
+/// @param indexPath 单元格视图索引值
+/// @param data 单元格视图数据
 + (instancetype)qh_collectionView:(UICollectionView *)collectionView cellForIndexPath:(NSIndexPath *)indexPath data:(id)data {
     NSLog(@"");
     
@@ -37,12 +33,8 @@
     return cell;
 }
 
-/**
- 初始化集合视图自定义单元格视图
- 
- @param frame 单元格视图frame
- @return 集合视图自定义单元格视图
- */
+/// 初始化集合视图自定义单元格视图
+/// @param frame 单元格视图frame
 - (instancetype)initWithFrame:(CGRect)frame {
     NSLog(@"");
     
@@ -58,18 +50,14 @@
     return self;
 }
 
-/**
- 布局子视图 -> frame计算
- */
+/// 布局子视图 -> frame计算
 - (void)layoutSubviews {
     [super layoutSubviews];
     NSLog(@"");
     
 }
 
-/**
- 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
- */
+/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
     
@@ -80,11 +68,8 @@
 #pragma mark - TargetMethod
 
 #pragma mark - PrivateMethod
-/**
- 根据视图数据更新视图
- 
- @param data 集合视图单元格视图数据
- */
+/// 根据视图数据更新视图
+/// @param data 集合视图单元格视图数据
 - (void)updateCellWithData:(id)data {
     NSLog(@"");
     

@@ -12,9 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- 自定义视图的代理
- */
+/// 自定义视图的代理
 @protocol <prefix><name>ViewDelegate <NSObject>
 
 @required
@@ -30,19 +28,15 @@ NS_ASSUME_NONNULL_END
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- <#Description#>
- */
+/// <#Description#>
 @interface <prefix><name>View : GQHBaseView
 
-/**
- 视图代理
- */
+/// 视图代理回调
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
+/// 视图block回调
+@property (nonatomic, copy) void(^qh_block)(id _Nullable result);
 
-/**
- 视图数据
- */
+/// 视图数据
 @property (nonatomic, strong) id qh_data;
 
 @end
