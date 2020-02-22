@@ -159,6 +159,7 @@
 				0447272521A2C66900998E7D /* Sources */,
 				0447272621A2C66900998E7D /* Frameworks */,
 				0447272721A2C66900998E7D /* Resources */,
+				D5D271642401926A00E339A9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -278,6 +279,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D5D271642401926A00E339A9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#获取plist文件\nplist=\"${INFOPLIST_FILE}\"\n#获取编译版本号\nbuild_number=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleVersion\" \"${plist}\")\n#是否存在编译版本号\nif [[ \"${build_number}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\n#获取主版本号\nshort_version=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"${plist}\")\n\n#编译版本号规则\n#年月日时分\n#build_number=`date +\"%Y%m%d%H%M\"`\n\n#数字自增1\nbuild_number=$(expr $build_number + 1)\n\n#月日时分\n#build_number=`date +\"%m%d%H%M\"`\n\n#主版本.编译版本(日期)\n#build_number=`date +\"m%d\"`\n#build_number=\"$short_version.$build_number\"\n\n\n\n#设置版本号\nif [ $CONFIGURATION == Release ]; then\n\n#发布\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $build_number\" \"${plist}\"\necho \"Bumped build number to $build_number\"\n\nelse\n\n#调试\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $build_number\" \"${plist}\"\necho \"Bumped build number to $build_number\"\n\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0447272521A2C66900998E7D /* Sources */ = {

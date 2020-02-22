@@ -24,12 +24,8 @@
 }
 
 
-/**
- 关闭窗口，直接退出程序
-
- @param sender N/A
- @return N/A
- */
+/// 关闭窗口，直接退出程序
+/// @param sender N/A
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
     
     return YES;

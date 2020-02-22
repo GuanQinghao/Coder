@@ -869,7 +869,7 @@
                                     <font key="font" metaFont="system" size="16"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="createCollectionViewCellFiles:" target="XfG-lQ-9wD" id="2tU-cC-aQg"/>
+                                    <action selector="createTableViewFooterView:" target="XfG-lQ-9wD" id="wgr-HH-2zP"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Pe-vZ-Yca">
@@ -883,7 +883,7 @@
                                     <font key="font" metaFont="system" size="16"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="createCollectionViewCellFiles:" target="XfG-lQ-9wD" id="SGU-Aq-kR6"/>
+                                    <action selector="createCollectionViewFooterView:" target="XfG-lQ-9wD" id="Itf-eG-DYi"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="99w-pf-tYG">
@@ -897,7 +897,7 @@
                                     <font key="font" metaFont="system" size="16"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="createCollectionViewCellFiles:" target="XfG-lQ-9wD" id="nu8-Yg-Jo7"/>
+                                    <action selector="createCollectionViewHeaderView:" target="XfG-lQ-9wD" id="fuS-Qd-Ipj"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GQQ-oz-IjF">
@@ -911,7 +911,7 @@
                                     <font key="font" metaFont="system" size="16"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="createCollectionViewCellFiles:" target="XfG-lQ-9wD" id="MCI-g4-4L4"/>
+                                    <action selector="createTableViewHeaderView:" target="XfG-lQ-9wD" id="Itk-eu-4X8"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bkf-Zf-C56">
