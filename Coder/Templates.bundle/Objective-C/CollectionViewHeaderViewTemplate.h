@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 视图代理
 @property (nonatomic, weak) id<<prefix><name>CollectionViewHeaderViewDelegate> qh_delegate;
 /// 视图block回调
-@property (nonatomic, copy) void(^qh_block)(id _Nullable result);
+@property (nonatomic, copy) void(^qh_block)(id _Nullable sender);
 
 /// 视图数据
 @property (nonatomic, strong) id qh_data;
@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param collectionView 集合视图
 /// @param indexPath 集合视图头视图索引值
 /// @param data 集合视图头视图数据
-+ (instancetype)qh_collectionView:(UICollectionView *)collectionView headerViewForIndexPath:(NSIndexPath *)indexPath data:(nullable id)data;
++ (instancetype)qh_collectionView:(UICollectionView *)collectionView headerViewForIndexPath:(nullable NSIndexPath *)indexPath data:(nullable id)data;
 
 @end
 

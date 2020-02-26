@@ -34,15 +34,16 @@ NS_ASSUME_NONNULL_BEGIN
 /// 视图代理
 @property (nonatomic, weak) id<<prefix><name>TableViewHeaderViewDelegate> qh_delegate;
 /// 视图block回调
-@property (nonatomic, copy) void(^qh_block)(id _Nullable result);
+@property (nonatomic, copy) void(^qh_block)(id _Nullable sender);
 
 /// 视图数据
 @property (nonatomic, strong) id qh_data;
 
 /// 根据视图数据创建列表视图的头视图
 /// @param tableView 列表视图
-/// @param data 列表头视图数据
-+ (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(nullable id)data;
+/// @param section 列表视图组索引值
+/// @param data 列表尾视图数据
++ (instancetype)qh_tableView:(UITableView *)tableView headerViewForSection:(NSInteger)section data:(nullable id)data;
 
 @end
 

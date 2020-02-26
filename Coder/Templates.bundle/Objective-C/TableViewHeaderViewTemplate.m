@@ -22,8 +22,9 @@
 #pragma mark - Lifecycle
 /// 根据视图数据创建列表视图的头视图
 /// @param tableView 列表视图
-/// @param data 列表头视图数据
-+ (instancetype)qh_tableView:(UITableView *)tableView headerViewWithData:(id)data {
+/// @param section 列表视图组索引值
+/// @param data 列表尾视图数据
++ (instancetype)qh_tableView:(UITableView *)tableView headerViewForSection:(NSInteger)section data:(id)data {
     NSLog(@"");
     
     static NSString *identifier = @"<prefix><name>TableViewHeaderView";
