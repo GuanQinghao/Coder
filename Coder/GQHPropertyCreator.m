@@ -76,7 +76,7 @@ static GQHPropertyCreator *singleton = nil;
         
         if (property.length > 0) {
             
-            [autoCode appendFormat:@"\n%@\n",property];
+            [autoCode appendFormat:@"%@\n",property];
         }
     }];
     
