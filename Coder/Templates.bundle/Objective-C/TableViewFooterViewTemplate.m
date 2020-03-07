@@ -11,7 +11,7 @@
 #import "GQHCocoaPodsHeader.h"  /// CocoaPods库头文件
 
 
-#pragma mark -------------------------------------- <header> --------------------------------------
+#pragma mark -------------------------------------- <footer> --------------------------------------
 
 @interface <prefix><name>TableViewFooterView ()
 

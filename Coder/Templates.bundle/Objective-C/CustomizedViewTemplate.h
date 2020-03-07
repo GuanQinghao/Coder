@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_END
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// <#Description#>
+/// 自定义视图
 @interface <prefix><name>View : GQHBaseView
 
 /// 视图代理回调

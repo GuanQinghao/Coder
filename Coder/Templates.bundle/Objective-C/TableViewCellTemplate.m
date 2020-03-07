@@ -24,7 +24,7 @@
 /// @param tableView 列表视图
 /// @param indexPath 列表行视图索引值
 /// @param data 列表行视图数据
-+ (instancetype)qh_tableView:(UITableView *)tableView cellForIndexPath:(NSIndexPath *)indexPath data:(nullable id)data {
++ (instancetype)qh_tableView:(UITableView *)tableView cellForIndexPath:(NSIndexPath *)indexPath data:(id)data {
     NSLog(@"");
     
     static NSString *identifier = @"<prefix><name>TableViewCell";

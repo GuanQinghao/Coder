@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 自定义视图的代理
+/// 自定义根视图的代理
 @protocol <prefix><name>ViewDelegate <NSObject>
 
 @required

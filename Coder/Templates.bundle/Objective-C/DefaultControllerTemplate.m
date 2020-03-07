@@ -172,7 +172,7 @@
     
     // 自定义头视图
     UIView *headerView = [[UIView alloc] init];
-    // headerView = [<#TableViewHeaderView#> qh_tableView:tableView headerViewWithData:data];
+    // headerView = [<#TableViewHeaderView#> qh_tableView:tableView headerViewForSection:section data:data];
     
     return headerView;
 }
@@ -197,7 +197,7 @@
     
     // 自定义尾视图
     UIView *footerView = [[UIView alloc] init];
-    // footerView = [<#TableViewFooterView#> qh_tableView:tableView footerViewWithData:data];
+    // footerView = [<#TableViewFooterView#> qh_tableView:tableView footerViewForSection:section data:data];
     
     return footerView;
 }
