@@ -81,35 +81,35 @@ static NSString * const kFileName = @"name.file";
 /// 增-
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_createModelWithParameters:(nullable id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_createModelWithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
 /// 查-
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_readModelWithParameters:(nullable id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_readModelWithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
 /// 改-
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_updateModelWithParameters:(nullable id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_updateModelWithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
 /// 删-
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_deleteModelWithParameters:(nullable id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_deleteModelWithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
 /// 列表-
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_fetchModelsWithParameters:(nullable id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_fetchModelsWithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
