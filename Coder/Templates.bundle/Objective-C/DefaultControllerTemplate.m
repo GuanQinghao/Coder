@@ -124,7 +124,7 @@
     NSLog(@"");
     
     // 数据data
-    NSMutableDictionary *data = [NSMutableDictionary dictionary];
+    // NSMutableDictionary *data = [NSMutableDictionary dictionary];
     
     // 视图cell
     UITableViewCell *cell = [[UITableViewCell alloc] init];
@@ -168,7 +168,7 @@
     NSLog(@"");
     
     // 头视图数据data
-    NSMutableDictionary *data = [NSMutableDictionary dictionary];
+    // NSMutableDictionary *data = [NSMutableDictionary dictionary];
     
     // 自定义头视图
     UIView *headerView = [[UIView alloc] init];
@@ -193,7 +193,7 @@
     NSLog(@"");
     
     // 尾视图数据data
-    NSMutableDictionary *data = [NSMutableDictionary dictionary];
+    // NSMutableDictionary *data = [NSMutableDictionary dictionary];
     
     // 自定义尾视图
     UIView *footerView = [[UIView alloc] init];
