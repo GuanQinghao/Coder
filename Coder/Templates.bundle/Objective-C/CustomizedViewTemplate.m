@@ -17,8 +17,8 @@
 @implementation <prefix><name>View
 
 #pragma mark - Lifecycle
-/// 初始化控制器自定义根视图
-/// @param frame 自定义根视图的frame
+/// 初始化自定义视图
+/// @param frame 自定义视图的frame
 - (instancetype)initWithFrame:(CGRect)frame {
     NSLog(@"");
     
