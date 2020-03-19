@@ -48,27 +48,28 @@ static NSString * const kFileName = @"name.file";
     
     // 文件夹路径
     NSString *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSLog(@"文件保存路径:%@",filePath);
     
     return [NSString stringWithFormat:@"%@/%@", filePath, file];
 }
 
 /// 编码解档
-/// @param aDecoder 编码器
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+/// @param coder 编码器
+- (instancetype)initWithCoder:(NSCoder *)coder {
     
     if (self = [super init]) {
         
-        self.qh_id = [aDecoder decodeObjectForKey:@"qh_id"];
+        self.qh_id = [coder decodeObjectForKey:@"qh_id"];
     }
     
     return self;
 }
 
 /// 编码归档
-/// @param aCoder 编码器
-- (void)encodeWithCoder:(NSCoder *)aCoder {
+/// @param coder 编码器
+- (void)encodeWithCoder:(NSCoder *)coder {
     
-    [aCoder encodeObject:self.qh_id forKey:@"qh_id"];
+    [coder encodeObject:self.qh_id forKey:@"qh_id"];
 }
 
 /// 安全编码
@@ -78,38 +79,38 @@ static NSString * const kFileName = @"name.file";
 }
 
 #pragma mark -
-/// 增-
+/// 增-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_createModelWithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_create<name>With:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
-/// 查-
+/// 查-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_readModelWithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_read<name>With:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
-/// 改-
+/// 改-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_updateModelWithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_update<name>With:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
-/// 删-
+/// 删-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_deleteModelWithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_delete<name>With:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
-/// 列表-
+/// 列表-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_fetchModelsWithParameters:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_fetch<name>sWith:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
     
 }
 
