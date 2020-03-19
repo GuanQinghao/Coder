@@ -36,10 +36,10 @@ static NSString * const kTableViewFooterViewTemplate = @"Objective-C/TableViewFo
 
 /// 自定义 CollectionViewCell 文件
 static NSString * const kCollectionViewCellTemplate = @"Objective-C/CollectionViewCellTemplate";
-/// 自定义 CollectionViewCell 文件
-static NSString * const kCollectionViewHeaderViewTemplate = @"Objective-C/CollectionViewHeaderViewTemplate";
-/// 自定义 CollectionViewCell 文件
-static NSString * const kCollectionViewFooterViewTemplate = @"Objective-C/CollectionViewFooterViewTemplate";
+/// 自定义 CollectionReusableHeaderView 文件
+static NSString * const kCollectionReusableHeaderViewTemplate = @"Objective-C/CollectionReusableHeaderViewTemplate";
+/// 自定义 CollectionReusableFooterView 文件
+static NSString * const kCollectionReusableFooterViewTemplate = @"Objective-C/CollectionReusableFooterViewTemplate";
 
 
 #pragma mark -
@@ -227,14 +227,14 @@ static GQHFileCreator *singleton = nil;
             break;
         case GQHTemplateFileTypeCollectionViewHeaderView: {
             
-            suffix = @"CollectionViewHeaderView";
-            template = kCollectionViewHeaderViewTemplate;
+            suffix = @"CollectionReusableHeaderView";
+            template = kCollectionReusableHeaderViewTemplate;
         }
             break;
         case GQHTemplateFileTypeCollectionViewFooterView: {
             
-            suffix = @"CollectionViewFooterView";
-            template = kCollectionViewFooterViewTemplate;
+            suffix = @"CollectionReusableFooterView";
+            template = kCollectionReusableFooterViewTemplate;
         }
             break;
     }

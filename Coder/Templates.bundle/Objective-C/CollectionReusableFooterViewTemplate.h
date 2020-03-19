@@ -1,5 +1,5 @@
 //
-//  <prefix><name>CollectionViewFooterView.h
+//  <prefix><name>CollectionReusableFooterView.h
 //
 //  Created by GuanQinghao on <date>.
 //  Copyright © <year> GuanQinghao. All rights reserved.
@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// 自定义视图的代理
-@protocol <prefix><name>CollectionViewFooterViewDelegate <NSObject>
+@protocol <prefix><name>CollectionReusableFooterViewDelegate <NSObject>
 
 @required
 
@@ -29,10 +29,10 @@ NS_ASSUME_NONNULL_END
 NS_ASSUME_NONNULL_BEGIN
 
 /// 集合视图的自定义头视图
-@interface <prefix><name>CollectionViewFooterView : UICollectionReusableView
+@interface <prefix><name>CollectionReusableFooterView : UICollectionReusableView
 
 /// 视图代理
-@property (nonatomic, weak) id<<prefix><name>CollectionViewFooterViewDelegate> qh_delegate;
+@property (nonatomic, weak) id<<prefix><name>CollectionReusableFooterViewDelegate> qh_delegate;
 /// 视图block回调
 @property (nonatomic, copy) void(^qh_block)(id _Nullable sender);
 
