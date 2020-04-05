@@ -6,9 +6,7 @@
 //
 
 #import "<prefix><name>CollectionReusableFooterView.h"
-#import "GQHCategoryHeader.h"   /// 分类头文件
-#import "GQHSharedHeader.h"     /// 常量、宏定义头文件
-#import "GQHCocoaPodsHeader.h"  /// CocoaPods库头文件
+#import "GQHDefaultHeader.h"
 
 
 #pragma mark -------------------------------------- <footer> --------------------------------------
