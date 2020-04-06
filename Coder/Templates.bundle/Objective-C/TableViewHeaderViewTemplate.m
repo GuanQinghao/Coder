@@ -6,7 +6,7 @@
 //
 
 #import "<prefix><name>TableViewHeaderView.h"
-#import "GQHDefaultHeader.h"
+#import "GQHGeneralHeader.h"
 
 
 #pragma mark -------------------------------------- <header> --------------------------------------

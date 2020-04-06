@@ -6,7 +6,7 @@
 //
 
 #import "<prefix><name>CollectionViewCell.h"
-#import "GQHDefaultHeader.h"
+#import "GQHGeneralHeader.h"
 
 
 #pragma mark --------------------------------------- <cell> ---------------------------------------

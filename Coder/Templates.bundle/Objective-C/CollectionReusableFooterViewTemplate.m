@@ -6,7 +6,7 @@
 //
 
 #import "<prefix><name>CollectionReusableFooterView.h"
-#import "GQHDefaultHeader.h"
+#import "GQHGeneralHeader.h"
 
 
 #pragma mark -------------------------------------- <footer> --------------------------------------
