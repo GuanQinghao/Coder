@@ -44,40 +44,53 @@ static GQHPropertyCreator *singleton = nil;
     // 输出属性字符串
     NSMutableString *autoCode = [NSMutableString string];
     
-    [dictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+    // 字典所有的key值
+    NSArray *unsortedKeys = [dictionary allKeys];
+    // key值排序
+    NSArray *sortedKeys = [unsortedKeys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        
+        // 正序
+        return [obj1 compare:obj2 options:NSNumericSearch];
+    }];
+    
+    // 根据key值查询value并生成属性
+    [sortedKeys enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        id value = [dictionary objectForKey:obj];
         
         NSString *property;
         
         //
-        if ([obj isKindOfClass:[NSNumber class]]) {
+        if ([value isKindOfClass:[NSNumber class]]) {
             
-            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSNumber *%@;", key];
+            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSNumber *%@;", obj];
         }
         //
-        if ([obj isKindOfClass:[NSArray class]]) {
+        if ([value isKindOfClass:[NSArray class]]) {
             
-            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSArray *%@;", key];
+            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSArray *%@;", obj];
         }
         //
-        if ([obj isKindOfClass:[NSDictionary class]]) {
+        if ([value isKindOfClass:[NSDictionary class]]) {
             
-            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSDictionary *%@;", key];
+            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSDictionary *%@;", obj];
         }
         //
-        if ([obj isKindOfClass:[NSString class]]) {
+        if ([value isKindOfClass:[NSString class]]) {
             
-            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, copy) NSString *%@;", key];
+            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, copy) NSString *%@;", obj];
         }
         //
-        if ([obj isKindOfClass:NSClassFromString(@"__NSCFBoolean")]) {
+        if ([value isKindOfClass:NSClassFromString(@"__NSCFBoolean")]) {
             
-            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, assign) BOOL %@;", key];
+            property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, assign) BOOL %@;", obj];
         }
         
         if (property.length > 0) {
             
             [autoCode appendFormat:@"%@\n",property];
         }
+        
     }];
     
     return autoCode;
