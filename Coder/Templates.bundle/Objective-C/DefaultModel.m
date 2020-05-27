@@ -46,11 +46,10 @@ static NSString * const kFileName = @"name.file";
 /// @param file 文件名
 + (NSString *)filePathWith:(NSString * _Nonnull )file {
     
-    // 文件夹路径
-    NSString *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSLog(@"文件保存路径:%@",filePath);
+    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:kFileName];
+    NSLog(@"本地文件保存路径:%@",filePath);
     
-    return [NSString stringWithFormat:@"%@/%@", filePath, file];
+    return filePath;
 }
 
 /// 编码解档
