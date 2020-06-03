@@ -29,7 +29,7 @@
     <prefix><name>CollectionReusableHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier: NSStringFromClass([<prefix><name>CollectionReusableHeaderView class]) forIndexPath:indexPath];
     
     // 根据视图数据更新视图
-    [headerView updateHeaderViewWithData:data];
+    headerView.qh_data = data;
     
     return headerView;
 }
@@ -70,9 +70,16 @@
 
 #pragma mark - PrivateMethod
 
-/// 根据视图数据更新视图
+/// 根据视图数据更新视图内容
 /// @param data 集合头视图数据
-- (void)updateHeaderViewWithData:(id)data {
+- (void)updateHeaderViewContentWith:(id)data {
+    NSLog(@"");
+    
+}
+
+/// 根据视图数据更新视图布局
+/// @param data 集合头视图数据
+- (void)updateHeaderViewLayoutWith:(id)data {
     NSLog(@"");
     
 }
@@ -82,8 +89,11 @@
     
     _qh_data = qh_data;
     
-    // 更新头视图数据
-    [self updateHeaderViewWithData:qh_data];
+    // 更新头视图内容
+    [self updateHeaderViewContentWith:qh_data];
+    
+    // 更新头视图布局
+    [self updateHeaderViewLayoutWith:qh_data];
 }
 
 #pragma mark - Getter

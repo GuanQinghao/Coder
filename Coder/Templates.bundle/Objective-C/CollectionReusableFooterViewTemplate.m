@@ -29,7 +29,7 @@
     <prefix><name>CollectionReusableFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier: NSStringFromClass([<prefix><name>CollectionReusableFooterView class]) forIndexPath:indexPath];
     
     // 根据视图数据更新视图
-    [footerView updateFooterViewWithData:data];
+    footerView.qh_data = data;
     
     return footerView;
 }
@@ -70,9 +70,16 @@
 
 #pragma mark - PrivateMethod
 
-/// 根据视图数据更新视图
+/// 根据视图数据更新视图内容
 /// @param data 集合尾视图数据
-- (void)updateFooterViewWithData:(id)data {
+- (void)updateFooterViewContentWith:(id)data {
+    NSLog(@"");
+    
+}
+
+/// 根据视图数据更新视图布局
+/// @param data 集合尾视图数据
+- (void)updateFooterViewLayoutWith:(id)data {
     NSLog(@"");
     
 }
@@ -82,8 +89,11 @@
     
     _qh_data = qh_data;
     
-    // 更新尾视图数据
-    [self updateFooterViewWithData:qh_data];
+    // 更新尾视图内容
+    [self updateFooterViewContentWith:qh_data];
+    
+    // 更新尾视图布局
+    [self updateFooterViewLayoutWith:qh_data];
 }
 
 #pragma mark - Getter

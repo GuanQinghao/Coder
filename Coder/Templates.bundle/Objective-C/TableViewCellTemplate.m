@@ -75,9 +75,17 @@
 #pragma mark - TargetMethod
 
 #pragma mark - PrivateMethod
-/// 根据视图数据更新视图
-/// @param data 列表行视图数据
-- (void)updateCellWithData:(id)data {
+
+/// 根据视图数据更新视图内容
+/// @param data 列表视图行视图数据
+- (void)updateCellContentWith:(id)data {
+    NSLog(@"");
+    
+}
+
+/// 根据视图数据更新视图布局
+/// @param data 列表视图行视图数据
+- (void)updateCellLayoutWith:(id)data {
     NSLog(@"");
     
 }
@@ -87,8 +95,11 @@
     
     _qh_data = qh_data;
     
-    // 更新cell的数据
-    [self updateCellWithData:qh_data];
+    // 更新行视图内容
+    [self updateCellContentWith:qh_data];
+    
+    // 更新行视图布局
+    [self updateCellLayoutWith:qh_data];
 }
 
 #pragma mark - Getter

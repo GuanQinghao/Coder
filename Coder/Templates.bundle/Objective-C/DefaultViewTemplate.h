@@ -41,6 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 列表视图
 @property (nonatomic, strong) UITableView *qh_tableView;
+/// 集合视图
+@property (nonatomic, strong) UICollectionView *qh_collectionView;
 
 @end
 

@@ -21,27 +21,27 @@ NS_ASSUME_NONNULL_BEGIN
 /// 增-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_create<name>With:(nullable id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
++ (void)qh_create<name>With:(nullable id)parameters handler:(nullable void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
 
 /// 查-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_read<name>With:(nullable id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
++ (void)qh_read<name>With:(nullable id)parameters handler:(nullable void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
 
 /// 改-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_update<name>With:(nullable id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
++ (void)qh_update<name>With:(nullable id)parameters handler:(nullable void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
 
 /// 删-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_delete<name>With:(nullable id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
++ (void)qh_delete<name>With:(nullable id)parameters handler:(nullable void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
 
 /// 列表-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_fetch<name>sWith:(nullable id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
++ (void)qh_fetch<name>sWith:(nullable id)parameters handler:(nullable void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
 
 @end
 

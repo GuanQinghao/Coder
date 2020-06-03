@@ -59,9 +59,17 @@
 #pragma mark - TargetMethod
 
 #pragma mark - PrivateMethod
-/// 根据视图数据更新视图
+
+/// 根据视图数据更新视图内容
 /// @param data 视图数据
-- (void)updateRootViewWithData:(id)data {
+- (void)updateRootViewContentWith:(id)data {
+    NSLog(@"");
+    
+}
+
+/// 根据视图数据更新视图布局
+/// @param data 视图数据
+- (void)updateRootViewLayoutWith:(id)data {
     NSLog(@"");
     
 }
@@ -71,8 +79,11 @@
     
     _qh_data = qh_data;
     
-    // 根据视图数据更新视图
-    [self updateRootViewWithData:qh_data];
+    // 更新视图内容
+    [self updateRootViewContentWith:qh_data];
+    
+    // 更新视图布局
+    [self updateRootViewLayoutWith:qh_data];
 }
 
 #pragma mark - Getter
@@ -97,6 +108,30 @@
     }
     
     return _qh_tableView;
+}
+
+- (UICollectionView *)qh_collectionView {
+    
+    if (!_qh_collectionView) {
+        
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        
+        // CGRectZero
+        _qh_collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        _qh_collectionView.bounces = YES;
+        _qh_collectionView.pagingEnabled = NO;
+        _qh_collectionView.showsVerticalScrollIndicator = NO;
+        _qh_collectionView.showsHorizontalScrollIndicator = NO;
+        _qh_collectionView.backgroundColor = [UIColor whiteColor];
+        
+        if (@available(iOS 11.0, *)) {
+            
+            _qh_collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+    }
+    
+    return _qh_collectionView;
 }
 
 @end

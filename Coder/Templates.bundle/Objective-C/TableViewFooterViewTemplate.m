@@ -73,9 +73,17 @@
 #pragma mark - TargetMethod
 
 #pragma mark - PrivateMethod
-/// 根据视图数据更新视图
-/// @param data 列表头视图数据
-- (void)updateFooterViewWithData:(id)data {
+
+/// 根据视图数据更新视图内容
+/// @param data 列表尾视图数据
+- (void)updateFooterViewContentWith:(id)data {
+    NSLog(@"");
+    
+}
+
+/// 根据视图数据更新视图布局
+/// @param data 列表尾视图数据
+- (void)updateFooterViewLayoutWith:(id)data {
     NSLog(@"");
     
 }
@@ -85,8 +93,11 @@
     
     _qh_data = qh_data;
     
-    // 更新头视图数据
-    [self updateFooterViewWithData:qh_data];
+    // 更新尾视图内容
+    [self updateFooterViewContentWith:qh_data];
+    
+    // 更新尾视图布局
+    [self updateFooterViewLayoutWith:qh_data];
 }
 
 #pragma mark - Getter

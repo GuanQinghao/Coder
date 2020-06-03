@@ -73,9 +73,17 @@
 #pragma mark - TargetMethod
 
 #pragma mark - PrivateMethod
-/// 根据视图数据更新视图
+
+/// 根据视图数据更新视图内容
 /// @param data 列表头视图数据
-- (void)updateHeaderViewWithData:(id)data {
+- (void)updateHeaderViewContentWith:(id)data {
+    NSLog(@"");
+    
+}
+
+/// 根据视图数据更新视图布局
+/// @param data 列表头视图数据
+- (void)updateHeaderViewLayoutWith:(id)data {
     NSLog(@"");
     
 }
@@ -85,8 +93,11 @@
     
     _qh_data = qh_data;
     
-    // 更新头视图数据
-    [self updateHeaderViewWithData:qh_data];
+    // 更新尾视图内容
+    [self updateHeaderViewContentWith:qh_data];
+    
+    // 更新尾视图布局
+    [self updateHeaderViewLayoutWith:qh_data];
 }
 
 #pragma mark - Getter
