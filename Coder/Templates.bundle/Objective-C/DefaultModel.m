@@ -44,9 +44,9 @@ static NSString * const kFileName = @"name.file";
 
 /// 获取本地文件保存路径
 /// @param file 文件名
-+ (NSString *)filePathWith:(NSString * _Nonnull )file {
++ (NSString *)filePathWith:(NSString *)file {
     
-    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:kFileName];
+    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:kFileName];
     NSLog(@"本地文件保存路径:%@",filePath);
     
     return filePath;
