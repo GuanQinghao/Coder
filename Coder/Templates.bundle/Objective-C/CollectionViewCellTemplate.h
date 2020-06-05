@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 视图代理回调
 @property (nonatomic, weak) id<<prefix><name>CollectionViewCellDelegate> qh_delegate;
 /// 视图block回调
-@property (nonatomic, copy) void(^qh_block)(id _Nullable sender);
+@property (nonatomic, copy) void (^qh_block)(id _Nullable sender);
 
 /// 视图数据
 @property (nonatomic, strong) id qh_data;

@@ -42,16 +42,6 @@ static NSString * const kFileName = @"name.file";
              };
 }
 
-/// 获取本地文件保存路径
-/// @param file 文件名
-+ (NSString *)filePathWith:(NSString *)file {
-    
-    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:kFileName];
-    NSLog(@"本地文件保存路径:%@",filePath);
-    
-    return filePath;
-}
-
 /// 编码解档
 /// @param coder 编码器
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -78,38 +68,39 @@ static NSString * const kFileName = @"name.file";
 }
 
 #pragma mark -
+
 /// 增-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_create<name>With:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_create<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
     
 }
 
 /// 查-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_read<name>With:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_read<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
     
 }
 
 /// 改-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_update<name>With:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_update<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
     
 }
 
 /// 删-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_delete<name>With:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_delete<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
     
 }
 
 /// 列表-<name>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_fetch<name>sWith:(id)parameters handler:(void(^)(BOOL status, NSNumber *code, NSString *message, id data))handler {
++ (void)qh_fetch<name>sWith:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
     
 }
 
