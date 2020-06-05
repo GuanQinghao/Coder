@@ -8,7 +8,7 @@
 #import "<prefix><name>Model.h"
 
 
-/// 本地归档文件名
+/// 缓存文件名
 static NSString * const kFileName = @"name.file";
 
 @implementation <prefix><name>Model
