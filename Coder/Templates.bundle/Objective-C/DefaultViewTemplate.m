@@ -52,6 +52,14 @@
         make.top.mas_equalTo(self).with.inset(self.qh_statusBarHeight + self.qh_navigationBarHeight);
         make.left.and.right.and.bottom.mas_equalTo(self);
     }];
+    
+    // 集合视图
+    // [self addSubview:self.qh_collectionView];
+    // [self.qh_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    //
+    //     make.top.mas_equalTo(self).with.inset(self.qh_statusBarHeight + self.qh_navigationBarHeight);
+    //     make.left.and.right.and.bottom.mas_equalTo(self);
+    // }];
 }
 
 #pragma mark - Delegate
