@@ -22,6 +22,16 @@ static NSString * const kDefaultViewTemplateH = @"Objective-C/DefaultViewTemplat
 /// 缺省 View.m 文件
 static NSString * const kDefaultViewTemplateM = @"Objective-C/DefaultViewTemplate.m";
 
+/// 简化 Controller.h 文件名
+static NSString * const kLiteControllerTemplateH = @"Objective-C/LiteControllerTemplate.h";
+/// 简化 Controller.m 文件名
+static NSString * const kLiteControllerTemplateM = @"Objective-C/LiteControllerTemplate.m";
+
+/// 简化 View.h 文件
+static NSString * const kLiteViewTemplateH = @"Objective-C/LiteViewTemplate.h";
+/// 简化 View.m 文件
+static NSString * const kLiteViewTemplateM = @"Objective-C/LiteViewTemplate.m";
+
 /// 缺省 Model 文件
 static NSString * const kDefaultModel = @"Objective-C/DefaultModel";
 /// 自定义 View 文件
@@ -109,7 +119,7 @@ static GQHFileCreator *singleton = nil;
         [self.substitute setValue:name forKey:@"d"];
         
         // 模板文件路径
-        NSString *templatePath = [self.templateBundle pathForResource:kDefaultControllerTemplateH ofType:nil];
+        NSString *templatePath = [self.templateBundle pathForResource:kLiteControllerTemplateH ofType:nil];
         // 模版文件内容
         NSMutableString *templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
@@ -125,7 +135,7 @@ static GQHFileCreator *singleton = nil;
         }
         
         // 模板文件路径
-        templatePath = [self.templateBundle pathForResource:kDefaultControllerTemplateM ofType:nil];
+        templatePath = [self.templateBundle pathForResource:kLiteControllerTemplateM ofType:nil];
         // 模版文件内容
         templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
@@ -141,7 +151,7 @@ static GQHFileCreator *singleton = nil;
         }
         
         // 模板文件路径
-        templatePath = [self.templateBundle pathForResource:kDefaultViewTemplateH ofType:nil];
+        templatePath = [self.templateBundle pathForResource:kLiteViewTemplateH ofType:nil];
         // 模版文件内容
         templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
@@ -157,7 +167,7 @@ static GQHFileCreator *singleton = nil;
         }
         
         // 模板文件路径
-        templatePath = [self.templateBundle pathForResource:kDefaultViewTemplateM ofType:nil];
+        templatePath = [self.templateBundle pathForResource:kLiteViewTemplateM ofType:nil];
         // 模版文件内容
         templateContent = [self readTemplateContentsWithPath:templatePath];
         // 替换指定字符串
