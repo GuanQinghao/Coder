@@ -9,15 +9,13 @@
 #import "GQHGeneralHeader.h"
 
 
-#pragma mark -------------------------------------- <header> --------------------------------------
-
 @interface <prefix><name>CollectionReusableHeaderView ()
 
 @end
 
 @implementation <prefix><name>CollectionReusableHeaderView
 
-#pragma mark - Lifecycle
+#pragma mark --------------------------- <lifecycle> ---------------------------
 
 /// 根据视图数据创建集合视图的头视图
 /// @param collectionView 集合视图
@@ -51,6 +49,8 @@
     return self;
 }
 
+#pragma mark ---------------------------- <layout> ----------------------------
+
 /// 布局子视图 -> frame计算
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -64,11 +64,13 @@
     
 }
 
-#pragma mark - Delegate
+#pragma mark --------------------- <delegate & datasource> ---------------------
 
-#pragma mark - TargetMethod
+#pragma mark ---------------------------- <method> ----------------------------
 
-#pragma mark - PrivateMethod
+#pragma mark - target method
+
+#pragma mark - private method
 
 /// 根据视图数据更新视图内容
 /// @param data 集合头视图数据
@@ -84,7 +86,10 @@
     
 }
 
-#pragma mark - Setter
+#pragma mark ------------------------ <setter & getter> ------------------------
+
+#pragma mark - setter
+
 - (void)setQh_data:(id)qh_data {
     
     _qh_data = qh_data;
@@ -96,6 +101,6 @@
     [self updateHeaderViewLayoutWith:qh_data];
 }
 
-#pragma mark - Getter
+#pragma mark - getter
 
 @end

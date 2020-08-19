@@ -8,11 +8,11 @@
 #import <UIKit/UIKit.h>
 
 
-#pragma mark ----------------------------------- <delegate> -----------------------------------
+#pragma mark --------------------------- <protocol> ---------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 自定义视图的代理
+/// 列表视图自定义行视图的代理协议
 @protocol <prefix><name>TableViewCellDelegate <NSObject>
 
 @required
@@ -24,14 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 
-#pragma mark --------------------------------------- <cell> ---------------------------------------
+#pragma mark ----------------------------- <cell> -----------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
 /// 列表视图的自定义行视图
 @interface <prefix><name>TableViewCell : UITableViewCell
 
-/// 视图代理回调
+/// 视图代理
 @property (nonatomic, weak) id<<prefix><name>TableViewCellDelegate> qh_delegate;
 /// 视图block回调
 @property (nonatomic, copy) void (^qh_block)(id _Nullable sender);

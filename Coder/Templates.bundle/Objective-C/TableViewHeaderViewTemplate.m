@@ -9,19 +9,18 @@
 #import "GQHGeneralHeader.h"
 
 
-#pragma mark -------------------------------------- <header> --------------------------------------
-
 @interface <prefix><name>TableViewHeaderView ()
 
 @end
 
 @implementation <prefix><name>TableViewHeaderView
 
-#pragma mark - Lifecycle
+#pragma mark --------------------------- <lifecycle> ---------------------------
+
 /// 根据视图数据创建列表视图的头视图
 /// @param tableView 列表视图
 /// @param section 列表视图组索引值
-/// @param data 列表尾视图数据
+/// @param data 列表头视图数据
 + (instancetype)qh_tableView:(UITableView *)tableView headerViewForSection:(NSInteger)section data:(id)data {
     NSLog(@"");
     
@@ -55,6 +54,8 @@
     return self;
 }
 
+#pragma mark ---------------------------- <layout> ----------------------------
+
 /// 布局子视图 -> frame计算
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -68,11 +69,13 @@
     
 }
 
-#pragma mark - Delegate
+#pragma mark --------------------- <delegate & datasource> ---------------------
 
-#pragma mark - TargetMethod
+#pragma mark ---------------------------- <method> ----------------------------
 
-#pragma mark - PrivateMethod
+#pragma mark - target method
+
+#pragma mark - private method
 
 /// 根据视图数据更新视图内容
 /// @param data 列表头视图数据
@@ -88,18 +91,21 @@
     
 }
 
-#pragma mark - Setter
+#pragma mark ------------------------ <setter & getter> ------------------------
+
+#pragma mark - setter
+
 - (void)setQh_data:(id)qh_data {
     
     _qh_data = qh_data;
     
-    // 更新尾视图内容
+    // 更新头视图内容
     [self updateHeaderViewContentWith:qh_data];
     
-    // 更新尾视图布局
+    // 更新头视图布局
     [self updateHeaderViewLayoutWith:qh_data];
 }
 
-#pragma mark - Getter
+#pragma mark - getter
 
 @end

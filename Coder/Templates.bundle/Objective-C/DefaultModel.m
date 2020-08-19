@@ -13,6 +13,8 @@ static NSString * const kFileName = @"name.file";
 
 @implementation <prefix><name>Model
 
+#pragma mark ----------------------------- <mock> -----------------------------
+
 /// 初始化Mock数据
 - (instancetype)init {
     
@@ -23,6 +25,10 @@ static NSString * const kFileName = @"name.file";
     }
     return self;
 }
+
+#pragma mark ---------------------------- <method> ----------------------------
+
+#pragma mark ----------------------------- <parse> -----------------------------
 
 /// 模型字段映射
 + (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper {
@@ -41,6 +47,8 @@ static NSString * const kFileName = @"name.file";
 //             @"qh_books" : GQHBookModel.class,
              };
 }
+
+#pragma mark ---------------------- <archive & unarchive> ----------------------
 
 /// 编码解档
 /// @param coder 编码器
@@ -67,7 +75,7 @@ static NSString * const kFileName = @"name.file";
     return YES;
 }
 
-#pragma mark -
+#pragma mark ------------------------------ <api> ------------------------------
 
 /// 增-<name>
 /// @param parameters 请求参数
@@ -104,8 +112,10 @@ static NSString * const kFileName = @"name.file";
     
 }
 
-#pragma mark - Setter
+#pragma mark ------------------------ <setter & getter> ------------------------
 
-#pragma mark - Getter
+#pragma mark - setter
+
+#pragma mark - getter
 
 @end

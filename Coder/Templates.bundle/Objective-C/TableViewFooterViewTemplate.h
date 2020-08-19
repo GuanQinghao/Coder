@@ -8,11 +8,11 @@
 #import <UIKit/UIKit.h>
 
 
-#pragma mark ----------------------------------- <delegate> -----------------------------------
+#pragma mark --------------------------- <protocol> ---------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 自定义视图的代理
+/// 列表视图自定义尾视图的代理协议
 @protocol <prefix><name>TableViewFooterViewDelegate <NSObject>
 
 @required
@@ -24,11 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 
-#pragma mark -------------------------------------- <footer> --------------------------------------
+#pragma mark ---------------------------- <footer> ----------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 列表视图的自定义头视图
+/// 列表视图的自定义尾视图
 @interface <prefix><name>TableViewFooterView : UITableViewHeaderFooterView
 
 /// 视图代理

@@ -13,10 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// <#Description#>
 @interface <prefix><name>Model : GQHBaseModel <NSSecureCoding>
 
+#pragma mark --------------------------- <property> ---------------------------
+
 /// 模型类
 // @property (nonatomic, strong) NSArray<GQHBookModel *> *qh_books;
 
-#pragma mark -
+#pragma mark ---------------------------- <method> ----------------------------
+
+#pragma mark ------------------------------ <api> ------------------------------
 
 /// 增-<name>
 /// @param parameters 请求参数

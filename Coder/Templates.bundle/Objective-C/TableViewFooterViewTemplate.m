@@ -9,15 +9,14 @@
 #import "GQHGeneralHeader.h"
 
 
-#pragma mark -------------------------------------- <footer> --------------------------------------
-
 @interface <prefix><name>TableViewFooterView ()
 
 @end
 
 @implementation <prefix><name>TableViewFooterView
 
-#pragma mark - Lifecycle
+#pragma mark --------------------------- <lifecycle> ---------------------------
+
 /// 根据视图数据创建列表视图的尾视图
 /// @param tableView 列表视图
 /// @param section 列表视图组索引值
@@ -38,8 +37,8 @@
     return footerView;
 }
 
-/// 初始化列表自定义头视图
-/// @param reuseIdentifier 列表头视图复用标识
+/// 初始化列表自定义尾视图
+/// @param reuseIdentifier 列表尾视图复用标识
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     NSLog(@"");
     
@@ -55,6 +54,8 @@
     return self;
 }
 
+#pragma mark ---------------------------- <layout> ----------------------------
+
 /// 布局子视图 -> frame计算
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -68,11 +69,13 @@
     
 }
 
-#pragma mark - Delegate
+#pragma mark --------------------- <delegate & datasource> ---------------------
 
-#pragma mark - TargetMethod
+#pragma mark ---------------------------- <method> ----------------------------
 
-#pragma mark - PrivateMethod
+#pragma mark - target method
+
+#pragma mark - private method
 
 /// 根据视图数据更新视图内容
 /// @param data 列表尾视图数据
@@ -88,7 +91,10 @@
     
 }
 
-#pragma mark - Setter
+#pragma mark ------------------------ <setter & getter> ------------------------
+
+#pragma mark - setter
+
 - (void)setQh_data:(id)qh_data {
     
     _qh_data = qh_data;
@@ -100,6 +106,6 @@
     [self updateFooterViewLayoutWith:qh_data];
 }
 
-#pragma mark - Getter
+#pragma mark - getter
 
 @end

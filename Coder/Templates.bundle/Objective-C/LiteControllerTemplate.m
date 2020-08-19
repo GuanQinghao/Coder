@@ -33,7 +33,8 @@ UITableViewDataSource,
 
 @implementation <prefix><name>Controller
 
-#pragma mark ------------------------------------- <lifecycle> -------------------------------------
+#pragma mark --------------------------- <lifecycle> ---------------------------
+
 /// 1.加载系统根视图或自定义根视图
 - (void)loadView {
     [super loadView];
@@ -101,7 +102,7 @@ UITableViewDataSource,
     
 }
 
-#pragma mark ------------------------------- <delegate & datasource> -------------------------------
+#pragma mark --------------------- <delegate & datasource> ---------------------
 
 #pragma mark - UITableViewDelegate
 
@@ -210,15 +211,18 @@ UITableViewDataSource,
 
 #pragma mark - <prefix><name>ViewDelegate
 
-#pragma mark -------------------------------------- <method> ---------------------------------------
-#pragma mark - TargetMethod
+#pragma mark ---------------------------- <method> ----------------------------
 
-#pragma mark - PrivateMethod
+#pragma mark - target method
 
-#pragma mark ---------------------------------- <setter & getter> ----------------------------------
-#pragma mark - Setter
+#pragma mark - private method
 
-#pragma mark - Getter
+#pragma mark ------------------------ <setter & getter> ------------------------
+
+#pragma mark - setter
+
+#pragma mark - getter
+
 - (<prefix><name>View *)rootView {
     
     if (!_rootView) {

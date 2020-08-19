@@ -8,11 +8,11 @@
 #import "GQHBaseView.h"
 
 
-#pragma mark ------------------------------------- <delegate> -------------------------------------
+#pragma mark --------------------------- <protocol> ---------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 自定义根视图的代理
+/// 控制器自定义根视图的代理协议
 @protocol <prefix><name>ViewDelegate <NSObject>
 
 @required
@@ -24,14 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 
-#pragma mark ------------------------------------- <root view> -------------------------------------
+#pragma mark --------------------------- <root view> ---------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 自定义根视图
+/// 控制器自定义根视图
 @interface <prefix><name>View : GQHBaseView
 
-/// 视图代理回调
+/// 视图代理
 @property (nonatomic, weak) id<<prefix><name>ViewDelegate> qh_delegate;
 /// 视图block回调
 @property (nonatomic, copy) void (^qh_block)(id _Nullable sender);

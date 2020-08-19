@@ -9,15 +9,14 @@
 #import "GQHGeneralHeader.h"
 
 
-#pragma mark --------------------------------------- <cell> ---------------------------------------
-
 @interface <prefix><name>TableViewCell ()
 
 @end
 
 @implementation <prefix><name>TableViewCell
 
-#pragma mark - Lifecycle
+#pragma mark --------------------------- <lifecycle> ---------------------------
+
 /// 根据视图数据创建列表视图的行视图
 /// @param tableView 列表视图
 /// @param indexPath 列表行视图索引值
@@ -40,7 +39,7 @@
 }
 
 /// 初始化列表自定义行视图
-/// @param style 列表自定义行视图样式
+/// @param style 列表行视图样式
 /// @param reuseIdentifier 列表行视图复用标识
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     NSLog(@"");
@@ -57,6 +56,8 @@
     return self;
 }
 
+#pragma mark ---------------------------- <layout> ----------------------------
+
 /// 布局子视图 -> frame计算
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -70,27 +71,32 @@
     
 }
 
-#pragma mark - Delegate
+#pragma mark --------------------- <delegate & datasource> ---------------------
 
-#pragma mark - TargetMethod
+#pragma mark ---------------------------- <method> ----------------------------
 
-#pragma mark - PrivateMethod
+#pragma mark - target method
+
+#pragma mark - private method
 
 /// 根据视图数据更新视图内容
-/// @param data 列表视图行视图数据
+/// @param data 列表行视图数据
 - (void)updateCellContentWith:(id)data {
     NSLog(@"");
     
 }
 
 /// 根据视图数据更新视图布局
-/// @param data 列表视图行视图数据
+/// @param data 列表行视图数据
 - (void)updateCellLayoutWith:(id)data {
     NSLog(@"");
     
 }
 
-#pragma mark - Setter
+#pragma mark ------------------------ <setter & getter> ------------------------
+
+#pragma mark - setter
+
 - (void)setQh_data:(id)qh_data {
     
     _qh_data = qh_data;
@@ -102,6 +108,6 @@
     [self updateCellLayoutWith:qh_data];
 }
 
-#pragma mark - Getter
+#pragma mark - getter
 
 @end

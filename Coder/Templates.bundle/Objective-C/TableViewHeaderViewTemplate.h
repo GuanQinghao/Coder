@@ -8,11 +8,11 @@
 #import <UIKit/UIKit.h>
 
 
-#pragma mark ----------------------------------- <delegate> -----------------------------------
+#pragma mark --------------------------- <protocol> ---------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 自定义视图的代理
+/// 列表视图自定义头视图的代理协议
 @protocol <prefix><name>TableViewHeaderViewDelegate <NSObject>
 
 @required
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 
-#pragma mark -------------------------------------- <header> --------------------------------------
+#pragma mark ---------------------------- <header> ----------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 根据视图数据创建列表视图的头视图
 /// @param tableView 列表视图
 /// @param section 列表视图组索引值
-/// @param data 列表尾视图数据
+/// @param data 列表头视图数据
 + (instancetype)qh_tableView:(UITableView *)tableView headerViewForSection:(NSInteger)section data:(nullable id)data;
 
 @end

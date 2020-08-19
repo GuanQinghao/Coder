@@ -8,15 +8,14 @@
 #import "<prefix><name>View.h"
 
 
-#pragma mark ------------------------------------- <root view> -------------------------------------
-
 @interface <prefix><name>View ()
 
 @end
 
 @implementation <prefix><name>View
 
-#pragma mark - Lifecycle
+#pragma mark --------------------------- <lifecycle> ---------------------------
+
 /// 初始化控制器自定义根视图
 /// @param frame 自定义根视图的frame
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -33,6 +32,8 @@
     
     return self;
 }
+
+#pragma mark ---------------------------- <layout> ----------------------------
 
 /// 布局子视图 -> frame计算
 - (void)layoutSubviews {
@@ -62,11 +63,13 @@
     // }];
 }
 
-#pragma mark - Delegate
+#pragma mark --------------------- <delegate & datasource> ---------------------
 
-#pragma mark - TargetMethod
+#pragma mark ---------------------------- <method> ----------------------------
 
-#pragma mark - PrivateMethod
+#pragma mark - target method
+
+#pragma mark - private method
 
 /// 根据视图数据更新视图内容
 /// @param data 视图数据
@@ -82,7 +85,10 @@
     
 }
 
-#pragma mark - Setter
+#pragma mark ------------------------ <setter & getter> ------------------------
+
+#pragma mark - setter
+
 - (void)setQh_data:(id)qh_data {
     
     _qh_data = qh_data;
@@ -94,7 +100,8 @@
     [self updateRootViewLayoutWith:qh_data];
 }
 
-#pragma mark - Getter
+#pragma mark - getter
+
 - (UITableView *)qh_tableView {
     
     if (!_qh_tableView) {

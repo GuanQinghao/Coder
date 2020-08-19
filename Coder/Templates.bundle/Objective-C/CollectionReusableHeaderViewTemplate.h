@@ -8,11 +8,11 @@
 #import <UIKit/UIKit.h>
 
 
-#pragma mark ----------------------------------- <delegate> -----------------------------------
+#pragma mark --------------------------- <protocol> ---------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 自定义视图的代理
+/// 集合视图自定义头视图的代理协议
 @protocol <prefix><name>CollectionReusableHeaderViewDelegate <NSObject>
 
 @required
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 
-#pragma mark -------------------------------------- <header> --------------------------------------
+#pragma mark ---------------------------- <header> ----------------------------
 
 NS_ASSUME_NONNULL_BEGIN
 

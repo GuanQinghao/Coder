@@ -9,15 +9,14 @@
 #import "GQHGeneralHeader.h"
 
 
-#pragma mark --------------------------------------- <cell> ---------------------------------------
-
 @interface <prefix><name>CollectionViewCell ()
 
 @end
 
 @implementation <prefix><name>CollectionViewCell
 
-#pragma mark - Lifecycle
+#pragma mark --------------------------- <lifecycle> ---------------------------
+
 /// 根据视图数据创建集合视图的单元格视图
 /// @param collectionView 集合视图
 /// @param indexPath 单元格视图索引值
@@ -50,6 +49,8 @@
     return self;
 }
 
+#pragma mark ---------------------------- <layout> ----------------------------
+
 /// 布局子视图 -> frame计算
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -63,11 +64,13 @@
     
 }
 
-#pragma mark - Delegate
+#pragma mark --------------------- <delegate & datasource> ---------------------
 
-#pragma mark - TargetMethod
+#pragma mark ---------------------------- <method> ----------------------------
 
-#pragma mark - PrivateMethod
+#pragma mark - target method
+
+#pragma mark - private method
 
 /// 根据视图数据更新视图内容
 /// @param data 集合视图单元格视图数据
@@ -83,7 +86,10 @@
     
 }
 
-#pragma mark - Setter
+#pragma mark ------------------------ <setter & getter> ------------------------
+
+#pragma mark - setter
+
 - (void)setQh_data:(id)qh_data {
     
     _qh_data = qh_data;
@@ -95,6 +101,6 @@
     [self updateCellLayoutWith:qh_data];
 }
 
-#pragma mark - Getter
+#pragma mark - getter
 
 @end
