@@ -5,13 +5,13 @@
 //  Copyright © <year> GuanQinghao. All rights reserved.
 //
 
-#import "GQHBaseViewController.h"
+#import "GQHBaseController.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
 /// <#Description#>
-@interface <prefix><name>Controller : GQHBaseViewController
+@interface <prefix><name>Controller : GQHBaseController
 
 @end
 
