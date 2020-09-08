@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// 自定义视图的代理协议
-@protocol <prefix><name>ViewDelegate <NSObject>
+@protocol <prefix><name>ViewDelegate <GQHBaseViewDelegate>
 
 @required
 
