@@ -34,18 +34,18 @@ static NSString * const kFileName = @"name.file";
 + (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper {
     
     return @{
-             
-             @"qh_id" : @[@"id",@"iD",@"Id"],
-             };
+        
+        @"qh_id" : @[@"id",@"iD",@"Id"],
+    };
 }
 
 /// 模型类映射
 + (nullable NSDictionary<NSString *, id> *)modelContainerPropertyGenericClass {
     
     return @{
-             
-//             @"qh_books" : GQHBookModel.class,
-             };
+        
+        // @"qh_books" : GQHBookModel.class,
+    };
 }
 
 #pragma mark ---------------------- <archive & unarchive> ----------------------

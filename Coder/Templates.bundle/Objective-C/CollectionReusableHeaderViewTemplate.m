@@ -58,7 +58,7 @@
     
 }
 
-/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不需要计算)
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
     
@@ -79,13 +79,6 @@
     
 }
 
-/// 根据视图数据更新视图布局
-/// @param data 集合头视图数据
-- (void)updateHeaderViewLayoutWith:(id)data {
-    NSLog(@"");
-    
-}
-
 #pragma mark ------------------------ <setter & getter> ------------------------
 
 #pragma mark - setter
@@ -96,9 +89,6 @@
     
     // 更新头视图内容
     [self updateHeaderViewContentWith:qh_data];
-    
-    // 更新头视图布局
-    [self updateHeaderViewLayoutWith:qh_data];
 }
 
 #pragma mark - getter

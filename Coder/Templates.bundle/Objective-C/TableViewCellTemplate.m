@@ -86,13 +86,6 @@
     
 }
 
-/// 根据视图数据更新视图布局
-/// @param data 列表行视图数据
-- (void)updateCellLayoutWith:(id)data {
-    NSLog(@"");
-    
-}
-
 #pragma mark ------------------------ <setter & getter> ------------------------
 
 #pragma mark - setter
@@ -103,9 +96,6 @@
     
     // 更新行视图内容
     [self updateCellContentWith:qh_data];
-    
-    // 更新行视图布局
-    [self updateCellLayoutWith:qh_data];
 }
 
 #pragma mark - getter

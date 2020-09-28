@@ -78,13 +78,6 @@
     
 }
 
-/// 根据视图数据更新视图布局
-/// @param data 视图数据
-- (void)updateRootViewLayoutWith:(id)data {
-    NSLog(@"");
-    
-}
-
 #pragma mark ------------------------ <setter & getter> ------------------------
 
 #pragma mark - setter
@@ -95,9 +88,6 @@
     
     // 更新视图内容
     [self updateRootViewContentWith:qh_data];
-    
-    // 更新视图布局
-    [self updateRootViewLayoutWith:qh_data];
 }
 
 #pragma mark - getter

@@ -58,7 +58,7 @@
     
 }
 
-/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不要计算)
+/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束，不需要计算)
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
     
@@ -79,13 +79,6 @@
     
 }
 
-/// 根据视图数据更新视图布局
-/// @param data 集合视图单元格视图数据
-- (void)updateCellLayoutWith:(id)data {
-    NSLog(@"");
-    
-}
-
 #pragma mark ------------------------ <setter & getter> ------------------------
 
 #pragma mark - setter
@@ -96,9 +89,6 @@
     
     // 更新单元格视图内容
     [self updateCellContentWith:qh_data];
-    
-    // 更新单元格视图布局
-    [self updateCellLayoutWith:qh_data];
 }
 
 #pragma mark - getter

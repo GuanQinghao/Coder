@@ -63,7 +63,7 @@
     
 }
 
-/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不要计算)
+/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不需要计算)
 - (void)autoLayoutWithConstraints {
     NSLog(@"");
     
@@ -84,13 +84,6 @@
     
 }
 
-/// 根据视图数据更新视图布局
-/// @param data 列表尾视图数据
-- (void)updateFooterViewLayoutWith:(id)data {
-    NSLog(@"");
-    
-}
-
 #pragma mark ------------------------ <setter & getter> ------------------------
 
 #pragma mark - setter
@@ -101,9 +94,6 @@
     
     // 更新尾视图内容
     [self updateFooterViewContentWith:qh_data];
-    
-    // 更新尾视图布局
-    [self updateFooterViewLayoutWith:qh_data];
 }
 
 #pragma mark - getter
