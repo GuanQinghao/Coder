@@ -8,22 +8,6 @@
 #import "GQHBaseView.h"
 
 
-#pragma mark --------------------------- <protocol> ---------------------------
-
-NS_ASSUME_NONNULL_BEGIN
-
-/// 控制器自定义根视图的代理协议
-@protocol <prefix><name>ViewDelegate <GQHBaseViewDelegate>
-
-@required
-
-@optional
-
-@end
-
-NS_ASSUME_NONNULL_END
-
-
 #pragma mark --------------------------- <root view> ---------------------------
 
 NS_ASSUME_NONNULL_BEGIN

@@ -28,9 +28,9 @@ static GQHPropertyCreator *singleton = nil;
     return singleton;
 }
 
-- (instancetype)allocWithZone:(struct _NSZone *)zone {
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
     
-    return  [[self class] creator];
+    return  [self creator];
 }
 
 /// 根据JSON字符串生成属性

@@ -84,9 +84,9 @@ static GQHFileCreator *singleton = nil;
     return singleton;
 }
 
-- (instancetype)allocWithZone:(struct _NSZone *)zone {
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
     
-    return  [[self class] creator];
+    return  [self creator];
 }
 
 /// 根据模版生成Controller和View文件

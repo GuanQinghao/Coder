@@ -5,47 +5,51 @@
 //  Copyright © <year> GuanQinghao. All rights reserved.
 //
 
-#import "GQHBaseModel.h"
+#import "SeedBaseModel.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
 /// <#Description#>
-@interface <prefix><name>Model : GQHBaseModel <NSSecureCoding>
+@interface <prefix><name>Model : SeedBaseModel <NSSecureCoding>
 
 #pragma mark --------------------------- <property> ---------------------------
 
+#pragma mark - auxiliary property
+
+#pragma mark - business property
+
 /// 模型类
-// @property (nonatomic, strong) NSArray<GQHBookModel *> *qh_books;
+// @property (nonatomic, strong) NSArray<SeedBookModel *> *s_books;
 
 #pragma mark ---------------------------- <method> ----------------------------
 
 #pragma mark ------------------------------ <api> ------------------------------
 
-/// 增-<name>
+/// 增-<#Description#>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_create<name>With:(nullable id)parameters handler:(nullable void (^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
++ (void)s_create<name>With:(nullable id)parameters handler:(nullable void (^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
 
-/// 查-<name>
+/// 查-<#Description#>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_read<name>With:(nullable id)parameters handler:(nullable void (^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
++ (void)s_read<name>With:(nullable id)parameters handler:(nullable void (^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
 
-/// 改-<name>
+/// 改-<#Description#>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_update<name>With:(nullable id)parameters handler:(nullable void (^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
++ (void)s_update<name>With:(nullable id)parameters handler:(nullable void (^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
 
-/// 删-<name>
+/// 删-<#Description#>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_delete<name>With:(nullable id)parameters handler:(nullable void (^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
++ (void)s_delete<name>With:(nullable id)parameters handler:(nullable void (^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
 
-/// 列表-<name>
+/// 列表-<#Description#>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_fetch<name>sWith:(nullable id)parameters handler:(nullable void (^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
++ (void)s_fetch<name>sWith:(nullable id)parameters handler:(nullable void (^)(BOOL status, NSNumber *code, NSString *message, id data))handler;
 
 @end
 

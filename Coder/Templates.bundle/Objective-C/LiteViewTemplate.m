@@ -47,10 +47,10 @@
     NSLog(@"");
     
     // 列表视图
-    [self addSubview:self.qh_tableView];
-    [self.qh_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self addSubview:self.s_tableView];
+    [self.s_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.top.mas_equalTo(self).with.inset(self.qh_statusBarHeight + self.qh_navigationBarHeight);
+        make.top.mas_equalTo(self).with.inset(self.s_statusBarHeight + self.s_navigationBarHeight);
         make.left.and.right.and.bottom.mas_equalTo(self);
     }];
 }
@@ -63,58 +63,20 @@
 
 #pragma mark - private method
 
-/// 根据视图数据更新视图内容
-/// @param data 视图数据
-- (void)updateRootViewContentWith:(id)data {
-    NSLog(@"");
-    
-}
-
-/// 根据视图数据更新视图布局
-/// @param data 视图数据
-- (void)updateRootViewLayoutWith:(id)data {
-    NSLog(@"");
-    
-}
-
 #pragma mark ------------------------ <setter & getter> ------------------------
 
 #pragma mark - setter
 
-- (void)setQh_data:(id)qh_data {
-    
-    _qh_data = qh_data;
-    
-    // 更新视图内容
-    [self updateRootViewContentWith:qh_data];
-    
-    // 更新视图布局
-    [self updateRootViewLayoutWith:qh_data];
-}
-
 #pragma mark - getter
 
-- (UITableView *)qh_tableView {
+- (SeedBaseTableView *)s_tableView {
     
-    if (!_qh_tableView) {
+    if (!_s_tableView) {
         
-        _qh_tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-        _qh_tableView.backgroundColor = [UIColor whiteColor];
-        _qh_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _qh_tableView.showsVerticalScrollIndicator = NO;
-        _qh_tableView.showsHorizontalScrollIndicator = NO;
-        
-        // 列表自动计算行高
-        _qh_tableView.estimatedRowHeight = 200.0f;
-        _qh_tableView.rowHeight = UITableViewAutomaticDimension;
-        
-        if (@available(iOS 11.0, *)) {
-            
-            _qh_tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
+        _s_tableView = [SeedBaseTableView s_tableViewWith:OxFFFFFF];
     }
     
-    return _qh_tableView;
+    return _s_tableView;
 }
 
 @end

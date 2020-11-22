@@ -16,26 +16,7 @@
 		045AE2492204195F00E4DCE3 /* GQHFileCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AE2482204195F00E4DCE3 /* GQHFileCreator.m */; };
 		045AE24C220419B000E4DCE3 /* GQHLazyLoadCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AE24B220419B000E4DCE3 /* GQHLazyLoadCreator.m */; };
 		045AE24F220419C700E4DCE3 /* GQHPropertyCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AE24E220419C700E4DCE3 /* GQHPropertyCreator.m */; };
-		04A54B4A2232069900A28A5D /* CoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A54B492232069900A28A5D /* CoderTests.m */; };
-		04A54B582232078500A28A5D /* CoderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A54B572232078500A28A5D /* CoderUITests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		04A54B4C2232069900A28A5D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0447272121A2C66900998E7D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0447272821A2C66900998E7D;
-			remoteInfo = Coder;
-		};
-		04A54B5A2232078500A28A5D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0447272121A2C66900998E7D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0447272821A2C66900998E7D;
-			remoteInfo = Coder;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0447272921A2C66900998E7D /* Coder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,30 +36,10 @@
 		045AE24B220419B000E4DCE3 /* GQHLazyLoadCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GQHLazyLoadCreator.m; sourceTree = "<group>"; };
 		045AE24D220419C700E4DCE3 /* GQHPropertyCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GQHPropertyCreator.h; sourceTree = "<group>"; };
 		045AE24E220419C700E4DCE3 /* GQHPropertyCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GQHPropertyCreator.m; sourceTree = "<group>"; };
-		04A54B472232069900A28A5D /* CoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		04A54B492232069900A28A5D /* CoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoderTests.m; sourceTree = "<group>"; };
-		04A54B4B2232069900A28A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04A54B552232078500A28A5D /* CoderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		04A54B572232078500A28A5D /* CoderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoderUITests.m; sourceTree = "<group>"; };
-		04A54B592232078500A28A5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0447272621A2C66900998E7D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		04A54B442232069900A28A5D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		04A54B522232078500A28A5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -92,8 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				0447272B21A2C66900998E7D /* Coder */,
-				04A54B482232069900A28A5D /* CoderTests */,
-				04A54B562232078500A28A5D /* CoderUITests */,
 				0447272A21A2C66900998E7D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,8 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				0447272921A2C66900998E7D /* Coder.app */,
-				04A54B472232069900A28A5D /* CoderTests.xctest */,
-				04A54B552232078500A28A5D /* CoderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,24 +88,6 @@
 			path = Coder;
 			sourceTree = "<group>";
 		};
-		04A54B482232069900A28A5D /* CoderTests */ = {
-			isa = PBXGroup;
-			children = (
-				04A54B492232069900A28A5D /* CoderTests.m */,
-				04A54B4B2232069900A28A5D /* Info.plist */,
-			);
-			path = CoderTests;
-			sourceTree = "<group>";
-		};
-		04A54B562232078500A28A5D /* CoderUITests */ = {
-			isa = PBXGroup;
-			children = (
-				04A54B572232078500A28A5D /* CoderUITests.m */,
-				04A54B592232078500A28A5D /* Info.plist */,
-			);
-			path = CoderUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,42 +109,6 @@
 			productReference = 0447272921A2C66900998E7D /* Coder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		04A54B462232069900A28A5D /* CoderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 04A54B502232069900A28A5D /* Build configuration list for PBXNativeTarget "CoderTests" */;
-			buildPhases = (
-				04A54B432232069900A28A5D /* Sources */,
-				04A54B442232069900A28A5D /* Frameworks */,
-				04A54B452232069900A28A5D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				04A54B4D2232069900A28A5D /* PBXTargetDependency */,
-			);
-			name = CoderTests;
-			productName = CoderTests;
-			productReference = 04A54B472232069900A28A5D /* CoderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		04A54B542232078500A28A5D /* CoderUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 04A54B5C2232078500A28A5D /* Build configuration list for PBXNativeTarget "CoderUITests" */;
-			buildPhases = (
-				04A54B512232078500A28A5D /* Sources */,
-				04A54B522232078500A28A5D /* Frameworks */,
-				04A54B532232078500A28A5D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				04A54B5B2232078500A28A5D /* PBXTargetDependency */,
-			);
-			name = CoderUITests;
-			productName = CoderUITests;
-			productReference = 04A54B552232078500A28A5D /* CoderUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -223,14 +126,6 @@
 							};
 						};
 					};
-					04A54B462232069900A28A5D = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 0447272821A2C66900998E7D;
-					};
-					04A54B542232078500A28A5D = {
-						CreatedOnToolsVersion = 10.1;
-						TestTargetID = 0447272821A2C66900998E7D;
-					};
 				};
 			};
 			buildConfigurationList = 0447272421A2C66900998E7D /* Build configuration list for PBXProject "Coder" */;
@@ -247,8 +142,6 @@
 			projectRoot = "";
 			targets = (
 				0447272821A2C66900998E7D /* Coder */,
-				04A54B462232069900A28A5D /* CoderTests */,
-				04A54B542232078500A28A5D /* CoderUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -261,20 +154,6 @@
 				0447273321A2C67300998E7D /* Assets.xcassets in Resources */,
 				0447273621A2C67300998E7D /* Main.storyboard in Resources */,
 				0447274321A4141300998E7D /* Templates.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		04A54B452232069900A28A5D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		04A54B532232078500A28A5D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,36 +193,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04A54B432232069900A28A5D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04A54B4A2232069900A28A5D /* CoderTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		04A54B512232078500A28A5D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04A54B582232078500A28A5D /* CoderUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		04A54B4D2232069900A28A5D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0447272821A2C66900998E7D /* Coder */;
-			targetProxy = 04A54B4C2232069900A28A5D /* PBXContainerItemProxy */;
-		};
-		04A54B5B2232078500A28A5D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0447272821A2C66900998E7D /* Coder */;
-			targetProxy = 04A54B5A2232078500A28A5D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0447273421A2C67300998E7D /* Main.storyboard */ = {
@@ -504,86 +354,6 @@
 			};
 			name = Release;
 		};
-		04A54B4E2232069900A28A5D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = JM52XZKNAA;
-				INFOPLIST_FILE = CoderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.GuanQinghao.CoderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coder.app/Contents/MacOS/Coder";
-			};
-			name = Debug;
-		};
-		04A54B4F2232069900A28A5D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = JM52XZKNAA;
-				INFOPLIST_FILE = CoderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.GuanQinghao.CoderTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coder.app/Contents/MacOS/Coder";
-			};
-			name = Release;
-		};
-		04A54B5D2232078500A28A5D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = JM52XZKNAA;
-				INFOPLIST_FILE = CoderUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.GuanQinghao.CoderUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Coder;
-			};
-			name = Debug;
-		};
-		04A54B5E2232078500A28A5D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = JM52XZKNAA;
-				INFOPLIST_FILE = CoderUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.GuanQinghao.CoderUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Coder;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -601,24 +371,6 @@
 			buildConfigurations = (
 				0447273E21A2C67300998E7D /* Debug */,
 				0447273F21A2C67300998E7D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		04A54B502232069900A28A5D /* Build configuration list for PBXNativeTarget "CoderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				04A54B4E2232069900A28A5D /* Debug */,
-				04A54B4F2232069900A28A5D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		04A54B5C2232078500A28A5D /* Build configuration list for PBXNativeTarget "CoderUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				04A54B5D2232078500A28A5D /* Debug */,
-				04A54B5E2232078500A28A5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -61,9 +61,9 @@ static GQHLazyLoadCreator *singleton = nil;
     return singleton;
 }
 
-- (instancetype)allocWithZone:(struct _NSZone *)zone {
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
     
-    return  [[self class] creator];
+    return  [self creator];
 }
 
 /// 根据代码块生成懒加载代码

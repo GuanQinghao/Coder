@@ -6,7 +6,6 @@
 //
 
 #import "<prefix><name>TableViewHeaderView.h"
-#import "GQHGeneralHeader.h"
 
 
 @interface <prefix><name>TableViewHeaderView ()
@@ -21,7 +20,7 @@
 /// @param tableView 列表视图
 /// @param section 列表视图组索引值
 /// @param data 列表头视图数据
-+ (instancetype)qh_tableView:(UITableView *)tableView headerViewForSection:(NSInteger)section data:(id)data {
++ (instancetype)s_tableView:(UITableView *)tableView viewForSection:(NSInteger)section data:(id)data {
     NSLog(@"");
     
     static NSString *identifier = @"<prefix><name>TableViewHeaderView";
@@ -32,7 +31,7 @@
     }
     
     // 根据视图数据更新视图
-    headerView.qh_data = data;
+    headerView.s_data = data;
     
     return headerView;
 }
@@ -55,13 +54,6 @@
 }
 
 #pragma mark ---------------------------- <layout> ----------------------------
-
-/// 布局子视图 -> frame计算
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    NSLog(@"");
-    
-}
 
 /// 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不需要计算)
 - (void)autoLayoutWithConstraints {
@@ -88,12 +80,11 @@
 
 #pragma mark - setter
 
-- (void)setQh_data:(id)qh_data {
-    
-    _qh_data = qh_data;
+- (void)setS_data:(id)s_data {
+    [super setS_data:s_data];
     
     // 更新头视图内容
-    [self updateHeaderViewContentWith:qh_data];
+    [self updateHeaderViewContentWith:s_data];
 }
 
 #pragma mark - getter

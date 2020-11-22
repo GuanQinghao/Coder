@@ -8,9 +8,6 @@
 #import "<prefix><name>Model.h"
 
 
-/// 缓存文件名
-static NSString * const kFileName = @"name.file";
-
 @implementation <prefix><name>Model
 
 #pragma mark ----------------------------- <mock> -----------------------------
@@ -35,7 +32,7 @@ static NSString * const kFileName = @"name.file";
     
     return @{
         
-        @"qh_id" : @[@"id",@"iD",@"Id"],
+        @"s_id" : @[@"id",@"iD",@"Id"],
     };
 }
 
@@ -44,71 +41,46 @@ static NSString * const kFileName = @"name.file";
     
     return @{
         
-        // @"qh_books" : GQHBookModel.class,
+        // @"s_books" : SeedBookModel.class,
     };
 }
 
 #pragma mark ---------------------- <archive & unarchive> ----------------------
 
-/// 编码解档
-/// @param coder 编码器
-- (instancetype)initWithCoder:(NSCoder *)coder {
-    
-    if (self = [super init]) {
-        
-        self.qh_id = [coder decodeObjectForKey:@"qh_id"];
-    }
-    
-    return self;
-}
-
-/// 编码归档
-/// @param coder 编码器
-- (void)encodeWithCoder:(NSCoder *)coder {
-    
-    [coder encodeObject:self.qh_id forKey:@"qh_id"];
-}
-
-/// 安全编码
-+ (BOOL)supportsSecureCoding {
-    
-    return YES;
-}
-
 #pragma mark ------------------------------ <api> ------------------------------
 
-/// 增-<name>
+/// 增-<#Description#>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_create<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
++ (void)s_create<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
     
 }
 
-/// 查-<name>
+/// 查-<#Description#>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_read<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
++ (void)s_read<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
     
 }
 
-/// 改-<name>
+/// 改-<#Description#>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_update<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
++ (void)s_update<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
     
 }
 
-/// 删-<name>
+/// 删-<#Description#>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_delete<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
++ (void)s_delete<name>With:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
     
 }
 
-/// 列表-<name>
+/// 列表-<#Description#>
 /// @param parameters 请求参数
 /// @param handler 请求结果回调处理
-+ (void)qh_fetch<name>sWith:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
++ (void)s_fetch<name>sWith:(id)parameters handler:(void (^)(BOOL status, NSNumber * _Nonnull code, NSString * _Nonnull message, id _Nonnull data))handler {
     
 }
 

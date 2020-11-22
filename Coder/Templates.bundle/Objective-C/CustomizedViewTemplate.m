@@ -56,24 +56,9 @@
 
 #pragma mark - private method
 
-/// 根据视图数据更新视图内容
-/// @param data 视图数据
-- (void)updateCustomViewContentWith:(id)data {
-    NSLog(@"");
-    
-}
-
 #pragma mark ------------------------ <setter & getter> ------------------------
 
 #pragma mark - setter
-
-- (void)setQh_data:(id)qh_data {
-    
-    _qh_data = qh_data;
-    
-    // 更新视图内容
-    [self updateCustomViewContentWith:qh_data];
-}
 
 #pragma mark - getter
 

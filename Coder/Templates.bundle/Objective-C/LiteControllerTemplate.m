@@ -5,23 +5,20 @@
 //  Copyright © <year> GuanQinghao. All rights reserved.
 //
 
-#pragma mark Other
+#pragma mark - other
 
-#pragma mark Model
+#pragma mark - model
 
-#pragma mark View
+#pragma mark - view
 #import "<prefix><name>View.h"
 
-#pragma mark Controller
+#pragma mark - controller
 #import "<prefix><name>Controller.h"
 
 
 #pragma mark -
 
-@interface <prefix><name>Controller () <
-UITableViewDelegate,
-UITableViewDataSource,
-<prefix><name>ViewDelegate>
+@interface <prefix><name>Controller ()
 
 /// 自定义根视图
 @property (nonatomic, strong) <prefix><name>View *rootView;
@@ -58,62 +55,9 @@ UITableViewDataSource,
     
 }
 
-/// 4.视图即将布局其子视图
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    NSLog(@"");
-    
-}
-
-/// 5.视图已经布局其子视图
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    NSLog(@"");
-    
-}
-
-/// 6.视图已经显示
-/// @param animated 是否显示动画效果
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    NSLog(@"");
-    
-}
-
-/// 7.视图即将消失
-/// @param animated 是否显示动画效果
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    NSLog(@"");
-    
-}
-
-/// 8.视图已经消失
-/// @param animated 是否显示动画效果
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    NSLog(@"");
-    
-}
-
-/// 9.视图被销毁
-- (void)dealloc {
-    NSLog(@"");
-    
-}
-
 #pragma mark --------------------- <delegate & datasource> ---------------------
 
 #pragma mark - UITableViewDelegate
-
-/// 列表视图的各行高度
-/// @param tableView 列表视图
-/// @param indexPath 列表视图某行的索引值
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"");
-    
-    return 50.0f;
-}
 
 /// 选中列表视图的某行视图
 /// @param tableView 列表视图
@@ -139,12 +83,8 @@ UITableViewDataSource,
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     NSLog(@"");
     
-    // 头视图数据data
-    // NSMutableDictionary *data = [NSMutableDictionary dictionary];
-    
-    // 自定义头视图
     UIView *headerView = [[UIView alloc] init];
-    // headerView = [<#TableViewHeaderView#> qh_tableView:tableView headerViewForSection:section data:data];
+    //headerView = [<#TableViewHeaderView#> s_tableView:tableView viewForSection:section data:<#(nullable id)#>];
     
     return headerView;
 }
@@ -164,12 +104,8 @@ UITableViewDataSource,
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     NSLog(@"");
     
-    // 尾视图数据data
-    // NSMutableDictionary *data = [NSMutableDictionary dictionary];
-    
-    // 自定义尾视图
     UIView *footerView = [[UIView alloc] init];
-    // footerView = [<#TableViewFooterView#> qh_tableView:tableView footerViewForSection:section data:data];
+    //footerView = [<#TableViewHeaderView#> s_tableView:tableView viewForSection:section data:<#(nullable id)#>];
     
     return footerView;
 }
@@ -199,23 +135,19 @@ UITableViewDataSource,
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"");
     
-    // 数据data
-    // NSMutableDictionary *data = [NSMutableDictionary dictionary];
+    //<#TableViewCell#> *cell = [<#TableViewCell#> s_tableView:tableView cellForIndexPath:indexPath data:<#(nullable id)#>];
+    //return cell;
     
-    // 列表视图行视图cell
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    // cell = [<#TableViewCell#> qh_tableView:tableView cellForIndexPath:indexPath data:data];
-    
-    return cell;
+    return [UITableViewCell new];
 }
-
-#pragma mark - <prefix><name>ViewDelegate
 
 #pragma mark ---------------------------- <method> ----------------------------
 
 #pragma mark - target method
 
 #pragma mark - private method
+
+#pragma mark - api method
 
 #pragma mark ------------------------ <setter & getter> ------------------------
 
@@ -229,11 +161,8 @@ UITableViewDataSource,
         
         _rootView = [[<prefix><name>View alloc] initWithFrame:UIScreen.mainScreen.bounds];
         _rootView.backgroundColor = [UIColor whiteColor];
-        _rootView.qh_delegate = self;
-        
-        // 列表视图
-        _rootView.qh_tableView.delegate = self;
-        _rootView.qh_tableView.dataSource = self;
+        _rootView.s_tableView.delegate = self;
+        _rootView.s_tableView.dataSource = self;
     }
     
     return _rootView;

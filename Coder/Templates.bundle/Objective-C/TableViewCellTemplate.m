@@ -6,7 +6,6 @@
 //
 
 #import "<prefix><name>TableViewCell.h"
-#import "GQHGeneralHeader.h"
 
 
 @interface <prefix><name>TableViewCell ()
@@ -21,7 +20,7 @@
 /// @param tableView 列表视图
 /// @param indexPath 列表行视图索引值
 /// @param data 列表行视图数据
-+ (instancetype)qh_tableView:(UITableView *)tableView cellForIndexPath:(NSIndexPath *)indexPath data:(id)data {
++ (instancetype)s_tableView:(UITableView *)tableView cellForIndexPath:(NSIndexPath *)indexPath data:(id)data {
     NSLog(@"");
     
     static NSString *identifier = @"<prefix><name>TableViewCell";
@@ -33,7 +32,7 @@
     }
     
     // 根据视图数据更新视图
-    cell.qh_data = data;
+    cell.s_data = data;
     
     return cell;
 }
@@ -57,13 +56,6 @@
 }
 
 #pragma mark ---------------------------- <layout> ----------------------------
-
-/// 布局子视图 -> frame计算
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    NSLog(@"");
-    
-}
 
 /// 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不要计算)
 - (void)autoLayoutWithConstraints {
@@ -90,12 +82,11 @@
 
 #pragma mark - setter
 
-- (void)setQh_data:(id)qh_data {
-    
-    _qh_data = qh_data;
+- (void)setS_data:(id)s_data {
+    [super setS_data:s_data];
     
     // 更新行视图内容
-    [self updateCellContentWith:qh_data];
+    [self updateCellContentWith:s_data];
 }
 
 #pragma mark - getter

@@ -8,9 +8,6 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
-
-@end
 
 @implementation AppDelegate
 
@@ -18,11 +15,9 @@
     // Insert code here to initialize your application
 }
 
-
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
-
 
 /// 关闭窗口，直接退出程序
 /// @param sender N/A
