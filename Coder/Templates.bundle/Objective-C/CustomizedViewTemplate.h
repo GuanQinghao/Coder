@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 自定义视图
+/// <#Description#>
 @interface <prefix><name>View : SeedBaseView
 
 @end

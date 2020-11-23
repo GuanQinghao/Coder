@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 列表视图的自定义头视图
+/// <#Description#>
 @interface <prefix><name>TableViewHeaderView : SeedBaseTableViewHeaderFooterView
 
 @end
