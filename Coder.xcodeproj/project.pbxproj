@@ -12,7 +12,7 @@
 		0447273321A2C67300998E7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0447273221A2C67300998E7D /* Assets.xcassets */; };
 		0447273621A2C67300998E7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0447273421A2C67300998E7D /* Main.storyboard */; };
 		0447273921A2C67300998E7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0447273821A2C67300998E7D /* main.m */; };
-		0447274321A4141300998E7D /* Templates.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0447274221A4141300998E7D /* Templates.bundle */; };
+		0447274321A4141300998E7D /* templates.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0447274221A4141300998E7D /* templates.bundle */; };
 		045AE2492204195F00E4DCE3 /* GQHFileCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AE2482204195F00E4DCE3 /* GQHFileCreator.m */; };
 		045AE24C220419B000E4DCE3 /* GQHLazyLoadCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AE24B220419B000E4DCE3 /* GQHLazyLoadCreator.m */; };
 		045AE24F220419C700E4DCE3 /* GQHPropertyCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AE24E220419C700E4DCE3 /* GQHPropertyCreator.m */; };
@@ -29,7 +29,7 @@
 		0447273721A2C67300998E7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0447273821A2C67300998E7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0447273A21A2C67300998E7D /* Coder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coder.entitlements; sourceTree = "<group>"; };
-		0447274221A4141300998E7D /* Templates.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Templates.bundle; sourceTree = "<group>"; };
+		0447274221A4141300998E7D /* templates.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = templates.bundle; sourceTree = "<group>"; };
 		045AE2472204195F00E4DCE3 /* GQHFileCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GQHFileCreator.h; sourceTree = "<group>"; };
 		045AE2482204195F00E4DCE3 /* GQHFileCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GQHFileCreator.m; sourceTree = "<group>"; };
 		045AE24A220419B000E4DCE3 /* GQHLazyLoadCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GQHLazyLoadCreator.h; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 			children = (
 				0447272C21A2C66900998E7D /* AppDelegate.h */,
 				0447272D21A2C66900998E7D /* AppDelegate.m */,
-				0447274221A4141300998E7D /* Templates.bundle */,
+				0447274221A4141300998E7D /* templates.bundle */,
 				0447272F21A2C66900998E7D /* ViewController.h */,
 				0447273021A2C66900998E7D /* ViewController.m */,
 				045AE2472204195F00E4DCE3 /* GQHFileCreator.h */,
@@ -153,7 +153,7 @@
 			files = (
 				0447273321A2C67300998E7D /* Assets.xcassets in Resources */,
 				0447273621A2C67300998E7D /* Main.storyboard in Resources */,
-				0447274321A4141300998E7D /* Templates.bundle in Resources */,
+				0447274321A4141300998E7D /* templates.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
