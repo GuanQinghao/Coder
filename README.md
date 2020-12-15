@@ -1,27 +1,22 @@
-# Coder
+# SeedCoder
 
 ## 需求分析
 
+文件类型：
 
-### 1、生成的文件类型
+controller(rootview)
+model
+view
+tableview
+tableviewcell
+tableviewheaderview
+tableviewfooterview
 
-控制器类：Controller文件，匹配框架会同时生成一个rootView
+collectionview
+collectionviewcell
+collectionviewreusableheaderview
+collectionviewreusablefooterview
 
-模型类：Model文件
-
-视图类：
-
-View文件，自定义视图文件；
-
-TableView文件，列表视图文件；
-TableViewCell文件；
-TableViewHeaderView文件；
-TableViewFooterView文件；
-
-CollectionView文件；
-CollectionViewCell文件；
-CollectionViewReusableHeaderView文件；
-CollectionViewReusableFooterView文件；
 
 ### 2、JSON字符串转属性
 
