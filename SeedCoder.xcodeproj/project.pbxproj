@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F67A9BC258B002D001E5B60 /* SeedCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F67A9BB258B002D001E5B60 /* SeedCreator.m */; };
 		3FF19B17258705D5003AFF13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF19B16258705D5003AFF13 /* AppDelegate.m */; };
 		3FF19B1A258705D5003AFF13 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF19B19258705D5003AFF13 /* ViewController.m */; };
 		3FF19B1C258705D6003AFF13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF19B1B258705D6003AFF13 /* Assets.xcassets */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F67A9BA258B002D001E5B60 /* SeedCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeedCreator.h; sourceTree = "<group>"; };
+		3F67A9BB258B002D001E5B60 /* SeedCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeedCreator.m; sourceTree = "<group>"; };
 		3FF19B12258705D5003AFF13 /* SeedCoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeedCoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF19B15258705D5003AFF13 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3FF19B16258705D5003AFF13 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 				3FF19B16258705D5003AFF13 /* AppDelegate.m */,
 				3FF19B18258705D5003AFF13 /* ViewController.h */,
 				3FF19B19258705D5003AFF13 /* ViewController.m */,
+				3F67A9BA258B002D001E5B60 /* SeedCreator.h */,
+				3F67A9BB258B002D001E5B60 /* SeedCreator.m */,
 				3FF19B3325870785003AFF13 /* SeedFileCreator.h */,
 				3FF19B2F25870785003AFF13 /* SeedFileCreator.m */,
 				3FF19B3225870785003AFF13 /* SeedLazyloadCreator.h */,
@@ -162,6 +167,7 @@
 				3FF19B22258705D6003AFF13 /* main.m in Sources */,
 				3FF19B17258705D5003AFF13 /* AppDelegate.m in Sources */,
 				3FF19B3625870785003AFF13 /* SeedFileCreator.m in Sources */,
+				3F67A9BC258B002D001E5B60 /* SeedCreator.m in Sources */,
 				3FF19B3925870785003AFF13 /* SeedLazyloadCreator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

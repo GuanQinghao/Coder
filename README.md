@@ -2,47 +2,34 @@
 
 ## 需求分析
 
-文件类型：
+### 代码模版类型
 
-controller(rootview)
-model
-view
-tableview
-tableviewcell
-tableviewheaderview
-tableviewfooterview
+模型类：**model**
 
-collectionview
-collectionviewcell
-collectionviewreusableheaderview
-collectionviewreusablefooterview
+控制器类：**controller(rootview)**
 
+视图类：
 
-### 2、JSON字符串转属性
+**view**  
+**tableview**  
+**tableviewcell**  
+**tableviewheaderview**  
+**tableviewfooterview**  
 
-通用功能，可将JSON字符串转换成属性，但是只支持一层JSON
+**collectionviewcell**  
+**collectionviewreusableheaderview**  
+**collectionviewreusablefooterview**
 
-### 3、属性生成懒加载代码
+### JSON字符串转属性
 
-通用功能，将属性生成懒加载代码，支持 **UILabel** **UITextField** **UIButton** **UIImageView** **UIView** **UIScrollView** **UITextView** **UITableView** **WKWebView** **UICollectionView**  **UIDatePicker** **UISwitch** **UISlider**
+JSON字符串转换成属性，只支持一层JSON。
+属性支持的类型：**NSNumber**、**NSArray**、**NSDictionary**、**NSString**、**BOOL**
 
-### 4、界面设计
-包括：输入区、输出区、功能区（配置区和按钮区）
+### 属性生成懒加载代码
 
-### 5、头文件分类
-5.1 宏定义
-5.2 分类：
-5.3 基类：视图基类、控制器基类、模型基类
-5.4 第三方库和自定义库
-5.5 cocoapods
+属性生产懒加载代码，支持的类型：
+**UILabel**、**UITextField**、**UIButton**、**UIImageView**、**UIView**、**UIScrollView**、**UITextView**、**UITableView**、**WKWebView**、**UICollectionView**、**UIDatePicker**、**UISwitch**、**UISlider**
 
 
-
-
-
-
-
-
-
-
-
+## 界面设计
+输入区、输出区、功能区（配置区和按钮区）
