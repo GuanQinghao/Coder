@@ -8,20 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		3F67A9BC258B002D001E5B60 /* SeedCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F67A9BB258B002D001E5B60 /* SeedCreator.m */; };
+		3F67A9C4258C3F61001E5B60 /* SeedCodeCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F67A9C3258C3F61001E5B60 /* SeedCodeCreator.m */; };
+		3F67A9CA258C47D0001E5B60 /* SeedLazyloadCodeCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F67A9C9258C47D0001E5B60 /* SeedLazyloadCodeCreator.m */; };
+		3F67A9CF258C47EF001E5B60 /* SeedPropertyCodeCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F67A9CE258C47EF001E5B60 /* SeedPropertyCodeCreator.m */; };
+		3F67A9DC258C5240001E5B60 /* SeedFileCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F67A9DB258C5240001E5B60 /* SeedFileCreator.m */; };
 		3FF19B17258705D5003AFF13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF19B16258705D5003AFF13 /* AppDelegate.m */; };
 		3FF19B1A258705D5003AFF13 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF19B19258705D5003AFF13 /* ViewController.m */; };
 		3FF19B1C258705D6003AFF13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF19B1B258705D6003AFF13 /* Assets.xcassets */; };
 		3FF19B1F258705D6003AFF13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF19B1D258705D6003AFF13 /* Main.storyboard */; };
 		3FF19B22258705D6003AFF13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF19B21258705D6003AFF13 /* main.m */; };
-		3FF19B3625870785003AFF13 /* SeedFileCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF19B2F25870785003AFF13 /* SeedFileCreator.m */; };
-		3FF19B3725870785003AFF13 /* SeedPropertyCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF19B3025870785003AFF13 /* SeedPropertyCreator.m */; };
 		3FF19B3825870785003AFF13 /* templates.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3FF19B3125870785003AFF13 /* templates.bundle */; };
-		3FF19B3925870785003AFF13 /* SeedLazyloadCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF19B3525870785003AFF13 /* SeedLazyloadCreator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F67A9BA258B002D001E5B60 /* SeedCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeedCreator.h; sourceTree = "<group>"; };
 		3F67A9BB258B002D001E5B60 /* SeedCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeedCreator.m; sourceTree = "<group>"; };
+		3F67A9C2258C3F61001E5B60 /* SeedCodeCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeedCodeCreator.h; sourceTree = "<group>"; };
+		3F67A9C3258C3F61001E5B60 /* SeedCodeCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeedCodeCreator.m; sourceTree = "<group>"; };
+		3F67A9C8258C47D0001E5B60 /* SeedLazyloadCodeCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeedLazyloadCodeCreator.h; sourceTree = "<group>"; };
+		3F67A9C9258C47D0001E5B60 /* SeedLazyloadCodeCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeedLazyloadCodeCreator.m; sourceTree = "<group>"; };
+		3F67A9CD258C47EF001E5B60 /* SeedPropertyCodeCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeedPropertyCodeCreator.h; sourceTree = "<group>"; };
+		3F67A9CE258C47EF001E5B60 /* SeedPropertyCodeCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeedPropertyCodeCreator.m; sourceTree = "<group>"; };
+		3F67A9DA258C5240001E5B60 /* SeedFileCreator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeedFileCreator.h; sourceTree = "<group>"; };
+		3F67A9DB258C5240001E5B60 /* SeedFileCreator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeedFileCreator.m; sourceTree = "<group>"; };
 		3FF19B12258705D5003AFF13 /* SeedCoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeedCoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF19B15258705D5003AFF13 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3FF19B16258705D5003AFF13 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -32,13 +41,7 @@
 		3FF19B20258705D6003AFF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FF19B21258705D6003AFF13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FF19B23258705D6003AFF13 /* SeedCoder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeedCoder.entitlements; sourceTree = "<group>"; };
-		3FF19B2F25870785003AFF13 /* SeedFileCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeedFileCreator.m; sourceTree = "<group>"; };
-		3FF19B3025870785003AFF13 /* SeedPropertyCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeedPropertyCreator.m; sourceTree = "<group>"; };
 		3FF19B3125870785003AFF13 /* templates.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = templates.bundle; sourceTree = "<group>"; };
-		3FF19B3225870785003AFF13 /* SeedLazyloadCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeedLazyloadCreator.h; sourceTree = "<group>"; };
-		3FF19B3325870785003AFF13 /* SeedFileCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeedFileCreator.h; sourceTree = "<group>"; };
-		3FF19B3425870785003AFF13 /* SeedPropertyCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeedPropertyCreator.h; sourceTree = "<group>"; };
-		3FF19B3525870785003AFF13 /* SeedLazyloadCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeedLazyloadCreator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +55,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F67A9C6258C44F4001E5B60 /* CoderCreator */ = {
+			isa = PBXGroup;
+			children = (
+				3F67A9C2258C3F61001E5B60 /* SeedCodeCreator.h */,
+				3F67A9C3258C3F61001E5B60 /* SeedCodeCreator.m */,
+				3F67A9C8258C47D0001E5B60 /* SeedLazyloadCodeCreator.h */,
+				3F67A9C9258C47D0001E5B60 /* SeedLazyloadCodeCreator.m */,
+				3F67A9CD258C47EF001E5B60 /* SeedPropertyCodeCreator.h */,
+				3F67A9CE258C47EF001E5B60 /* SeedPropertyCodeCreator.m */,
+			);
+			path = CoderCreator;
+			sourceTree = "<group>";
+		};
+		3F67A9D4258C4A58001E5B60 /* FileCreator */ = {
+			isa = PBXGroup;
+			children = (
+				3F67A9DA258C5240001E5B60 /* SeedFileCreator.h */,
+				3F67A9DB258C5240001E5B60 /* SeedFileCreator.m */,
+			);
+			path = FileCreator;
+			sourceTree = "<group>";
+		};
+		3F67A9D6258C4A6C001E5B60 /* Creator */ = {
+			isa = PBXGroup;
+			children = (
+				3F67A9BA258B002D001E5B60 /* SeedCreator.h */,
+				3F67A9BB258B002D001E5B60 /* SeedCreator.m */,
+				3F67A9C6258C44F4001E5B60 /* CoderCreator */,
+				3F67A9D4258C4A58001E5B60 /* FileCreator */,
+			);
+			path = Creator;
+			sourceTree = "<group>";
+		};
 		3FF19B09258705D5003AFF13 = {
 			isa = PBXGroup;
 			children = (
@@ -76,14 +112,7 @@
 				3FF19B16258705D5003AFF13 /* AppDelegate.m */,
 				3FF19B18258705D5003AFF13 /* ViewController.h */,
 				3FF19B19258705D5003AFF13 /* ViewController.m */,
-				3F67A9BA258B002D001E5B60 /* SeedCreator.h */,
-				3F67A9BB258B002D001E5B60 /* SeedCreator.m */,
-				3FF19B3325870785003AFF13 /* SeedFileCreator.h */,
-				3FF19B2F25870785003AFF13 /* SeedFileCreator.m */,
-				3FF19B3225870785003AFF13 /* SeedLazyloadCreator.h */,
-				3FF19B3525870785003AFF13 /* SeedLazyloadCreator.m */,
-				3FF19B3425870785003AFF13 /* SeedPropertyCreator.h */,
-				3FF19B3025870785003AFF13 /* SeedPropertyCreator.m */,
+				3F67A9D6258C4A6C001E5B60 /* Creator */,
 				3FF19B20258705D6003AFF13 /* Info.plist */,
 				3FF19B21258705D6003AFF13 /* main.m */,
 				3FF19B1D258705D6003AFF13 /* Main.storyboard */,
@@ -162,13 +191,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FF19B3725870785003AFF13 /* SeedPropertyCreator.m in Sources */,
+				3F67A9C4258C3F61001E5B60 /* SeedCodeCreator.m in Sources */,
+				3F67A9CF258C47EF001E5B60 /* SeedPropertyCodeCreator.m in Sources */,
 				3FF19B1A258705D5003AFF13 /* ViewController.m in Sources */,
+				3F67A9CA258C47D0001E5B60 /* SeedLazyloadCodeCreator.m in Sources */,
 				3FF19B22258705D6003AFF13 /* main.m in Sources */,
 				3FF19B17258705D5003AFF13 /* AppDelegate.m in Sources */,
-				3FF19B3625870785003AFF13 /* SeedFileCreator.m in Sources */,
 				3F67A9BC258B002D001E5B60 /* SeedCreator.m in Sources */,
-				3FF19B3925870785003AFF13 /* SeedLazyloadCreator.m in Sources */,
+				3F67A9DC258C5240001E5B60 /* SeedFileCreator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

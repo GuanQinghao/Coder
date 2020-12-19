@@ -1,48 +1,31 @@
 //
-//  SeedPropertyCreator.m
-//  Coder
+//  SeedPropertyCodeCreator.m
+//  SeedCoder
 //
-//  Created by Mac on 2019/2/1.
-//  Copyright © 2019 GuanQinghao. All rights reserved.
+//  Created by Hao on 2020/12/18.
 //
 
-#import "SeedPropertyCreator.h"
+#import "SeedPropertyCodeCreator.h"
 
+@implementation SeedPropertyCodeCreator
 
-#pragma mark -
+#pragma mark - override
 
-@implementation SeedPropertyCreator
-
-/// 单例模式代码示例 -> 不支持对象copy
-static SeedPropertyCreator *singleton = nil;
-
-/// 单例
 + (instancetype)creator {
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        singleton = [[super allocWithZone:NULL] init];
-    });
-    
-    return singleton;
+    return [[SeedPropertyCodeCreator alloc] init];
 }
 
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {
-    
-    return  [self creator];
-}
-
-/// 根据JSON字符串生成属性
-/// @param JSONString JSON 字符串
-- (NSString *)createCodeWith:(NSString *)JSONString {
+/// 生成代码块
+/// @param content 输入的内容
+- (NSString *)createCodeSnippetWith:(NSString *)content {
     
     // JSON字符串转字典
-    NSData *JSONData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *JSONData = [content dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:JSONData options:kNilOptions error:NULL];
     
     // 输出属性字符串
-    NSMutableString *autoCode = [NSMutableString string];
+    NSMutableString *result = [NSMutableString string];
     
     // 字典所有的key值
     NSArray *unsortedKeys = [dictionary allKeys];
@@ -60,27 +43,27 @@ static SeedPropertyCreator *singleton = nil;
         
         NSString *property;
         
-        //
+        // 数对象
         if ([value isKindOfClass:[NSNumber class]]) {
             
             property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSNumber *%@;", obj];
         }
-        //
+        // 数组对象
         if ([value isKindOfClass:[NSArray class]]) {
             
             property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSArray *%@;", obj];
         }
-        //
+        // 字典对象
         if ([value isKindOfClass:[NSDictionary class]]) {
             
             property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, strong) NSDictionary *%@;", obj];
         }
-        //
+        // 字符串对象
         if ([value isKindOfClass:[NSString class]]) {
             
             property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, copy) NSString *%@;", obj];
         }
-        //
+        // BOOL值
         if ([value isKindOfClass:NSClassFromString(@"__NSCFBoolean")]) {
             
             property = [NSString stringWithFormat:@"/// <#Description#>\n@property (nonatomic, assign) BOOL %@;", obj];
@@ -88,12 +71,11 @@ static SeedPropertyCreator *singleton = nil;
         
         if (property.length > 0) {
             
-            [autoCode appendFormat:@"%@\n",property];
+            [result appendFormat:@"%@\n",property];
         }
-        
     }];
     
-    return autoCode;
+    return result;
 }
 
 @end

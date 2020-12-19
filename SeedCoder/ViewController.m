@@ -8,36 +8,32 @@
 
 #import "ViewController.h"
 #import "SeedFileCreator.h"
-#import "SeedLazyloadCreator.h"
-#import "SeedPropertyCreator.h"
+#import "SeedLazyloadCodeCreator.h"
+#import "SeedPropertyCodeCreator.h"
 
 
 #pragma mark -
 
 @interface ViewController () <NSTextViewDelegate>
 
-/// 类名、属性名、JSON字符串输入框
+/// 内容输入框
 @property (unsafe_unretained) IBOutlet NSTextView *inputTextView;
-/// 属性懒加载、JSON转属性列表输出框
+/// 结果输出框
 @property (unsafe_unretained) IBOutlet NSTextView *outputTextView;
-/// 类前缀输入框
+/// 前缀输入框
 @property (weak) IBOutlet NSTextField *prefixTextField;
-/// 新文件保存路径选择框
+/// 文件保存路径选择框
 @property (weak) IBOutlet NSTextField *pathTextField;
-/// 所有类名
-@property (nonatomic, copy) NSString *classesName;
-/// 所有属性名
-@property (nonatomic, copy) NSString *propertiesName;
-/// JSON字符串
-@property (nonatomic, copy) NSString *JSONString;
-/// 代码文件保存路径
-@property (nonatomic, copy) NSString *savePath;
+
+/// 输入的内容
+@property (nonatomic, copy) NSString *inputContent;
 
 @end
 
 @implementation ViewController
 
-#pragma mark - Lifecycle
+#pragma mark - lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -48,122 +44,84 @@
     self.outputTextView.textColor = [NSColor textColor];
 }
 
-#pragma mark - TargetMethod
+#pragma mark - target method
 
-/// 生成Controller和View文件
+/// 生成Controller文件
 /// @param sender 生成按钮
 - (IBAction)createControllerFiles:(id)sender {
     
-    // 前置错误处理
-    if (![self isReadyToCodeFile]) {
-        
-        return;
-    }
-    
-    // 生成代码
-    if ([[SeedFileCreator creator] createControllerFilesWith:self.classesName prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
-        
-        // 完成
-        [self createCodeDone];
-    } else {
-        
-        // 生成代码失败
-        [self failedToCode];
-    }
+    [self createFile:SeedFileTypeTableViewController];
 }
 
 /// 生成Model文件
 /// @param sender 生成按钮
 - (IBAction)createModelFiles:(id)sender {
     
-    [self createFiles:GQHTemplateFileTypeModel];
+    [self createFile:SeedFileTypeModel];
 }
 
 /// 生成自定义View文件
 /// @param sender 生成按钮
 - (IBAction)createCustomizedViewFiles:(id)sender {
     
-    [self createFiles:GQHTemplateFileTypeView];
+    [self createFile:SeedFileTypeView];
 }
 
 /// 生成列表视图的行视图文件
 /// @param sender 生成按钮
 - (IBAction)createTableViewCell:(id)sender {
     
-    [self createFiles:GQHTemplateFileTypeTableViewCell];
+    [self createFile:SeedFileTypeTableViewCell];
 }
 
 /// 生成列表视图的头视图文件
 /// @param sender 生成按钮
 - (IBAction)createTableViewHeaderView:(id)sender {
     
-    [self createFiles:GQHTemplateFileTypeTableViewHeaderView];
+    [self createFile:SeedFileTypeTableViewHeaderView];
 }
 
 /// 生成列表视图的尾视图文件
 /// @param sender 生成按钮
 - (IBAction)createTableViewFooterView:(id)sender {
     
-    [self createFiles:GQHTemplateFileTypeTableViewFooterView];
+    [self createFile:SeedFileTypeTableViewFooterView];
 }
 
 /// 生成集合视图的单元格视图文件
 /// @param sender 生成按钮
 - (IBAction)createCollectionViewCellFiles:(id)sender {
     
-    [self createFiles:GQHTemplateFileTypeCollectionViewCell];
+    [self createFile:SeedFileTypeCollectionViewCell];
 }
 
 /// 生成集合视图的头视图文件
 /// @param sender 生成按钮
 - (IBAction)createCollectionViewHeaderView:(id)sender {
     
-    [self createFiles:GQHTemplateFileTypeCollectionViewHeaderView];
+    [self createFile:SeedFileTypeCollectionReusableHeaderView];
 }
 
 /// 生成集合视图的尾视图文件
 /// @param sender 生成按钮
 - (IBAction)createCollectionViewFooterView:(id)sender {
     
-    [self createFiles:GQHTemplateFileTypeCollectionViewFooterView];
-}
-
-/// 抽取生成代码文件方法
-/// @param type 类型
-- (void)createFiles:(GQHTemplateFileType)type {
-    
-    // 前置错误处理
-    if (![self isReadyToCodeFile]) {
-        
-        return;
-    }
-    
-    // 生成代码
-    if ([[SeedFileCreator creator] createFiles:type with:self.classesName prefix:self.prefixTextField.stringValue saveToPath:self.savePath]) {
-        
-        // 完成
-        [self createCodeDone];
-    } else {
-        
-        // 生成代码失败
-        [self failedToCode];
-    }
+    [self createFile:SeedFileTypeCollectionReusableFooterView];
 }
 
 #pragma mark ---根据JSON字符串生成属性
+
 /// 根据JSON字符串生成属性列表
 /// @param sender 生成按钮
 - (IBAction)JSONToProperty:(id)sender {
     
-    // 前置错误处理
-    if (![self isReadyToPropertyCode]) {
-        
+    // 内容检查
+    if (![self isReadyToPropertyCode:self.inputContent]) {
         return;
     }
     
     // 生成属性列表
-    self.outputTextView.string = [[SeedPropertyCreator creator] createCodeWith:self.JSONString];
-    
+    self.outputTextView.string = [[SeedPropertyCodeCreator creator] createCodeSnippetWith:self.inputContent];
     if (!self.outputTextView.string.length) {
         
         // 生成代码失败
@@ -172,19 +130,18 @@
 }
 
 #pragma mark ---根据属性生成懒加载代码
+
 /// 根据属性生成懒加载代码
 /// @param sender 生成按钮
 - (IBAction)outputLazyLoad:(id)sender {
     
-    // 前置错误处理
-    if (![self isReadyToCodeString]) {
-        
+    // 内容检查
+    if (![self isReadyToLazyloadCode:self.inputContent]) {
         return;
     }
     
     // 生成懒加载代码
-    self.outputTextView.string = [[SeedLazyloadCreator creator] createCodeWith:self.propertiesName];
-    
+    self.outputTextView.string = [[SeedLazyloadCodeCreator creator] createCodeSnippetWith:self.inputContent];
     if (!self.outputTextView.string.length) {
         
         // 生成代码失败
@@ -208,8 +165,8 @@
             
             // 文件夹名称
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            formatter.dateFormat = @"HH-mm-ss";
-            NSString *folderName = [NSString stringWithFormat:@"code-%@", [formatter stringFromDate:[NSDate date]]];
+            formatter.dateFormat = @"HHmmss";
+            NSString *folderName = [NSString stringWithFormat:@"Code-%@", [formatter stringFromDate:[NSDate date]]];
             
             // 文件夹路径
             NSString *path = [NSString stringWithFormat:@"%@/%@", panel.URLs.firstObject.path, folderName];
@@ -218,30 +175,49 @@
     }];
 }
 
-#pragma mark - PrivateMethod
-/// 根据类名和模版生成代码文件的前置错误处理
-- (BOOL)isReadyToCodeFile {
+#pragma mark - private method
+
+/// 抽取生成代码文件方法
+/// @param type 类型
+- (void)createFile:(SeedFileType)type {
+    
+    // 内容检查
+    NSString *inputContent = [self.inputTextView.textStorage string];
+    if (![self isReadyToCodeFile:inputContent]) {
+        return;
+    }
+    
+    // 路径检查
+    NSString *savePath = self.pathTextField.stringValue;
+    if (![self checkFileSavePath:savePath]) {
+        return;
+    }
+    
+    // 生成代码
+    if ([[SeedFileCreator creator] createFile:type with:inputContent prefix:self.prefixTextField.stringValue saveToPath:savePath]) {
+        
+        // 完成
+        [self createCodeDone];
+    } else {
+        
+        // 生成代码失败
+        [self failedToCode];
+    }
+}
+
+/// 生成文件的前置错误处理
+/// @param content 输入的内容
+- (BOOL)isReadyToCodeFile:(NSString *)content {
     
     NSAlert *alert = [[NSAlert alloc] init];
     alert.alertStyle = NSAlertStyleWarning;
     alert.messageText = @"Warning!";
     alert.icon = [NSImage imageNamed:@"warning"];
     
-    // 获取所有类名
-    self.classesName = [self.inputTextView.textStorage string];
-    if (!self.classesName || [self.classesName isKindOfClass:[NSNull class]] || self.classesName.length <= 0) {
+    // 输入的内容
+    if (!content || [content isKindOfClass:[NSNull class]] || content.length <= 0) {
         
         alert.informativeText = @"Input your class name(s).";
-        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
-        
-        return NO;
-    }
-    
-    // 文件保存路径
-    self.savePath = self.pathTextField.stringValue;
-    if (!self.savePath || [self.savePath isKindOfClass:[NSNull class]] || self.savePath.length <= 0) {
-        
-        alert.informativeText = @"Input the path for files.";
         [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
         
         return NO;
@@ -250,17 +226,37 @@
     return YES;
 }
 
-/// 根据属性生成懒加载代码的前置错误处理
-- (BOOL)isReadyToCodeString {
+/// 检查文件保存路径
+/// @param savePath 文件保存路径
+- (BOOL)checkFileSavePath:(NSString *)savePath {
     
     NSAlert *alert = [[NSAlert alloc] init];
     alert.alertStyle = NSAlertStyleWarning;
     alert.messageText = @"Warning!";
     alert.icon = [NSImage imageNamed:@"warning"];
     
-    // 获取所有属性名
-    self.propertiesName = [self.inputTextView.textStorage string];
-    if (!self.propertiesName || [self.propertiesName isKindOfClass:[NSNull class]] || self.propertiesName.length <= 0) {
+    // 文件保存路径
+    if (!savePath || [savePath isKindOfClass:[NSNull class]] || savePath.length <= 0) {
+        
+        alert.informativeText = @"Select the path for files.";
+        [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
+        
+        return NO;
+    }
+    
+    return NO;
+}
+
+/// 根据属性生成懒加载代码的前置错误处理
+/// @param content 属性字符串
+- (BOOL)isReadyToLazyloadCode:(NSString *)content {
+    
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.alertStyle = NSAlertStyleWarning;
+    alert.messageText = @"Warning!";
+    alert.icon = [NSImage imageNamed:@"warning"];
+    
+    if (!content || [content isKindOfClass:[NSNull class]] || content.length <= 0) {
         
         alert.informativeText = @"Input your property(properties) description.";
         [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
@@ -272,18 +268,16 @@
 }
 
 /// 根据JSON字符串生成属性的前置错误处理
-- (BOOL)isReadyToPropertyCode {
+/// @param content JSON字符串
+- (BOOL)isReadyToPropertyCode:(NSString *)content {
     
     NSAlert *alert = [[NSAlert alloc] init];
     alert.alertStyle = NSAlertStyleWarning;
     alert.messageText = @"Warning!";
     alert.icon = [NSImage imageNamed:@"warning"];
     
-    // 获取JSON字符串
-    self.JSONString = [self.inputTextView.textStorage string];
-    
     // JSON字符串是否有效
-    NSData *JSONData = [self.JSONString dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *JSONData = [content dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:&error];
     if (error) {
@@ -319,8 +313,13 @@
     [alert beginSheetModalForWindow:self.view.window completionHandler:nil];
 }
 
-#pragma mark - Setter
+#pragma mark - setter
 
-#pragma mark - Getter
+#pragma mark - getter
+
+- (NSString *)inputContent {
+    
+    return [self.inputTextView.textStorage string];
+}
 
 @end

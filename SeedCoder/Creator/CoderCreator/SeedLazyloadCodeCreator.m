@@ -1,17 +1,13 @@
 //
-//  SeedLazyloadCreator.m
-//  Coder
+//  SeedLazyloadCodeCreator.m
+//  SeedCoder
 //
-//  Created by Mac on 2019/2/1.
-//  Copyright © 2019 GuanQinghao. All rights reserved.
+//  Created by Hao on 2020/12/18.
 //
 
-#import "SeedLazyloadCreator.h"
+#import "SeedLazyloadCodeCreator.h"
 
-
-#pragma mark -
-
-@interface SeedLazyloadCreator ()
+@interface SeedLazyloadCodeCreator ()
 
 /// 标签懒加载代码块
 @property (nonatomic, copy) NSString *labelString;
@@ -44,38 +40,25 @@
 
 @end
 
-@implementation SeedLazyloadCreator
+@implementation SeedLazyloadCodeCreator
 
-/// 单例模式代码示例 -> 不支持对象copy
-static SeedLazyloadCreator *singleton = nil;
+#pragma mark - override
 
-/// 单例
 + (instancetype)creator {
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        singleton = [[super allocWithZone:NULL] init];
-    });
-    
-    return singleton;
+    return [[SeedLazyloadCodeCreator alloc] init];
 }
 
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {
-    
-    return  [self creator];
-}
-
-/// 根据代码块生成懒加载代码
-/// @param propertiesName 属性名
-- (NSString *)createCodeWith:(NSString *)propertiesName {
+/// 生成代码块
+/// @param content 输入的内容
+- (NSString *)createCodeSnippetWith:(NSString *)content {
     
     // 替换字符串
     NSString *swap = @"<name>";
     
     // 分割属性名字符串
     NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"@;"];
-    NSArray *names = [propertiesName componentsSeparatedByCharactersInSet:set];
+    NSArray *names = [content componentsSeparatedByCharactersInSet:set];
     
     NSLog(@"%@", names);
     
@@ -139,9 +122,12 @@ static SeedLazyloadCreator *singleton = nil;
     }];
     
     return result;
+    
 }
 
-#pragma mark - PrivateMethod
+
+#pragma mark - private method
+
 /// 截取字符串获取属性类型和属性名
 /// @param string 属性字符串
 - (NSDictionary *)propertyTypeWith:(NSString *)string {
@@ -165,7 +151,8 @@ static SeedLazyloadCreator *singleton = nil;
     return @{@"type":type, @"var":var};
 }
 
-#pragma mark - Getter
+#pragma mark - getter
+
 - (NSString *)labelString {
     
     if (!_labelString) {
