@@ -83,7 +83,7 @@
 - (void)setS_data:(id)s_data {
     [super setS_data:s_data];
     
-    // 更新头视图内容
+    // 更新视图内容
     [self updateHeaderViewContentWith:s_data];
 }
 

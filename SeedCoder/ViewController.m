@@ -244,7 +244,7 @@
         return NO;
     }
     
-    return NO;
+    return YES;
 }
 
 /// 根据属性生成懒加载代码的前置错误处理

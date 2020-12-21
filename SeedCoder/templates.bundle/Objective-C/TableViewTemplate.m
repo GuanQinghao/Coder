@@ -73,7 +73,7 @@
     
     if (!_s_tableView) {
         
-        _s_tableView = [SeedBaseTableView s_tableViewWith:OxFFFFFF];
+        _s_tableView = [SeedBaseTableView s_tableViewWith:nil];
     }
     
     return _s_tableView;
