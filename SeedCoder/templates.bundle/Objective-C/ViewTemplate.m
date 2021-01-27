@@ -52,6 +52,8 @@
 
 #pragma mark ---------------------------- <method> ----------------------------
 
+#pragma mark - public method
+
 #pragma mark - target method
 
 #pragma mark - private method

@@ -25,6 +25,10 @@
 
 #pragma mark ---------------------------- <method> ----------------------------
 
+#pragma mark - public method
+
+#pragma mark - private method
+
 #pragma mark ----------------------------- <parse> -----------------------------
 
 /// 模型字段映射
