@@ -8,6 +8,8 @@
 #import "<prefix><name>CollectionReusableFooterView.h"
 
 
+NSString * const FOOTER_<uppercase> = @"<prefix><name>CollectionReusableFooterView";
+
 @interface <prefix><name>CollectionReusableFooterView ()
 
 @end
@@ -23,7 +25,7 @@
 + (instancetype)s_collectionView:(UICollectionView *)collectionView supplementaryViewForIndexPath:(NSIndexPath *)indexPath data:(id)data {
     NSLog(@"");
     
-    <prefix><name>CollectionReusableFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier: NSStringFromClass([<prefix><name>CollectionReusableFooterView class]) forIndexPath:indexPath];
+    <prefix><name>CollectionReusableFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier: FOOTER_<uppercase> forIndexPath:indexPath];
     
     // 根据视图数据更新视图
     footerView.s_data = data;

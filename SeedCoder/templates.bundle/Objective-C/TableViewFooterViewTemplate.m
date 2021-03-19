@@ -8,6 +8,8 @@
 #import "<prefix><name>TableViewFooterView.h"
 
 
+NSString * const FOOTER_<uppercase> = @"<prefix><name>TableViewFooterView";
+
 @interface <prefix><name>TableViewFooterView ()
 
 @end
@@ -23,11 +25,10 @@
 + (instancetype)s_tableView:(UITableView *)tableView viewForSection:(NSInteger)section data:(id)data {
     NSLog(@"");
     
-    static NSString *identifier = @"<prefix><name>TableViewFooterView";
-    <prefix><name>TableViewFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    <prefix><name>TableViewFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:FOOTER_<uppercase>];
     if (!footerView) {
         
-        footerView = [[<prefix><name>TableViewFooterView alloc] initWithReuseIdentifier:identifier];
+        footerView = [[<prefix><name>TableViewFooterView alloc] initWithReuseIdentifier:FOOTER_<uppercase>];
     }
     
     // 根据视图数据更新视图

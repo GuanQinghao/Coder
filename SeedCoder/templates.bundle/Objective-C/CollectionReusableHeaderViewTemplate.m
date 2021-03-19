@@ -8,6 +8,8 @@
 #import "<prefix><name>CollectionReusableHeaderView.h"
 
 
+NSString * const HEADER_<uppercase> = @"<prefix><name>CollectionReusableHeaderView";
+
 @interface <prefix><name>CollectionReusableHeaderView ()
 
 @end
@@ -23,7 +25,7 @@
 + (instancetype)s_collectionView:(UICollectionView *)collectionView supplementaryViewForIndexPath:(NSIndexPath *)indexPath data:(id)data {
     NSLog(@"");
     
-    <prefix><name>CollectionReusableHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier: NSStringFromClass([<prefix><name>CollectionReusableHeaderView class]) forIndexPath:indexPath];
+    <prefix><name>CollectionReusableHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier: HEADER_<uppercase> forIndexPath:indexPath];
     
     // 根据视图数据更新视图
     headerView.s_data = data;

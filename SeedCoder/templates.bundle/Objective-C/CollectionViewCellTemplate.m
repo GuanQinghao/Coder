@@ -8,6 +8,8 @@
 #import "<prefix><name>CollectionViewCell.h"
 
 
+NSString * const ITEM_<uppercase> = @"<prefix><name>CollectionViewCell";
+
 @interface <prefix><name>CollectionViewCell ()
 
 @end
@@ -23,7 +25,7 @@
 + (instancetype)s_collectionView:(UICollectionView *)collectionView cellForIndexPath:(NSIndexPath *)indexPath data:(id)data {
     NSLog(@"");
     
-    <prefix><name>CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([<prefix><name>CollectionViewCell class]) forIndexPath:indexPath];
+    <prefix><name>CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ITEM_<uppercase> forIndexPath:indexPath];
     
     // 根据视图数据更新视图
     cell.s_data = data;

@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 唯一标识
+UIKIT_EXTERN NSString * const HEADER_<uppercase>;
+
 /// <#Description#>
 @interface <prefix><name>TableViewHeaderView : SeedBaseTableViewHeaderFooterView
 

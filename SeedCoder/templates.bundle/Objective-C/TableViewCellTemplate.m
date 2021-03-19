@@ -8,6 +8,8 @@
 #import "<prefix><name>TableViewCell.h"
 
 
+NSString * const ROW_<uppercase> = @"<prefix><name>TableViewCell";
+
 @interface <prefix><name>TableViewCell ()
 
 @end
@@ -23,11 +25,10 @@
 + (instancetype)s_tableView:(UITableView *)tableView cellForIndexPath:(NSIndexPath *)indexPath data:(id)data {
     NSLog(@"");
     
-    static NSString *identifier = @"<prefix><name>TableViewCell";
-    <prefix><name>TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    <prefix><name>TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ROW_<uppercase>];
     if (!cell) {
         
-        cell = [[<prefix><name>TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[<prefix><name>TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ROW_<uppercase>];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     

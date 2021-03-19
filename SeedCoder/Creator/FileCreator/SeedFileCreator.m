@@ -184,6 +184,7 @@ static NSString * const kViewTemplate = @"Objective-C/ViewTemplate";
         // 准备替换字符串字典
         [self.substitute setValue:prefix forKey:@"c"];
         [self.substitute setValue:name forKey:@"d"];
+        [self.substitute setValue:[name uppercaseString] forKey:@"e"];
         
         if (type == SeedFileTypeTableViewController || type == SeedFileTypeCollectionViewController) {
             //MARK: 控制器模版
@@ -366,6 +367,7 @@ static NSString * const kViewTemplate = @"Objective-C/ViewTemplate";
         [_marker setValue:@"<date>" forKey:@"b"];
         [_marker setValue:@"<prefix>" forKey:@"c"];
         [_marker setValue:@"<name>" forKey:@"d"];
+        [_marker setValue:@"<uppercase>" forKey:@"e"];
     }
     
     return _marker;
@@ -387,6 +389,7 @@ static NSString * const kViewTemplate = @"Objective-C/ViewTemplate";
         
         [_substitute setValue:@"<prefix>" forKey:@"c"];
         [_substitute setValue:@"<name>" forKey:@"d"];
+        [_substitute setValue:@"<uppercase>" forKey:@"e"];
     }
     
     return _substitute;

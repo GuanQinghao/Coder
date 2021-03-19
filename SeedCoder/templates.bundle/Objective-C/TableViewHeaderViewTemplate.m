@@ -8,6 +8,8 @@
 #import "<prefix><name>TableViewHeaderView.h"
 
 
+NSString * const HEADER_<uppercase> = @"<prefix><name>TableViewHeaderView";
+
 @interface <prefix><name>TableViewHeaderView ()
 
 @end
@@ -23,11 +25,10 @@
 + (instancetype)s_tableView:(UITableView *)tableView viewForSection:(NSInteger)section data:(id)data {
     NSLog(@"");
     
-    static NSString *identifier = @"<prefix><name>TableViewHeaderView";
-    <prefix><name>TableViewHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    <prefix><name>TableViewHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HEADER_<uppercase>];
     if (!headerView) {
         
-        headerView = [[<prefix><name>TableViewHeaderView alloc] initWithReuseIdentifier:identifier];
+        headerView = [[<prefix><name>TableViewHeaderView alloc] initWithReuseIdentifier:HEADER_<uppercase>];
     }
     
     // 根据视图数据更新视图

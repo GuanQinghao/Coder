@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 唯一标识
+UIKIT_EXTERN NSString * const FOOTER_<uppercase>;
+
 /// <#Description#>
 @interface <prefix><name>CollectionReusableFooterView : SeedBaseCollectionReusableView
 
