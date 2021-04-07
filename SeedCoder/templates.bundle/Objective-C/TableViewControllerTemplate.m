@@ -61,47 +61,56 @@
 
 /// 选中列表视图的某行视图
 /// @param tableView 列表视图
-/// @param indexPath 选中列表视图的某行视图的索引值
+/// @param indexPath 列表视图选中行视图的索引值
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"");
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-/// 列表视图的组头视图高度
+/// 列表视图某组头视图高度
 /// @param tableView 列表视图
-/// @param section 列表视图的某组索引值
+/// @param section 列表视图某组的索引值
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     NSLog(@"");
     
     return CGFLOAT_MIN;
 }
 
-/// 列表视图的组自定义头视图
+/// 列表视图某组头视图
 /// @param tableView 列表视图
-/// @param section 列表视图的某组索引值
+/// @param section 列表视图某组的索引值
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     NSLog(@"");
     
     return [UIView new];
 }
 
-/// 列表视图的组尾视图高度
+/// 列表视图某组尾视图高度
 /// @param tableView 列表视图
-/// @param section 列表视图的某组索引值
+/// @param section 列表视图某组的索引值
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     NSLog(@"");
     
     return CGFLOAT_MIN;
 }
 
-/// 列表视图的组自定义尾视图
+/// 列表视图某组尾视图
 /// @param tableView 列表视图
-/// @param section 列表视图的某组索引值
+/// @param section 列表视图某组的索引值
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     NSLog(@"");
     
     return [UIView new];
+}
+
+/// 列表视图的各行高度
+/// @param tableView 列表视图
+/// @param indexPath 列表视图某行的索引值
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"");
+    
+    return 50.0f;
 }
 
 #pragma mark - UITableViewDataSource
