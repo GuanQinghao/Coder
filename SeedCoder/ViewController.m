@@ -163,14 +163,7 @@
         
         if (result == NSModalResponseOK) {
             
-            // 文件夹名称
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            formatter.dateFormat = @"HHmmss";
-            NSString *folderName = [NSString stringWithFormat:@"Code-%@", [formatter stringFromDate:[NSDate date]]];
-            
-            // 文件夹路径
-            NSString *path = [NSString stringWithFormat:@"%@/%@", panel.URLs.firstObject.path, folderName];
-            self.pathTextField.stringValue = path;
+            self.pathTextField.stringValue = panel.URLs.firstObject.path;
         }
     }];
 }
@@ -188,10 +181,17 @@
     }
     
     // 路径检查
-    NSString *savePath = self.pathTextField.stringValue;
-    if (![self checkFileSavePath:savePath]) {
+    NSString *path = self.pathTextField.stringValue;
+    if (![self checkFileSavePath:path]) {
         return;
     }
+    
+    // 文件夹名称
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"MMddHHmmss";
+    NSString *folderName = [NSString stringWithFormat:@"%@", [formatter stringFromDate:[NSDate date]]];
+    // 文件夹路径
+    NSString *savePath = [NSString stringWithFormat:@"%@/%@", path, folderName];
     
     // 生成代码
     if ([[SeedFileCreator creator] createFile:type with:inputContent prefix:self.prefixTextField.stringValue saveToPath:savePath]) {
