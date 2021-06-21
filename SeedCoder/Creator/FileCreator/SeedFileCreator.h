@@ -15,9 +15,9 @@ typedef NS_ENUM(NSUInteger, SeedFileType) {
     SeedFileTypeView,
     /// 数据模型文件
     SeedFileTypeModel,
-    /// 列表视图控制器文件(带有自定义根视图文件)
+    /// 列表视图控制器文件
     SeedFileTypeTableViewController,
-    /// 集合视图控制器文件(带有自定义根视图文件)
+    /// 集合视图控制器文件
     SeedFileTypeCollectionViewController,
     
     /// 列表视图行视图

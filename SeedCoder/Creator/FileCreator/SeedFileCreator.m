@@ -22,19 +22,10 @@ static NSString * const kCollectionViewCellTemplate = @"Objective-C/CollectionVi
 
 #pragma mark - controller
 
-//MARK: collectionview
-
 /// CollectionViewControllerTemplate
 static NSString * const kCollectionViewControllerTemplate = @"Objective-C/CollectionViewControllerTemplate";
-/// CollectionViewTemplate
-static NSString * const kCollectionViewTemplate = @"Objective-C/CollectionViewTemplate";
-
-//MARK: tableview
-
 /// TableViewControllerTemplate
 static NSString * const kTableViewControllerTemplate = @"Objective-C/TableViewControllerTemplate";
-/// TableViewTemplate
-static NSString * const kTableViewTemplate = @"Objective-C/TableViewTemplate";
 
 #pragma mark - model
 
@@ -186,84 +177,24 @@ static NSString * const kViewTemplate = @"Objective-C/ViewTemplate";
         [self.substitute setValue:name forKey:@"d"];
         [self.substitute setValue:[name uppercaseString] forKey:@"e"];
         
-        if (type == SeedFileTypeTableViewController || type == SeedFileTypeCollectionViewController) {
-            //MARK: 控制器模版
+        
+        for (NSString *extension in extensions) {
             
-            // Controller文件夹路径
-            NSString *controllerPath = [NSString stringWithFormat:@"%@/Controller",path];
-            // View文件夹路径
-            NSString *viewPath = [NSString stringWithFormat:@"%@/View",path];
+            // 模板文件路径
+            NSString *templatePath = [self.templateBundle pathForResource:[NSString stringWithFormat:@"%@%@",template,extension] ofType:nil];
+            // 模版文件内容
+            NSMutableString *templateContent = [self readTemplateContentsWith:templatePath];
+            // 替换指定字符串
+            templateContent = [self replace:templateContent with:self.substitute where:self.marker];
+            // 创建文件
+            NSData *data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
+            // 文件名
+            NSString *fileName = [NSString stringWithFormat:@"%@%@%@%@",prefix,name,suffix,extension];
             
-            for (NSString *extension in extensions) {
+            if (![self createFileAtPath:path withName:fileName contents:data]) {
                 
-                suffix = @"Controller";
-                if (type == SeedFileTypeCollectionViewController) {
-                    template = kCollectionViewControllerTemplate;
-                } else if (type == SeedFileTypeTableViewController) {
-                    template = kTableViewControllerTemplate;
-                }
-                // 模板文件路径
-                NSString *templatePath = [self.templateBundle pathForResource:[NSString stringWithFormat:@"%@%@",template,extension] ofType:nil];
-                // 模版文件内容
-                NSMutableString *templateContent = [self readTemplateContentsWith:templatePath];
-                // 替换指定字符串
-                templateContent = [self replace:templateContent with:self.substitute where:self.marker];
-                // 创建文件
-                NSData *data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
-                // 文件名
-                NSString *fileName = [NSString stringWithFormat:@"%@%@%@%@",prefix,name,suffix,extension];
-                
-                if (![self createFileAtPath:controllerPath withName:fileName contents:data]) {
-                    
-                    NSLog(@"Create file failed: %@",fileName);
-                    return NO;
-                }
-                
-                suffix = @"View";
-                // 模板文件路径
-                if (type == SeedFileTypeTableViewController) {
-                    template = kTableViewTemplate;
-                } else if (type == SeedFileTypeCollectionViewController) {
-                    template = kCollectionViewTemplate;
-                }
-                
-                templatePath = [self.templateBundle pathForResource:[NSString stringWithFormat:@"%@%@",template,extension] ofType:nil];
-                // 模版文件内容
-                templateContent = [self readTemplateContentsWith:templatePath];
-                // 替换指定字符串
-                templateContent = [self replace:templateContent with:self.substitute where:self.marker];
-                // 创建文件
-                data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
-                // 文件名
-                fileName = [NSString stringWithFormat:@"%@%@%@%@",prefix,name,suffix,extension];
-                
-                if (![self createFileAtPath:viewPath withName:fileName contents:data]) {
-                    
-                    NSLog(@"Create file failed: %@",fileName);
-                    return NO;
-                }
-            }
-        } else {
-            //MARK: 其他模版
-            
-            for (NSString *extension in extensions) {
-                
-                // 模板文件路径
-                NSString *templatePath = [self.templateBundle pathForResource:[NSString stringWithFormat:@"%@%@",template,extension] ofType:nil];
-                // 模版文件内容
-                NSMutableString *templateContent = [self readTemplateContentsWith:templatePath];
-                // 替换指定字符串
-                templateContent = [self replace:templateContent with:self.substitute where:self.marker];
-                // 创建文件
-                NSData *data = [templateContent dataUsingEncoding:NSUTF8StringEncoding];
-                // 文件名
-                NSString *fileName = [NSString stringWithFormat:@"%@%@%@%@",prefix,name,suffix,extension];
-                
-                if (![self createFileAtPath:path withName:fileName contents:data]) {
-                    
-                    NSLog(@"Create file failed: %@",fileName);
-                    return NO;
-                }
+                NSLog(@"Create file failed: %@",fileName);
+                return NO;
             }
         }
     }
