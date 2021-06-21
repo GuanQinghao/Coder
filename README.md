@@ -4,21 +4,22 @@
 
 ### 代码模版类型
 
-模型类：**model**
+模型类：<br>
+**model** <br>
+**layout**<br>
+控制器类：<br>
+**controller**<br>
+视图类：<br>
+**view**<br>
 
-控制器类：**controller(rootview)**
+**tableviewcell**<br>
+**tableviewheaderfooterview**<br>
 
-视图类：
+**collectionviewcell**<br>
+**collectionviewreusableview**<br>
 
-**view**  
-**tableview**  
-**tableviewcell**  
-**tableviewheaderview**  
-**tableviewfooterview**  
+### JSON字符串格式化(Todo
 
-**collectionviewcell**  
-**collectionviewreusableheaderview**  
-**collectionviewreusablefooterview**
 
 ### JSON字符串转属性
 
@@ -29,6 +30,13 @@ JSON字符串转换成属性，只支持一层JSON。
 
 属性生产懒加载代码，支持的类型：
 **UILabel**、**UITextField**、**UIButton**、**UIImageView**、**UIView**、**UIScrollView**、**UITextView**、**UITableView**、**WKWebView**、**UICollectionView**、**UIDatePicker**、**UISwitch**、**UISlider**
+
+
+Todo:
+
+1、英文大小写转换
+2、颜色转换
+3、JSON格式化及编辑
 
 
 ## 界面设计
