@@ -10,7 +10,6 @@
 #pragma mark - model
 
 #pragma mark - view
-#import "<prefix><name>View.h"
 
 #pragma mark - controller
 #import "<prefix><name>Controller.h"
@@ -20,8 +19,8 @@
 
 @interface <prefix><name>Controller ()
 
-/// 自定义根视图
-@property (nonatomic, strong) <prefix><name>View *rootView;
+/// 列表视图
+@property (nonatomic, strong) SeedBaseTableView *tableView;
 
 /// 数据源(共用视图布局数据模型)
 @property (nonatomic, strong) NSMutableArray *dataSourceArray;
@@ -32,27 +31,36 @@
 
 #pragma mark --------------------------- <lifecycle> ---------------------------
 
-/// 1.加载系统根视图或自定义根视图
-- (void)loadView {
-    [super loadView];
-    NSLog(@"");
-    
-    self.view = self.rootView;
-}
-
-/// 2.视图加载完成
+/// 视图加载完成
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"");
     
+    // 布局视图
+    [self autoLayoutWithConstraints];
 }
 
-/// 3.视图即将显示
+/// 视图即将显示
 /// @param animated 是否显示动画效果
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"");
     
+}
+
+#pragma mark ---------------------------- <layout> ----------------------------
+
+/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不要计算)
+- (void)autoLayoutWithConstraints {
+    NSLog(@"");
+    
+    // 列表视图
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.mas_equalTo(self.view).with.inset(self.view.s_statusBarHeight + self.view.s_navigationBarHeight);
+        make.left.and.right.and.bottom.mas_equalTo(self.view);
+    }];
 }
 
 #pragma mark --------------------- <delegate & datasource> ---------------------
@@ -104,15 +112,6 @@
     return [UIView new];
 }
 
-/// 列表视图的各行高度
-/// @param tableView 列表视图
-/// @param indexPath 列表视图某行的索引值
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"");
-    
-    return 50.0f;
-}
-
 #pragma mark - UITableViewDataSource
 
 /// 列表视图的总组数
@@ -157,17 +156,16 @@
 
 #pragma mark - getter
 
-- (<prefix><name>View *)rootView {
+- (SeedBaseTableView *)tableView {
     
-    if (!_rootView) {
+    if (!_tableView) {
         
-        _rootView = [[<prefix><name>View alloc] initWithFrame:UIScreen.mainScreen.bounds];
-        _rootView.backgroundColor = [UIColor whiteColor];
-        _rootView.s_tableView.delegate = self;
-        _rootView.s_tableView.dataSource = self;
+        _tableView = [SeedBaseTableView s_tableViewWith:nil];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
     }
     
-    return _rootView;
+    return _tableView;
 }
 
 - (NSMutableArray *)dataSourceArray {

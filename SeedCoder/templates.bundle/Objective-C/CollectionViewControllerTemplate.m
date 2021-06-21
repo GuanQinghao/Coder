@@ -10,7 +10,6 @@
 #pragma mark - model
 
 #pragma mark - view
-#import "<prefix><name>View.h"
 
 #pragma mark - controller
 #import "<prefix><name>Controller.h"
@@ -23,8 +22,8 @@ UICollectionViewDelegate,
 UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout>
 
-/// 自定义根视图
-@property (nonatomic, strong) <prefix><name>View *rootView;
+/// 集合视图
+@property (nonatomic, strong) SeedBaseCollectionView *collectionView;
 
 /// 数据源(共用视图布局数据模型)
 @property (nonatomic, strong) NSMutableArray *dataSourceArray;
@@ -35,27 +34,36 @@ UICollectionViewDelegateFlowLayout>
 
 #pragma mark --------------------------- <lifecycle> ---------------------------
 
-/// 1.加载系统根视图或自定义根视图
-- (void)loadView {
-    [super loadView];
-    NSLog(@"");
-    
-    self.view = self.rootView;
-}
-
-/// 2.视图加载完成
+/// 视图加载完成
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"");
     
+    // 布局视图
+    [self autoLayoutWithConstraints];
 }
 
-/// 3.视图即将显示
+/// 视图即将显示
 /// @param animated 是否显示动画效果
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"");
     
+}
+
+#pragma mark ---------------------------- <layout> ----------------------------
+
+/// 自动布局子视图 -> 约束(mas_make只有一次,自动约束,不要计算)
+- (void)autoLayoutWithConstraints {
+    NSLog(@"");
+    
+    // 集合视图
+    [self addSubview:self.collectionView];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.mas_equalTo(self.view).with.inset(self.view.s_statusBarHeight + self.view.s_navigationBarHeight);
+        make.left.and.right.and.bottom.mas_equalTo(self.view);
+    }];
 }
 
 #pragma mark --------------------- <delegate & datasource> ---------------------
@@ -195,24 +203,24 @@ UICollectionViewDelegateFlowLayout>
 
 #pragma mark - getter
 
-- (<prefix><name>View *)rootView {
+- (SeedBaseCollectionView *)collectionView {
     
-    if (!_rootView) {
+    if (!_collectionView) {
         
-        _rootView = [[<prefix><name>View alloc] initWithFrame:UIScreen.mainScreen.bounds];
-        _rootView.backgroundColor = [UIColor whiteColor];
-        _rootView.s_collectionView.delegate = self;
-        _rootView.s_collectionView.dataSource = self;
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        _collectionView = [SeedBaseCollectionView s_collectionViewWith:flowLayout];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
         
         // 集合视图注册cell
-        //[_rootView.s_collectionView registerClass:UICollectionViewCell.class.class forCellWithReuseIdentifier:NSStringFromClass(UICollectionViewCell.class)];
+        //[_collectionView registerClass:UICollectionViewCell.class.class forCellWithReuseIdentifier:NSStringFromClass(UICollectionViewCell.class)];
         // 集合视图注册headerView
-        //[_rootView.s_collectionView registerClass:UICollectionReusableView.class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(UICollectionReusableView.class)];
+        //[_collectionView registerClass:UICollectionReusableView.class forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass(UICollectionReusableView.class)];
         // 集合视图注册footerView
-        //[_rootView.s_collectionView registerClass:UICollectionReusableView.class forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(UICollectionReusableView.class)];
+        //[_collectionView registerClass:UICollectionReusableView.class forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass(UICollectionReusableView.class)];
     }
     
-    return _rootView;
+    return _collectionView;
 }
 
 - (NSMutableArray *)dataSourceArray {
